@@ -57,14 +57,15 @@ const Contact = () => {
 
   return (
     <motion.div 
-      className="bg-black text-white py-20" 
+      className="bg-black text-white py-12" 
       id="contact"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-    >
-      <div className="container mx-auto px-4 sm:px-6 md:px-16 lg:px-24">
+    ><div className="container mx-auto px-4 sm:px-6 md:px-16 lg:px-24 pb-0">
+
+        {/* Add padding-bottom (pb-6) to separate content from the border */}
         <motion.h2 
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12"
           variants={itemVariants}
