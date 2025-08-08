@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaMapMarkedAlt, FaPhone } from 'react-icons/fa'
 
@@ -84,13 +83,13 @@ const Contact = () => {
               from-green-400 to-blue-500 mb-4'
               variants={itemVariants}
             >
-              Let's Talk
+              Let&apos;s Talk
             </motion.h3>
             
             <motion.p 
               variants={itemVariants}
             >
-              I'm open to discussing web development projects or partnership opportunities.
+              I&apos;m open to discussing web development projects or partnership opportunities.
             </motion.p>
             
             <motion.div 
@@ -101,7 +100,6 @@ const Contact = () => {
               <a 
                 href="mailto:youremail@example.com" 
                 className='hover:underline'
-                whileHover={{ x: 3 }}
               >
                 youremail@example.com
               </a>
@@ -178,7 +176,6 @@ const Contact = () => {
               <motion.button 
                 className='bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline
                 transform transition-transform duration-300 px-8 py-2 rounded-full'
-                variants={formItemVariants}
                 whileHover="hover"
                 whileTap="tap"
                 variants={buttonVariants}

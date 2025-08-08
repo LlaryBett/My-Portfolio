@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import HeroImage from '../assets/hero-image.png';
@@ -79,7 +79,7 @@ const Hero = () => {
         {/* LEFT - Text */}
         <div className="text-center md:text-left space-y-6">
           <motion.h2 variants={itemVariants} className="text-lg sm:text-xl font-medium text-gray-300">
-            Hello, I'm
+            Hello, I&apos;m
           </motion.h2>
 
           <motion.h1 variants={itemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white">

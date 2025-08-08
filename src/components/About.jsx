@@ -135,13 +135,13 @@ const About = () => {
                     real-world problems and deliver exceptional user experiences.
                   </p>
                   <p>
-                    With over 5 years of hands-on experience, I've had the privilege of working with startups 
+                    With over 5 years of hands-on experience, I&apos;ve had the privilege of working with startups 
                     and established companies, helping them transform ideas into successful digital products. 
                     I specialize in full-stack development with a focus on modern JavaScript frameworks, 
                     cloud architecture, and performance optimization.
                   </p>
                   <p>
-                    When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
+                    When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing to open-source 
                     projects, or mentoring aspiring developers. I believe in continuous learning and staying 
                     at the forefront of technological innovation.
                   </p>
@@ -160,7 +160,7 @@ const About = () => {
                   Beyond the Code
                 </h4>
                 <p className="text-gray-300 leading-relaxed relative z-10">
-                  I'm passionate about creating inclusive, accessible web experiences and believe that 
+                  I&apos;m passionate about creating inclusive, accessible web experiences and believe that 
                   great software should be both powerful and intuitive. My approach combines technical 
                   expertise with user-centered design thinking.
                 </p>
@@ -184,7 +184,7 @@ const About = () => {
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
                     Continuous{' '}
                     <span className="bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                      Growth & Excellence
+                      Growth &amp; Excellence
                     </span>
                   </h3>
                   <p className="text-gray-300 text-sm">

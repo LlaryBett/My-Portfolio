@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { 
   Code, Server, Database, Cloud, Smartphone, Palette,
-  MapPin, Calendar, Award, TrendingUp, Users 
+  MapPin, Calendar, Award, TrendingUp // Removed Users
 } from 'lucide-react';
 
 const Skills = () => {
@@ -193,36 +193,6 @@ const Skills = () => {
       },
     },
   };
-
-  const SkillBar = ({ skill, index, categoryIndex }) => (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={isSkillsInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ delay: (categoryIndex * 0.1) + (index * 0.05) }}
-      className="group"
-    >
-      <div className="flex justify-between items-center mb-3">
-        <div className="flex items-center space-x-3">
-          <span className="text-2xl">{skill.icon}</span>
-          <span className="text-white font-medium text-lg">{skill.name}</span>
-        </div>
-        <span className="text-gray-400 font-medium">{skill.level}%</span>
-      </div>
-      <div className="relative h-3 bg-gray-800 rounded-full overflow-hidden">
-        <motion.div
-          className="absolute left-0 top-0 h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-          initial={{ width: 0 }}
-          animate={isSkillsInView ? { width: `${skill.level}%` } : {}}
-          transition={{ 
-            duration: 1.5, 
-            delay: (categoryIndex * 0.1) + (index * 0.05),
-            ease: "easeOut" 
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
-    </motion.div>
-  );
 
   return (
     <section id="skills-experience" className="bg-gray-900 relative overflow-hidden">
