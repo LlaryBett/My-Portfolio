@@ -197,12 +197,12 @@ const Skills = () => {
   return (
     <section id="skills-experience" className="bg-gray-900 relative overflow-hidden">
       {/* Skills Section */}
-      <div className="py-24 lg:py-32 relative">
+      <div className="py-12 sm:py-16 lg:py-24 xl:py-32 relative">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(147,51,234,0.1),transparent_50%)]" />
         
-        <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <motion.div
             ref={skillsRef}
             variants={containerVariants}
@@ -210,29 +210,29 @@ const Skills = () => {
             animate={isSkillsInView ? "visible" : "hidden"}
           >
             {/* Section Header */}
-            <motion.div variants={itemVariants} className="text-center mb-20">
+            <motion.div variants={itemVariants} className="text-center mb-10 sm:mb-16 lg:mb-20">
               <motion.div 
-                className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-purple-400 text-sm font-medium mb-6"
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-purple-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <Code className="mr-2" size={16} />
+                <Code className="mr-1 sm:mr-2" size={14} />
                 Technical Skills
               </motion.div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
                 My{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
                   Expertise
                 </span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
                 A comprehensive toolkit for building modern, scalable, and performant applications
               </p>
             </motion.div>
 
             {/* Compact Skills Display - Tag Cloud Style */}
-            <div className="mb-16">
+            <div className="mb-10 sm:mb-12 lg:mb-16">
               {/* All skills in one flowing layout */}
-              <div className="flex flex-wrap justify-center gap-3 max-w-6xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-6xl mx-auto px-2">
                 {skillCategories.flatMap((category, categoryIndex) => 
                   category.skills.map((skill, skillIndex) => (
                     <motion.div
@@ -246,7 +246,7 @@ const Skills = () => {
                       className="group relative"
                     >
                       <motion.div
-                        className={`relative px-4 py-3 bg-gradient-to-r ${skillCategories[categoryIndex].color} bg-opacity-20 backdrop-blur-sm rounded-xl border border-white/20 cursor-pointer overflow-hidden`}
+                        className={`relative px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r ${skillCategories[categoryIndex].color} bg-opacity-20 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/20 cursor-pointer overflow-hidden`}
                         whileHover={{ 
                           scale: 1.05,
                           backgroundColor: 'rgba(255,255,255,0.1)'
@@ -254,23 +254,23 @@ const Skills = () => {
                       >
                         {/* Progress indicator */}
                         <div 
-                          className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${skillCategories[categoryIndex].color} transition-all duration-300`}
+                          className={`absolute bottom-0 left-0 h-0.5 sm:h-1 bg-gradient-to-r ${skillCategories[categoryIndex].color} transition-all duration-300`}
                           style={{ width: `${skill.level}%` }}
                         />
                         
                         {/* Content */}
-                        <div className="flex items-center space-x-2 relative z-10">
-                          <span className="text-lg">{skill.icon}</span>
-                          <span className="text-white font-medium text-sm">
+                        <div className="flex items-center space-x-1.5 sm:space-x-2 relative z-10">
+                          <span className="text-sm sm:text-lg">{skill.icon}</span>
+                          <span className="text-white font-medium text-xs sm:text-sm">
                             {skill.name}
                           </span>
-                          <span className="text-gray-400 text-xs">
+                          <span className="text-gray-400 text-xs hidden sm:inline">
                             {skill.level}%
                           </span>
                         </div>
 
                         {/* Category indicator dot */}
-                        <div className={`absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r ${skillCategories[categoryIndex].color} rounded-full opacity-60`} />
+                        <div className={`absolute -top-0.5 sm:-top-1 -right-0.5 sm:-right-1 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r ${skillCategories[categoryIndex].color} rounded-full opacity-60`} />
                       </motion.div>
                     </motion.div>
                   ))
@@ -280,12 +280,12 @@ const Skills = () => {
               {/* Category Legend */}
               <motion.div 
                 variants={itemVariants}
-                className="flex flex-wrap justify-center gap-4 mt-8"
+                className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-6 sm:mt-8 px-4"
               >
                 {skillCategories.map((category, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <div className={`w-3 h-3 bg-gradient-to-r ${category.color} rounded-full`} />
-                    <span className="text-gray-400 text-sm">{category.title}</span>
+                  <div key={index} className="flex items-center space-x-1 sm:space-x-2">
+                    <div className={`w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r ${category.color} rounded-full`} />
+                    <span className="text-gray-400 text-xs sm:text-sm">{category.title}</span>
                   </div>
                 ))}
               </motion.div>
@@ -294,18 +294,18 @@ const Skills = () => {
             {/* Learning Section */}
             <motion.div 
               variants={itemVariants}
-              className="text-center mb-20"
+              className="text-center mb-12 sm:mb-16 lg:mb-20 px-2"
             >
-              <div className="inline-flex flex-col items-center p-8 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-4">Always Learning</h3>
-                <p className="text-gray-300 mb-6 max-w-2xl">
+              <div className="inline-flex flex-col items-center p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Always Learning</h3>
+                <p className="text-gray-300 mb-4 sm:mb-6 max-w-2xl text-sm sm:text-base">
                   Technology evolves rapidly, and so do I. Currently exploring and mastering these emerging technologies:
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
                   {["Rust", "Go", "WebAssembly", "Three.js", "AI/ML", "Blockchain"].map((tech, index) => (
                     <motion.span
                       key={index}
-                      className="px-6 py-3 bg-white/10 backdrop-blur-sm text-blue-400 font-medium rounded-full border border-white/20"
+                      className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm text-blue-400 font-medium rounded-full border border-white/20 text-xs sm:text-sm"
                       whileHover={{ scale: 1.05, backgroundColor: 'rgba(59,130,246,0.2)' }}
                       initial={{ opacity: 0, y: 20 }}
                       animate={isSkillsInView ? { opacity: 1, y: 0 } : {}}
@@ -322,12 +322,12 @@ const Skills = () => {
       </div>
 
       {/* Experience Section */}
-      <div className="py-24 lg:py-32 relative border-t border-white/10">
+      <div className="py-12 sm:py-16 lg:py-24 xl:py-32 relative border-t border-white/10">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(147,51,234,0.1),transparent_50%)]" />
         
-        <div className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <motion.div
             ref={experienceRef}
             variants={containerVariants}
@@ -335,74 +335,74 @@ const Skills = () => {
             animate={isExperienceInView ? "visible" : "hidden"}
           >
             {/* Section Header */}
-            <motion.div variants={experienceItemVariants} className="text-center mb-20">
+            <motion.div variants={experienceItemVariants} className="text-center mb-10 sm:mb-16 lg:mb-20">
               <motion.div 
-                className="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-orange-400 text-sm font-medium mb-6"
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-orange-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <TrendingUp className="mr-2" size={16} />
+                <TrendingUp className="mr-1 sm:mr-2" size={14} />
                 Career Journey
               </motion.div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
                 Professional{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
                   Experience
                 </span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
                 My journey through the tech industry and key achievements along the way
               </p>
             </motion.div>
 
             <div className="relative">
               {/* Compact Experience Cards */}
-              <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
                 {experiences.map((exp, index) => (
                   <motion.div
                     key={index}
                     variants={experienceItemVariants}
-                    className="group relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500"
+                    className="group relative p-4 sm:p-6 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500 mx-2 sm:mx-0"
                     whileHover={{ scale: 1.02, y: -5 }}
                   >
                     {/* Header */}
-                    <div className="mb-4">
+                    <div className="mb-3 sm:mb-4">
                       <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2">
+                        <div className="flex-1 min-w-0 pr-2">
+                          <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2">
                             {exp.title}
                           </h3>
-                          <h4 className={`text-lg font-semibold bg-gradient-to-r ${exp.color} bg-clip-text text-transparent`}>
+                          <h4 className={`text-sm sm:text-base lg:text-lg font-semibold bg-gradient-to-r ${exp.color} bg-clip-text text-transparent`}>
                             {exp.company}
                           </h4>
                         </div>
-                        <span className="px-3 py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-full shrink-0">
+                        <span className="px-2 sm:px-3 py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-full shrink-0">
                           {exp.type}
                         </span>
                       </div>
-                      <div className="flex items-center text-gray-400 text-sm space-x-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center text-gray-400 text-xs sm:text-sm space-y-1 sm:space-y-0 sm:space-x-4">
                         <div className="flex items-center">
-                          <MapPin size={14} className="mr-1" />
-                          {exp.location}
+                          <MapPin size={12} className="mr-1 flex-shrink-0" />
+                          <span className="truncate">{exp.location}</span>
                         </div>
                         <div className="flex items-center">
-                          <Calendar size={14} className="mr-1" />
-                          {exp.period}
+                          <Calendar size={12} className="mr-1 flex-shrink-0" />
+                          <span>{exp.period}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Compact Description */}
-                    <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-3">
                       {exp.description}
                     </p>
 
                     {/* Key Highlights - Compact */}
-                    <div className="mb-4">
-                      <h5 className="text-white font-semibold mb-2 flex items-center text-sm">
-                        <Award className="mr-2 text-yellow-400" size={16} />
+                    <div className="mb-3 sm:mb-4">
+                      <h5 className="text-white font-semibold mb-2 flex items-center text-xs sm:text-sm">
+                        <Award className="mr-1 sm:mr-2 text-yellow-400 flex-shrink-0" size={14} />
                         Key Highlights
                       </h5>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-xs">
+                      <div className="grid grid-cols-1 gap-1 text-xs">
                         {exp.achievements.slice(0, 4).map((achievement, achIndex) => (
                           <motion.div 
                             key={achIndex} 
@@ -411,7 +411,7 @@ const Skills = () => {
                             animate={isExperienceInView ? { opacity: 1, x: 0 } : {}}
                             transition={{ delay: (index * 0.1) + (achIndex * 0.05) }}
                           >
-                            <span className="text-emerald-400 mr-2 mt-0.5 text-xs">•</span>
+                            <span className="text-emerald-400 mr-2 mt-0.5 text-xs flex-shrink-0">•</span>
                             <span className="line-clamp-2">{achievement}</span>
                           </motion.div>
                         ))}
@@ -420,15 +420,15 @@ const Skills = () => {
 
                     {/* Tech Stack - Compact */}
                     <div>
-                      <h5 className="text-white font-semibold mb-2 flex items-center text-sm">
-                        <Code className="mr-2 text-blue-400" size={16} />
+                      <h5 className="text-white font-semibold mb-2 flex items-center text-xs sm:text-sm">
+                        <Code className="mr-1 sm:mr-2 text-blue-400 flex-shrink-0" size={14} />
                         Tech Stack
                       </h5>
                       <div className="flex flex-wrap gap-1">
                         {exp.tech.map((tech, techIndex) => (
                           <motion.span
                             key={techIndex}
-                            className="px-2 py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-md border border-white/10"
+                            className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-md border border-white/10"
                             whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.2)' }}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={isExperienceInView ? { opacity: 1, scale: 1 } : {}}
@@ -441,33 +441,33 @@ const Skills = () => {
                     </div>
 
                     {/* Progress Indicator */}
-                    <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${exp.color} opacity-60 rounded-t-2xl`} />
+                    <div className={`absolute top-0 left-0 w-full h-0.5 sm:h-1 bg-gradient-to-r ${exp.color} opacity-60 rounded-t-xl sm:rounded-t-2xl`} />
                   </motion.div>
                 ))}
               </div>
 
               {/* Career Progression Visualization */}
-              <motion.div variants={experienceItemVariants} className="mt-12 text-center">
-                <div className="inline-flex items-center space-x-4 p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl border border-white/10">
+              <motion.div variants={experienceItemVariants} className="mt-8 sm:mt-12 text-center px-2">
+                <div className="inline-flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 p-4 sm:p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10">
                   <div className="flex items-center space-x-2">
                     <div className="flex space-x-1">
                       {experiences.map((_, index) => (
                         <motion.div
                           key={index}
-                          className={`w-3 h-3 rounded-full bg-gradient-to-r ${experiences[index].color}`}
+                          className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${experiences[index].color}`}
                           initial={{ scale: 0 }}
                           animate={isExperienceInView ? { scale: 1 } : {}}
                           transition={{ delay: index * 0.2 }}
                         />
                       ))}
                     </div>
-                    <span className="text-gray-300 text-sm">Career Journey</span>
+                    <span className="text-gray-300 text-xs sm:text-sm">Career Journey</span>
                   </div>
                   <div className="text-white font-semibold">
-                    <span className="text-2xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    <span className="text-xl sm:text-2xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                       {new Date().getFullYear() - 2018}+
                     </span>
-                    <span className="text-gray-400 text-sm ml-1">years</span>
+                    <span className="text-gray-400 text-xs sm:text-sm ml-1">years</span>
                   </div>
                 </div>
               </motion.div>
