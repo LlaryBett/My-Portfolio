@@ -64,22 +64,22 @@ const Contact = () => {
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-16 lg:px-24">
         <motion.h2 
-          className="text-4xl font-bold text-center mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12"
           variants={itemVariants}
         >
           Contact Me
         </motion.h2>
         
-        <div className="flex flex-col md:flex-row items-center md:space-x-12">
+        <div className="flex flex-col md:flex-row md:items-start gap-8">
           {/* Left Column - Contact Info */}
           <motion.div 
             className="flex-1"
             variants={containerVariants}
           >
             <motion.h3 
-              className='text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r 
+              className='text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r 
               from-green-400 to-blue-500 mb-4'
               variants={itemVariants}
             >
@@ -118,7 +118,7 @@ const Contact = () => {
               variants={itemVariants}
             >
               <FaMapMarkedAlt className='inline-block text-green-400 mr-2'></FaMapMarkedAlt>
-              <span>street, city, province, country</span>
+              <span className="break-words">street, city, province, country</span>
             </motion.div>
           </motion.div>
 
@@ -174,8 +174,7 @@ const Contact = () => {
               </motion.div>
               
               <motion.button 
-                className='bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline
-                transform transition-transform duration-300 px-8 py-2 rounded-full'
+                className='bg-gradient-to-r from-green-400 to-blue-500 text-white w-full md:w-auto px-8 py-2 rounded-full'
                 whileHover="hover"
                 whileTap="tap"
                 variants={buttonVariants}
