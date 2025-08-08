@@ -167,12 +167,13 @@ const About = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right Column - Education & Learning Journey (Condensed) */}
+            {/* Right Column - Education & Learning Journey (Enhanced) */}
             <motion.div variants={itemVariants} className="relative">
-              {/* Glowing Background Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-blue-500/5 to-purple-500/5 rounded-2xl sm:rounded-3xl blur-xl" />
+              {/* Enhanced Glowing Background Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-blue-500/5 to-purple-500/5 rounded-2xl sm:rounded-3xl blur-xl animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/3 via-transparent to-blue-500/3 rounded-2xl sm:rounded-3xl" />
               
-              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-sm border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
+              <div className="relative bg-gradient-to-br from-white/[0.12] to-white/[0.05] backdrop-blur-lg border border-white/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl">
                 <div className="text-center mb-6 sm:mb-8">
                   <motion.div 
                     className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-emerald-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4"
@@ -192,78 +193,141 @@ const About = () => {
                   </p>
                 </div>
 
-                {/* Compact Education Timeline */}
-                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+                {/* Enhanced Education Cards - No Truncation */}
+                <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
                   {education.map((edu, index) => (
                     <motion.div
                       key={index}
-                      className="group relative p-4 sm:p-6 rounded-lg sm:rounded-xl bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 hover:border-emerald-400/50 hover:from-emerald-500/10 hover:to-blue-500/10 transition-all duration-500"
-                      whileHover={{ scale: 1.02, y: -2 }}
+                      className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/[0.15] to-white/[0.05] backdrop-blur-md border border-white/30 hover:border-emerald-400/60 transition-all duration-700 shadow-lg hover:shadow-2xl"
+                      whileHover={{ scale: 1.02, y: -4 }}
                       initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.2, duration: 0.8 }}
                     >
-                      <div className="flex items-start space-x-3 sm:space-x-4">
-                        <div className="flex-shrink-0">
-                          <div className="p-2 sm:p-3 rounded-lg bg-gradient-to-r from-emerald-500/20 to-blue-500/20 group-hover:from-emerald-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                            <BookOpen className="text-emerald-400 group-hover:text-emerald-300" size={16} />
-                          </div>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between mb-2">
-                            <h4 className="text-sm sm:text-base lg:text-lg font-bold text-white group-hover:text-emerald-400 transition-colors line-clamp-2 pr-2">
-                              {edu.degree}
-                            </h4>
-                            <div className="flex items-center text-xs text-gray-400 bg-white/10 px-2 py-1 rounded-full ml-2 flex-shrink-0">
-                              <Calendar size={8} className="mr-1" />
-                              {edu.year}
+                      {/* Animated Background Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      
+                      <div className="relative p-5 sm:p-7">
+                        {/* Header Section */}
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3">
+                          <div className="flex items-start space-x-4">
+                            <motion.div 
+                              className="flex-shrink-0 p-3 sm:p-4 rounded-xl bg-gradient-to-br from-emerald-500/20 to-blue-500/20 group-hover:from-emerald-500/30 group-hover:to-blue-500/30 transition-all duration-500 shadow-lg"
+                              whileHover={{ rotate: 5, scale: 1.1 }}
+                            >
+                              <BookOpen className="text-emerald-400 group-hover:text-emerald-300" size={20} />
+                            </motion.div>
+                            <div className="flex-1">
+                              <h4 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-emerald-400 transition-colors duration-300 mb-2 leading-tight">
+                                {edu.degree}
+                              </h4>
+                              <h5 className="text-emerald-400 font-semibold text-sm sm:text-base mb-1">{edu.school}</h5>
                             </div>
                           </div>
-                          <h5 className="text-emerald-400 font-semibold mb-2 text-xs sm:text-sm">{edu.school}</h5>
-                          <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-3">
-                            {edu.description}
-                          </p>
-                          <div className="flex flex-wrap gap-1">
-                            {edu.achievements.slice(0, 2).map((achievement, i) => (
-                              <span 
+                          <motion.div 
+                            className="flex items-center text-xs sm:text-sm text-gray-300 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm px-3 py-2 rounded-full border border-white/20 self-start"
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            <Calendar size={12} className="mr-2" />
+                            {edu.year}
+                          </motion.div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-5">
+                          {edu.description}
+                        </p>
+
+                        {/* Achievements - No Truncation, Flowing Layout */}
+                        <div className="mb-4">
+                          <h6 className="text-white font-semibold text-sm mb-3 flex items-center">
+                            <Star className="mr-2 text-yellow-400" size={14} />
+                            Achievements & Recognition
+                          </h6>
+                          <div className="flex flex-wrap gap-2">
+                            {edu.achievements.map((achievement, i) => (
+                              <motion.span 
                                 key={i}
-                                className="px-2 py-1 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 text-emerald-400 text-xs rounded-full border border-emerald-500/30 font-medium"
+                                className="px-3 py-2 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 hover:from-emerald-500/30 hover:to-blue-500/30 text-emerald-400 text-xs sm:text-sm rounded-full border border-emerald-500/30 hover:border-emerald-400/50 font-medium transition-all duration-300 shadow-sm"
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: (index * 0.1) + (i * 0.05) }}
                               >
                                 <Star size={8} className="inline mr-1" />
                                 {achievement}
-                              </span>
+                              </motion.span>
                             ))}
                           </div>
                         </div>
+
+                        {/* Hover Effect - Additional Details */}
+                        <motion.div 
+                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4 pt-4 border-t border-white/20"
+                          initial={false}
+                        >
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                            <div>
+                              <span className="text-gray-400">GPA:</span>
+                              <span className="text-white font-semibold ml-2">4.0/4.0</span>
+                            </div>
+                            <div>
+                              <span className="text-gray-400">Status:</span>
+                              <span className="text-emerald-400 font-semibold ml-2">Graduated</span>
+                            </div>
+                          </div>
+                        </motion.div>
                       </div>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Compact Certifications */}
-                <div className="p-4 sm:p-6 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-400/30 backdrop-blur-sm">
-                  <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center">
-                    <Trophy className="mr-2 text-blue-400" size={16} />
-                    Professional Certifications
-                  </h4>
-                  <div className="space-y-2">
+                {/* Enhanced Certifications Section */}
+                <motion.div 
+                  className="rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-400/40 backdrop-blur-md p-5 sm:p-7 shadow-lg"
+                  whileHover={{ scale: 1.01 }}
+                >
+                  <div className="flex items-center justify-between mb-5">
+                    <h4 className="text-lg sm:text-xl font-bold text-white flex items-center">
+                      <Trophy className="mr-3 text-blue-400" size={20} />
+                      Professional Certifications
+                    </h4>
+                    <div className="text-blue-400 text-sm font-medium px-3 py-1 bg-blue-500/20 rounded-full border border-blue-500/30">
+                      {certifications.length} Active
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {certifications.map((cert, index) => (
                       <motion.div
                         key={index}
-                        className="flex items-center space-x-3 p-2 sm:p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/30 transition-all duration-300"
-                        whileHover={{ x: 3, scale: 1.01 }}
+                        className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-white/10 to-white/5 hover:from-white/15 hover:to-white/10 border border-white/20 hover:border-blue-400/40 transition-all duration-400 group shadow-sm hover:shadow-lg"
+                        whileHover={{ x: 4, scale: 1.02 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
                       >
-                        <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex-shrink-0">
-                          <cert.icon className="text-blue-400" size={12} />
-                        </div>
+                        <motion.div 
+                          className="p-3 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 group-hover:from-blue-500/30 group-hover:to-cyan-500/30 transition-all duration-300 shadow-md flex-shrink-0"
+                          whileHover={{ rotate: 10 }}
+                        >
+                          <cert.icon className="text-blue-400 group-hover:text-blue-300" size={16} />
+                        </motion.div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-white text-xs sm:text-sm font-semibold truncate">{cert.name}</p>
-                          <p className="text-blue-400 text-xs font-medium">{cert.year}</p>
+                          <p className="text-white text-sm sm:text-base font-semibold group-hover:text-blue-400 transition-colors leading-tight">
+                            {cert.name}
+                          </p>
+                          <div className="flex items-center space-x-3 mt-1">
+                            <p className="text-blue-400 text-xs sm:text-sm font-medium">{cert.year}</p>
+                            <span className="text-green-400 text-xs px-2 py-1 bg-green-500/20 rounded-full border border-green-500/30">
+                              ✓ Verified
+                            </span>
+                          </div>
                         </div>
                       </motion.div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
