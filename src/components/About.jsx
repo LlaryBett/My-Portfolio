@@ -87,13 +87,13 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+    <section id="about" className="py-12 sm:py-16 lg:py-20 xl:py-28 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.12),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.12),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.06),transparent_70%)]" />
       
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -101,34 +101,34 @@ const About = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-12 lg:mb-16">
             <motion.div 
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/20 rounded-full text-blue-400 text-sm font-medium mb-6"
+              className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/20 rounded-full text-blue-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
               whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.3)" }}
             >
-              <Lightbulb className="mr-2" size={16} />
+              <Lightbulb className="mr-1 sm:mr-2" size={14} />
               About Me
             </motion.div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2">
               Passionate About{' '}
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
                 Innovation
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
               Creating digital solutions that make a meaningful impact on businesses and users alike
             </p>
           </motion.div>
 
           {/* Main Content Grid - Rearranged */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-start mb-10 sm:mb-12 lg:mb-16">
             {/* Left Column - Story (Crafting Since 2019) */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+            <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight px-2 sm:px-0">
                   Crafting Digital Excellence Since 2019
                 </h3>
-                <div className="space-y-5 text-lg text-gray-300 leading-relaxed">
+                <div className="space-y-4 sm:space-y-5 text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed px-2 sm:px-0">
                   <p>
                     My journey in software development began with a simple curiosity about how websites work. 
                     That curiosity evolved into a passion for creating robust, scalable applications that solve 
@@ -150,16 +150,16 @@ const About = () => {
 
               {/* Personal Touch */}
               <motion.div 
-                className="p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 border border-white/10 backdrop-blur-sm relative overflow-hidden"
+                className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 border border-white/10 backdrop-blur-sm relative overflow-hidden mx-2 sm:mx-0"
                 whileHover={{ scale: 1.02, borderColor: "rgba(255,255,255,0.2)" }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <h4 className="text-xl font-semibold text-white mb-4 flex items-center">
-                  <Target className="mr-2 text-blue-400" size={20} />
+                <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center">
+                  <Target className="mr-2 text-blue-400" size={18} />
                   Beyond the Code
                 </h4>
-                <p className="text-gray-300 leading-relaxed relative z-10">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed relative z-10">
                   I&apos;m passionate about creating inclusive, accessible web experiences and believe that 
                   great software should be both powerful and intuitive. My approach combines technical 
                   expertise with user-centered design thinking.
@@ -170,57 +170,57 @@ const About = () => {
             {/* Right Column - Education & Learning Journey (Condensed) */}
             <motion.div variants={itemVariants} className="relative">
               {/* Glowing Background Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-blue-500/5 to-purple-500/5 rounded-3xl blur-xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-blue-500/5 to-purple-500/5 rounded-2xl sm:rounded-3xl blur-xl" />
               
-              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-sm border border-white/20 rounded-3xl p-8">
-                <div className="text-center mb-8">
+              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-sm border border-white/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8">
+                <div className="text-center mb-6 sm:mb-8">
                   <motion.div 
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-emerald-400 text-sm font-medium mb-4"
+                    className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-emerald-400 text-xs sm:text-sm font-medium mb-3 sm:mb-4"
                     whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34,197,94,0.3)" }}
                   >
-                    <GraduationCap className="mr-2" size={16} />
+                    <GraduationCap className="mr-1 sm:mr-2" size={14} />
                     Education & Learning Journey
                   </motion.div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">
                     Continuous{' '}
                     <span className="bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                       Growth &amp; Excellence
                     </span>
                   </h3>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-300 text-xs sm:text-sm">
                     Building expertise through formal education and industry certifications
                   </p>
                 </div>
 
                 {/* Compact Education Timeline */}
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   {education.map((edu, index) => (
                     <motion.div
                       key={index}
-                      className="group relative p-6 rounded-xl bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 hover:border-emerald-400/50 hover:from-emerald-500/10 hover:to-blue-500/10 transition-all duration-500"
+                      className="group relative p-4 sm:p-6 rounded-lg sm:rounded-xl bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm border border-white/20 hover:border-emerald-400/50 hover:from-emerald-500/10 hover:to-blue-500/10 transition-all duration-500"
                       whileHover={{ scale: 1.02, y: -2 }}
                       initial={{ opacity: 0, y: 30 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: index * 0.2, duration: 0.8 }}
                     >
-                      <div className="flex items-start space-x-4">
+                      <div className="flex items-start space-x-3 sm:space-x-4">
                         <div className="flex-shrink-0">
-                          <div className="p-3 rounded-lg bg-gradient-to-r from-emerald-500/20 to-blue-500/20 group-hover:from-emerald-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                            <BookOpen className="text-emerald-400 group-hover:text-emerald-300" size={20} />
+                          <div className="p-2 sm:p-3 rounded-lg bg-gradient-to-r from-emerald-500/20 to-blue-500/20 group-hover:from-emerald-500/30 group-hover:to-blue-500/30 transition-all duration-300">
+                            <BookOpen className="text-emerald-400 group-hover:text-emerald-300" size={16} />
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between mb-2">
-                            <h4 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors line-clamp-2">
+                            <h4 className="text-sm sm:text-base lg:text-lg font-bold text-white group-hover:text-emerald-400 transition-colors line-clamp-2 pr-2">
                               {edu.degree}
                             </h4>
                             <div className="flex items-center text-xs text-gray-400 bg-white/10 px-2 py-1 rounded-full ml-2 flex-shrink-0">
-                              <Calendar size={10} className="mr-1" />
+                              <Calendar size={8} className="mr-1" />
                               {edu.year}
                             </div>
                           </div>
-                          <h5 className="text-emerald-400 font-semibold mb-2 text-sm">{edu.school}</h5>
-                          <p className="text-gray-300 text-sm leading-relaxed mb-3">
+                          <h5 className="text-emerald-400 font-semibold mb-2 text-xs sm:text-sm">{edu.school}</h5>
+                          <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-3">
                             {edu.description}
                           </p>
                           <div className="flex flex-wrap gap-1">
@@ -241,23 +241,23 @@ const About = () => {
                 </div>
 
                 {/* Compact Certifications */}
-                <div className="p-6 rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-400/30 backdrop-blur-sm">
-                  <h4 className="text-lg font-bold text-white mb-4 flex items-center">
-                    <Trophy className="mr-2 text-blue-400" size={18} />
+                <div className="p-4 sm:p-6 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 border border-blue-400/30 backdrop-blur-sm">
+                  <h4 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center">
+                    <Trophy className="mr-2 text-blue-400" size={16} />
                     Professional Certifications
                   </h4>
                   <div className="space-y-2">
                     {certifications.map((cert, index) => (
                       <motion.div
                         key={index}
-                        className="flex items-center space-x-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/30 transition-all duration-300"
+                        className="flex items-center space-x-3 p-2 sm:p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/30 transition-all duration-300"
                         whileHover={{ x: 3, scale: 1.01 }}
                       >
-                        <div className="p-2 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex-shrink-0">
-                          <cert.icon className="text-blue-400" size={14} />
+                        <div className="p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-blue-500/20 to-cyan-500/20 flex-shrink-0">
+                          <cert.icon className="text-blue-400" size={12} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-white text-sm font-semibold truncate">{cert.name}</p>
+                          <p className="text-white text-xs sm:text-sm font-semibold truncate">{cert.name}</p>
                           <p className="text-blue-400 text-xs font-medium">{cert.year}</p>
                         </div>
                       </motion.div>
@@ -269,40 +269,40 @@ const About = () => {
           </div>
 
           {/* Highlights Section - Previously on the right */}
-          <motion.div variants={itemVariants} className="mb-16">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <motion.div variants={itemVariants} className="mb-10 sm:mb-12 lg:mb-16">
+            <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 px-2">
                 Technical{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
                   Expertise
                 </span>
               </h3>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto px-4">
                 Core competencies that drive exceptional results
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
               {highlights.map((highlight, index) => (
                 <motion.div
                   key={index}
-                  className="group relative p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/8 hover:border-white/20 transition-all duration-500"
+                  className="group relative p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/8 hover:border-white/20 transition-all duration-500 mx-2 sm:mx-0"
                   whileHover={{ x: 8, scale: 1.02 }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: index * 0.15, duration: 0.6 }}
                 >
-                  <div className="flex items-start space-x-5">
+                  <div className="flex items-start space-x-3 sm:space-x-5">
                     <div className="flex-shrink-0">
-                      <div className={`p-3 rounded-xl bg-gradient-to-r ${highlight.gradient} bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300`}>
-                        <highlight.icon className={`text-xl bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent`} size={24} />
+                      <div className={`p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-r ${highlight.gradient} bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300`}>
+                        <highlight.icon className={`text-xl bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent`} size={20} />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                      <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors">
                         {highlight.title}
                       </h4>
-                      <p className="text-gray-300 leading-relaxed text-sm">
+                      <p className="text-gray-300 leading-relaxed text-xs sm:text-sm">
                         {highlight.description}
                       </p>
                     </div>
@@ -313,23 +313,23 @@ const About = () => {
           </motion.div>
 
           {/* Enhanced Stats Section */}
-          <motion.div variants={itemVariants} className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div variants={itemVariants} className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/20 hover:from-white/10 hover:to-white/5 transition-all duration-300 group"
+                className="text-center p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/20 hover:from-white/10 hover:to-white/5 transition-all duration-300 group"
                 whileHover={{ scale: 1.05, y: -5 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
-                <div className="mb-4">
-                  <stat.icon className="mx-auto text-blue-400 mb-3 group-hover:text-blue-300 transition-colors" size={32} />
+                <div className="mb-3 sm:mb-4">
+                  <stat.icon className="mx-auto text-blue-400 mb-2 sm:mb-3 group-hover:text-blue-300 transition-colors" size={24} />
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-1 sm:mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-400 font-medium">{stat.label}</div>
+                <div className="text-gray-400 font-medium text-xs sm:text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
