@@ -157,7 +157,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills-experience" className="bg-gray-900 relative overflow-hidden">
+    <section id="skills-experience" className="bg-gray-900 relative overflow-hidden  scroll-mt-[70px]">
       {/* Skills Section */}
       <div className="py-12 sm:py-16 lg:py-20 xl:py-28 relative">
         {/* Background Elements */}

@@ -59,7 +59,7 @@ const Contact = () => {
     <section 
       id="contact" 
       className="
-        scroll-mt-[70px]  // Added scroll margin to account for fixed navbar
+        
         py-20 lg:py-28    // Increased top padding to match About page
         bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900
         relative overflow-hidden
