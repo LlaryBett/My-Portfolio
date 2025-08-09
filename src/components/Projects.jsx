@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Github, ExternalLink, Calendar, Users, Code, ArrowRight, X, Folder } from 'lucide-react';
+import { Github, ExternalLink, Calendar, Users, Code, X, Folder } from 'lucide-react';
 
 const projects = [
   {
