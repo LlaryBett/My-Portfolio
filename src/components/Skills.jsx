@@ -1,15 +1,12 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
 import { 
   Code, Server, Database, Cloud, Smartphone, Palette,
-  MapPin, Calendar, Award, TrendingUp // Removed Users
+  MapPin, Calendar, Award, TrendingUp
 } from 'lucide-react';
 
 const Skills = () => {
   const skillsRef = React.useRef(null);
   const experienceRef = React.useRef(null);
-  const isSkillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
-  const isExperienceInView = useInView(experienceRef, { once: true, margin: "-100px" });
 
   const skillCategories = [
     {
@@ -159,65 +156,22 @@ const Skills = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 60, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const experienceItemVariants = {
-    hidden: { x: -60, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
     <section id="skills-experience" className="bg-gray-900 relative overflow-hidden">
       {/* Skills Section */}
-      <div className="py-12 sm:py-16 lg:py-24 xl:py-32 relative">
+      <div className="py-8 sm:py-10 lg:py-16 relative">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(147,51,234,0.1),transparent_50%)]" />
         
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          <motion.div
-            ref={skillsRef}
-            variants={containerVariants}
-            initial="hidden"
-            animate={isSkillsInView ? "visible" : "hidden"}
-          >
+          <div ref={skillsRef}>
             {/* Section Header */}
-            <motion.div variants={itemVariants} className="text-center mb-10 sm:mb-16 lg:mb-20">
-              <motion.div 
-                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-purple-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
-                whileHover={{ scale: 1.05 }}
-              >
+            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+              <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-purple-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <Code className="mr-1 sm:mr-2" size={14} />
                 Technical Skills
-              </motion.div>
+              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
                 My{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
@@ -227,30 +181,20 @@ const Skills = () => {
               <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
                 A comprehensive toolkit for building modern, scalable, and performant applications
               </p>
-            </motion.div>
+            </div>
 
             {/* Compact Skills Display - Tag Cloud Style */}
-            <div className="mb-10 sm:mb-12 lg:mb-16">
+            <div className="mb-6 sm:mb-8">
               {/* All skills in one flowing layout */}
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-6xl mx-auto px-2">
                 {skillCategories.flatMap((category, categoryIndex) => 
                   category.skills.map((skill, skillIndex) => (
-                    <motion.div
+                    <div
                       key={`${categoryIndex}-${skillIndex}`}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isSkillsInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ 
-                        duration: 0.4,
-                        delay: (categoryIndex * 0.1) + (skillIndex * 0.02)
-                      }}
                       className="group relative"
                     >
-                      <motion.div
-                        className={`relative px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r ${skillCategories[categoryIndex].color} bg-opacity-20 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/20 cursor-pointer overflow-hidden`}
-                        whileHover={{ 
-                          scale: 1.05,
-                          backgroundColor: 'rgba(255,255,255,0.1)'
-                        }}
+                      <div
+                        className={`relative px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r ${skillCategories[categoryIndex].color} bg-opacity-20 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/20 cursor-pointer overflow-hidden hover:scale-105 hover:bg-white/10 transition-all duration-300`}
                       >
                         {/* Progress indicator */}
                         <div 
@@ -271,31 +215,25 @@ const Skills = () => {
 
                         {/* Category indicator dot */}
                         <div className={`absolute -top-0.5 sm:-top-1 -right-0.5 sm:-right-1 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r ${skillCategories[categoryIndex].color} rounded-full opacity-60`} />
-                      </motion.div>
-                    </motion.div>
+                      </div>
+                    </div>
                   ))
                 )}
               </div>
 
               {/* Category Legend */}
-              <motion.div 
-                variants={itemVariants}
-                className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-6 sm:mt-8 px-4"
-              >
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-6 sm:mt-8 px-4">
                 {skillCategories.map((category, index) => (
                   <div key={index} className="flex items-center space-x-1 sm:space-x-2">
                     <div className={`w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r ${category.color} rounded-full`} />
                     <span className="text-gray-400 text-xs sm:text-sm">{category.title}</span>
                   </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
 
             {/* Learning Section */}
-            <motion.div 
-              variants={itemVariants}
-              className="text-center mb-12 sm:mb-16 lg:mb-20 px-2"
-            >
+            <div className="text-center mb-8 sm:mb-10 px-2">
               <div className="inline-flex flex-col items-center p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-3 sm:mb-4">Always Learning</h3>
                 <p className="text-gray-300 mb-4 sm:mb-6 max-w-2xl text-sm sm:text-base">
@@ -303,46 +241,34 @@ const Skills = () => {
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
                   {["Rust", "Go", "WebAssembly", "Three.js", "AI/ML", "Blockchain"].map((tech, index) => (
-                    <motion.span
+                    <span
                       key={index}
-                      className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm text-blue-400 font-medium rounded-full border border-white/20 text-xs sm:text-sm"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(59,130,246,0.2)' }}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={isSkillsInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ delay: 0.5 + (index * 0.1) }}
+                      className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm text-blue-400 font-medium rounded-full border border-white/20 text-xs sm:text-sm hover:scale-105 hover:bg-blue-500/20 transition-all duration-300 cursor-pointer"
                     >
                       {tech}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Experience Section */}
-      <div className="py-12 sm:py-16 lg:py-24 xl:py-32 relative border-t border-white/10">
+      {/* Experience Section - Minimal top spacing */}
+      <div className="pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-10 lg:pb-16 relative border-t border-white/10">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(147,51,234,0.1),transparent_50%)]" />
         
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          <motion.div
-            ref={experienceRef}
-            variants={containerVariants}
-            initial="hidden"
-            animate={isExperienceInView ? "visible" : "hidden"}
-          >
+          <div ref={experienceRef}>
             {/* Section Header */}
-            <motion.div variants={experienceItemVariants} className="text-center mb-10 sm:mb-16 lg:mb-20">
-              <motion.div 
-                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-orange-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
-                whileHover={{ scale: 1.05 }}
-              >
+            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+              <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-orange-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <TrendingUp className="mr-1 sm:mr-2" size={14} />
                 Career Journey
-              </motion.div>
+              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
                 Professional{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
@@ -352,17 +278,15 @@ const Skills = () => {
               <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
                 My journey through the tech industry and key achievements along the way
               </p>
-            </motion.div>
+            </div>
 
             <div className="relative">
               {/* Compact Experience Cards */}
               <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
                 {experiences.map((exp, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    variants={experienceItemVariants}
-                    className="group relative p-4 sm:p-6 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-500 mx-2 sm:mx-0"
-                    whileHover={{ scale: 1.02, y: -5 }}
+                    className="group relative p-4 sm:p-6 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10 hover:bg-white/10 hover:scale-102 hover:-translate-y-1 transition-all duration-500 mx-2 sm:mx-0"
                   >
                     {/* Header */}
                     <div className="mb-3 sm:mb-4">
@@ -404,16 +328,13 @@ const Skills = () => {
                       </h5>
                       <div className="grid grid-cols-1 gap-1 text-xs">
                         {exp.achievements.slice(0, 4).map((achievement, achIndex) => (
-                          <motion.div 
+                          <div 
                             key={achIndex} 
                             className="text-gray-300 flex items-start leading-relaxed"
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={isExperienceInView ? { opacity: 1, x: 0 } : {}}
-                            transition={{ delay: (index * 0.1) + (achIndex * 0.05) }}
                           >
                             <span className="text-emerald-400 mr-2 mt-0.5 text-xs flex-shrink-0">•</span>
                             <span className="line-clamp-2">{achievement}</span>
-                          </motion.div>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -426,38 +347,32 @@ const Skills = () => {
                       </h5>
                       <div className="flex flex-wrap gap-1">
                         {exp.tech.map((tech, techIndex) => (
-                          <motion.span
+                          <span
                             key={techIndex}
-                            className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-md border border-white/10"
-                            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.2)' }}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={isExperienceInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ delay: (index * 0.1) + (techIndex * 0.02) }}
+                            className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-md border border-white/10 hover:scale-105 hover:bg-white/20 transition-all duration-300 cursor-pointer"
                           >
                             {tech}
-                          </motion.span>
+                          </span>
                         ))}
                       </div>
                     </div>
 
                     {/* Progress Indicator */}
                     <div className={`absolute top-0 left-0 w-full h-0.5 sm:h-1 bg-gradient-to-r ${exp.color} opacity-60 rounded-t-xl sm:rounded-t-2xl`} />
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
               {/* Career Progression Visualization */}
-              <motion.div variants={experienceItemVariants} className="mt-8 sm:mt-12 text-center px-2">
+              <div className="mt-6 sm:mt-8 text-center px-2">
                 <div className="inline-flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 p-4 sm:p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10">
                   <div className="flex items-center space-x-2">
                     <div className="flex space-x-1">
                       {experiences.map((_, index) => (
-                        <motion.div
+                        <div
                           key={index}
-                          className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${experiences[index].color}`}
-                          initial={{ scale: 0 }}
-                          animate={isExperienceInView ? { scale: 1 } : {}}
-                          transition={{ delay: index * 0.2 }}
+                          className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${experiences[index].color} animate-pulse`}
+                          style={{ animationDelay: `${index * 0.2}s` }}
                         />
                       ))}
                     </div>
@@ -470,11 +385,9 @@ const Skills = () => {
                     <span className="text-gray-400 text-xs sm:text-sm ml-1">years</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-
-            
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

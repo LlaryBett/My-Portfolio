@@ -72,7 +72,7 @@ const Navbar = () => {
   const navItems = [
     { href: "#home", icon: Home, label: "Home", section: "home" },
     { href: "#about", icon: User, label: "About Me", section: "about" },
-    { href: "#skills", icon: Briefcase, label: "Skills & Experince", section: "skills & Experince" },
+    { href: "#skills-experience", icon: Briefcase, label: "Skills & Experince", section: "skills & Experince" },
     { href: "#project", icon: FolderOpen, label: "Projects", section: "project" },
     { href: "#contact", icon: Mail, label: "Contact", section: "contact" }
   ]
@@ -90,7 +90,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='bg-black text-white px-8 md:px-16 lg:px-24 border-b border-gray-600 sticky top-0 z-40 relative'>
+      <nav className='bg-black text-white px-8 md:px-16 lg:px-24 border-b border-gray-600 fixed top-0 left-0 right-0 z-40'>
         <div className='container py-2 flex justify-between items-center'>
           <div className='flex flex-col'>
             <div className='text-3xl font-black bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight'>
