@@ -159,7 +159,7 @@ const Skills = () => {
   return (
     <section id="skills-experience" className="bg-gray-900 relative overflow-hidden">
       {/* Skills Section */}
-      <div className="py-8 sm:py-10 lg:py-16 relative">
+      <div className="py-12 sm:py-16 lg:py-20 xl:py-28 relative">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(147,51,234,0.1),transparent_50%)]" />
@@ -167,17 +167,18 @@ const Skills = () => {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div ref={skillsRef}>
             {/* Section Header */}
-            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
               <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-purple-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <Code className="mr-1 sm:mr-2" size={14} />
                 Technical Skills
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
-                My{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-                  Expertise
-                </span>
-              </h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-4 sm:mb-6 px-2">
+  My{' '}
+  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+    Expertise
+  </span>
+</h2>
+
               <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
                 A comprehensive toolkit for building modern, scalable, and performant applications
               </p>
@@ -256,7 +257,7 @@ const Skills = () => {
       </div>
 
       {/* Experience Section - Minimal top spacing */}
-      <div className="pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-10 lg:pb-16 relative border-t border-white/10">
+      <div className="pt-4 sm:pt-6 lg:pt-8 pb-12 sm:pb-16 lg:pb-20 xl:pb-28 relative border-t border-white/10">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(147,51,234,0.1),transparent_50%)]" />
@@ -264,7 +265,7 @@ const Skills = () => {
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div ref={experienceRef}>
             {/* Section Header */}
-            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
               <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-orange-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <TrendingUp className="mr-1 sm:mr-2" size={14} />
                 Career Journey

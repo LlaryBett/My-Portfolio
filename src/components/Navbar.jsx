@@ -73,7 +73,7 @@ const Navbar = () => {
     { href: "#home", icon: Home, label: "Home", section: "home" },
     { href: "#about", icon: User, label: "About Me", section: "about" },
     { href: "#skills-experience", icon: Briefcase, label: "Skills & Experince", section: "skills & Experince" },
-    { href: "#project", icon: FolderOpen, label: "Projects", section: "project" },
+    { href: "#projects", icon: FolderOpen, label: "Projects", section: "project" },
     { href: "#contact", icon: Mail, label: "Contact", section: "contact" }
   ]
 
