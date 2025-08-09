@@ -30,9 +30,9 @@ const About = () => {
   };
 
   const stats = [
-    { number: "5+", label: "Years Experience", icon: Award },
-    { number: "100+", label: "Projects Completed", icon: Code },
-    { number: "50+", label: "Happy Clients", icon: Users },
+    { number: "2+", label: "Years Experience", icon: Award },
+    { number: "5+", label: "Projects Completed", icon: Code },
+    
     { number: "∞", label: "Cups of Coffee", icon: Coffee },
   ];
 
@@ -65,16 +65,16 @@ const About = () => {
 
   const education = [
     {
-      degree: "Bachelor of Science in Computer Science",
-      school: "University of Technology",
-      year: "2015 - 2019",
+      degree: "Bachelor of Science in Software Engineering",
+      school: "Kirinyaga University",
+      year: "2021 - 2025",
       description: "Specialized in Software Engineering with focus on algorithms, data structures, and system design.",
       achievements: ["Dean's List", "Outstanding Project Award", "3.8/4.0 GPA"]
     },
     {
-      degree: "Full Stack Web Development Bootcamp",
-      school: "TechAcademy Pro",
-      year: "2019",
+      degree: "Secondary Education Certificate",
+      school: "Nakuru High School",
+      year: "2017-2020",
       description: "Intensive 6-month program covering modern web technologies including React, Node.js, and cloud deployment.",
       achievements: ["Top 5% of Class", "Best Final Project", "Industry Mentorship"]
     }
@@ -126,7 +126,7 @@ const About = () => {
             <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
               <div className="space-y-4 sm:space-y-6">
                 <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight px-2 sm:px-0">
-                  Crafting Digital Excellence Since 2019
+                  Crafting Digital Excellence Since 2022
                 </h3>
                 <div className="space-y-4 sm:space-y-5 text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed px-2 sm:px-0">
                   <p>

@@ -94,7 +94,7 @@ const Navbar = () => {
         <div className='container py-2 flex justify-between items-center'>
           <div className='flex flex-col'>
             <div className='text-3xl font-black bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight'>
-              Yousof
+              Bett
             </div>
             <span className='text-xs font-medium text-gray-300 tracking-widest uppercase opacity-80'>
               Software Engineer

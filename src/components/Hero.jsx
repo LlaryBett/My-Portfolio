@@ -92,7 +92,7 @@ const Hero = () => {
 
           <motion.h1 variants={itemVariants} className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white">
             <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-              Alex Johnson
+              Hillary Bett
             </span>
           </motion.h1>
 
@@ -123,10 +123,16 @@ const Hero = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex justify-center md:justify-start space-x-4 sm:space-x-6 pt-4 sm:pt-6">
+            {/*
+              Updated the GitHub icon link to redirect to the actual GitHub profile
+            */}
+            {/*
+              Added target="_blank" and rel="noopener noreferrer" for security and performance
+            */}
             {[
-              { Icon: Github, href: "#", label: "GitHub" },
+              { Icon: Github, href: "https://github.com/LlaryBett", label: "GitHub" },
               { Icon: Linkedin, href: "#", label: "LinkedIn" },
-              { Icon: Mail, href: "#", label: "Email" }
+              { Icon: Mail, href: "mailto:bettllary672@gmail.com", label: "Email" }
             ].map(({ Icon, href, label }) => (
               <motion.a
                 key={label}
@@ -134,6 +140,8 @@ const Hero = () => {
                 className="p-2.5 sm:p-3 rounded-full bg-gray-800/50 backdrop-blur-sm text-gray-300 hover:text-white hover:bg-gray-700/50 transition-colors duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Icon size={20} className="sm:w-6 sm:h-6" />
               </motion.a>

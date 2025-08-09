@@ -115,7 +115,7 @@ const Contact = () => {
                   Location
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  street, city, province, country
+                  Kutus,Kirinyaga County,Kenya <br />P.O. Box: 143-10300 Kerugoya
                 </p>
               </motion.div>
 
