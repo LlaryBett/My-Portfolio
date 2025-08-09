@@ -11,5 +11,5 @@ html {
   scroll-behavior: smooth;
 }
 html {
-  scroll-padding-top: 70px; /* Height of your navbar */
+  scroll-padding-top: 35px; /* Height of your navbar */
 } 
