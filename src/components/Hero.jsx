@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Phone } from 'lucide-react'; // Using Phone as WhatsApp icon
 import HeroImage from '../assets/hero-image.png';
 
 const Hero = () => {
@@ -38,12 +38,12 @@ const Hero = () => {
 
   return (
     <section 
-      id="home" 
+      id="home"
       className="
         min-h-screen flex items-center relative overflow-hidden 
-        px-4 sm:px-6 lg:px-10  // Mobile: px-4, Small: px-6, Large: px-10 (preserved)
-        scroll-mt-[70px]  // Added scroll margin for fixed navbar
-        pt-[80px] sm:pt-[70px]  // Mobile padding adjustment
+        px-4 sm:px-6 lg:px-10
+        scroll-mt-[70px]
+        pt-[80px] sm:pt-[70px]
       "
     >
       {/* Background gradient */}
@@ -123,16 +123,11 @@ const Hero = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex justify-center md:justify-start space-x-4 sm:space-x-6 pt-4 sm:pt-6">
-            {/*
-              Updated the GitHub icon link to redirect to the actual GitHub profile
-            */}
-            {/*
-              Added target="_blank" and rel="noopener noreferrer" for security and performance
-            */}
             {[
               { Icon: Github, href: "https://github.com/LlaryBett", label: "GitHub" },
               { Icon: Linkedin, href: "#", label: "LinkedIn" },
-              { Icon: Mail, href: "mailto:bettllary672@gmail.com", label: "Email" }
+              { Icon: Mail, href: "mailto:bettllary672@gmail.com", label: "Email" },
+              { Icon: Phone, href: "https://wa.me/254716360768", label: "WhatsApp" } // Added WhatsApp
             ].map(({ Icon, href, label }) => (
               <motion.a
                 key={label}

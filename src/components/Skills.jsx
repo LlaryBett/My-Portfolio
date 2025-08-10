@@ -14,12 +14,18 @@ const Skills = () => {
       icon: Code,
       color: "from-blue-500 to-cyan-500",
       skills: [
-        { name: "React", level: 95, icon: "⚛️" },
-        { name: "TypeScript", level: 92, icon: "🔷" },
-        { name: "Next.js", level: 88, icon: "▲" },
-        { name: "Vue.js", level: 85, icon: "💚" },
-        { name: "Tailwind CSS", level: 94, icon: "🎨" },
-        { name: "Framer Motion", level: 87, icon: "🎭" },
+         { name: "React", level: 95, icon: "⚛️" },
+  { name: "TypeScript", level: 92, icon: "🔷" },
+  { name: "Next.js", level: 88, icon: "▲" },
+
+  // added HTML
+  { name: "HTML", level: 99, icon: "🌐" },
+
+  { name: "Tailwind CSS", level: 94, icon: "🎨" },
+  { name: "Framer Motion", level: 87, icon: "🎭" },
+
+  // added Bootstrap
+  { name: "Bootstrap", level: 90, icon: "🅱️" },
       ]
     },
     {
@@ -30,7 +36,7 @@ const Skills = () => {
         { name: "Node.js", level: 93, icon: "🟢" },
         { name: "Express.js", level: 90, icon: "🚀" },
         { name: "Python", level: 85, icon: "🐍" },
-        { name: "GraphQL", level: 82, icon: "🔗" },
+       
         { name: "REST APIs", level: 95, icon: "🌐" },
         { name: "Microservices", level: 80, icon: "🔧" },
       ]
@@ -42,10 +48,11 @@ const Skills = () => {
       skills: [
         { name: "PostgreSQL", level: 90, icon: "🐘" },
         { name: "MongoDB", level: 88, icon: "🍃" },
-        { name: "Redis", level: 85, icon: "🔴" },
+        { name: "MySQL", level: 85, icon: "🐬" },
+      
         { name: "Firebase", level: 82, icon: "🔥" },
         { name: "Prisma", level: 87, icon: "💎" },
-        { name: "Supabase", level: 85, icon: "⚡" },
+       
       ]
     },
     {
@@ -70,8 +77,7 @@ const Skills = () => {
         { name: "Expo", level: 88, icon: "🚀" },
         { name: "Flutter", level: 75, icon: "🦋" },
         { name: "PWA", level: 90, icon: "📲" },
-        { name: "Ionic", level: 70, icon: "⚡" },
-        { name: "Capacitor", level: 72, icon: "🔋" },
+      
       ]
     },
     {
@@ -80,7 +86,7 @@ const Skills = () => {
       color: "from-pink-500 to-rose-500",
       skills: [
         { name: "Figma", level: 85, icon: "🎨" },
-        { name: "Adobe XD", level: 80, icon: "🎭" },
+       
         { name: "Git", level: 95, icon: "📝" },
         { name: "VS Code", level: 98, icon: "💻" },
         { name: "Postman", level: 92, icon: "📮" },
@@ -241,7 +247,7 @@ const Skills = () => {
                   Technology evolves rapidly, and so do I. Currently exploring and mastering these emerging technologies:
                 </p>
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-                  {["Rust", "Go", "WebAssembly", "Three.js", "AI/ML", "Blockchain"].map((tech, index) => (
+                  {["Rust", "Go", "WebAssembly", "Vue.js", "AI/ML", "Blockchain"].map((tech, index) => (
                     <span
                       key={index}
                       className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-sm text-blue-400 font-medium rounded-full border border-white/20 text-xs sm:text-sm hover:scale-105 hover:bg-blue-500/20 transition-all duration-300 cursor-pointer"

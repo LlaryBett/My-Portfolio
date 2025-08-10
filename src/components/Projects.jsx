@@ -1,26 +1,36 @@
 import { useState } from 'react';
 import { Github, ExternalLink, Calendar, Users, Code, X, Folder } from 'lucide-react';
+import ProjectImage1 from '../assets/Screenshot 2025-07-08 163956.png';
+
 
 const projects = [
   {
     id: 1,
     name: "Employee Management System",
     shortDesc: "Full-stack CRUD application for employee management",
-    fullDescription: "A comprehensive employee management system built with React and Node.js. Features include employee registration, role-based authentication, performance tracking, and real-time dashboard analytics. Implements RESTful APIs with JWT authentication and data visualization charts.",
+    fullDescription:
+      "A comprehensive employee management system built with React and Node.js. Features include employee registration, role-based authentication, performance tracking, and real-time dashboard analytics. Implements RESTful APIs with JWT authentication and data visualization charts.",
     technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Chart.js"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    github: "https://github.com/YouafKhan1/employee-ms",
-    demo: "https://employee-ms-demo.com",
+    image: ProjectImage1, // <-- use the imported variable here
+    github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store",
+    demo: "https://full-stack-freshmart-grocery-store.vercel.app/",
     status: "Completed",
     duration: "3 months",
     teamSize: "Solo Project",
     category: "Full-Stack",
     year: "2024",
-    highlights: ["JWT Authentication", "Real-time Analytics", "Role-based Access", "RESTful APIs"],
+    highlights: [
+      "JWT Authentication",
+      "Real-time Analytics",
+      "Role-based Access",
+      "RESTful APIs",
+    ],
     accentColor: "from-purple-500 to-pink-500",
     challenges: "Implementing real-time updates and complex role-based permissions",
-    learnings: "Gained expertise in JWT authentication and MongoDB aggregation pipelines"
+    learnings: "Gained expertise in JWT authentication and MongoDB aggregation pipelines",
   },
+
+
   {
     id: 2,
     name: "Interactive Blog Platform",
@@ -28,7 +38,7 @@ const projects = [
     fullDescription: "A dynamic blog application featuring rich text editing, comment system, user authentication, and social sharing. Built with React and Firebase, offering real-time collaboration and markdown support with custom themes.",
     technologies: ["React", "Firebase", "Tailwind CSS", "Markdown", "Firestore"],
     image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?w=600&h=400&fit=crop",
-    github: "https://github.com/YouafKhan1/blog-platform",
+    github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store",
     demo: "https://blog-platform-demo.com",
     status: "In Progress",
     duration: "2 months",
