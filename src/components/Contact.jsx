@@ -130,7 +130,12 @@ const Contact = () => {
                   Phone
                 </h4>
                 <p className="text-sm sm:text-base text-gray-400">
-                  +9828839922
+                  <a
+                    href="tel:+254716360768"
+                    className="hover:text-white transition-colors duration-300 text-blue-400"
+                  >
+                    +254716360768
+                  </a>
                 </p>
               </motion.div>
 
@@ -149,7 +154,7 @@ const Contact = () => {
                     href="mailto:youremail@example.com" 
                     className="hover:text-white transition-colors duration-300 text-blue-400"
                   >
-                    youremail@example.com
+                    bettllary672@gmmail.com
                   </a>
                 </p>
               </motion.div>

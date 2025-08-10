@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Code, Database, Globe, Zap, Award, Users, Coffee, Lightbulb, GraduationCap, BookOpen, Calendar, Star, Trophy, Target } from 'lucide-react';
+import { Code, Database, Globe, Zap, Award, Coffee, Lightbulb, GraduationCap, BookOpen, Calendar, Star, Trophy, Target } from 'lucide-react';
 
 const About = () => {
   const ref = React.useRef(null);
