@@ -4,31 +4,34 @@ import ProjectImage1 from '../assets/Screenshot 2025-07-08 163956.png';
 
 
 const projects = [
-  {
-    id: 1,
-    name: "Employee Management System",
-    shortDesc: "Full-stack CRUD application for employee management",
-    fullDescription:
-      "A comprehensive employee management system built with React and Node.js. Features include employee registration, role-based authentication, performance tracking, and real-time dashboard analytics. Implements RESTful APIs with JWT authentication and data visualization charts.",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Chart.js"],
-    image: ProjectImage1, // <-- use the imported variable here
-    github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store",
-    demo: "https://full-stack-freshmart-grocery-store.vercel.app/",
-    status: "Completed",
-    duration: "3 months",
-    teamSize: "Solo Project",
-    category: "Full-Stack",
-    year: "2024",
-    highlights: [
-      "JWT Authentication",
-      "Real-time Analytics",
-      "Role-based Access",
-      "RESTful APIs",
-    ],
-    accentColor: "from-purple-500 to-pink-500",
-    challenges: "Implementing real-time updates and complex role-based permissions",
-    learnings: "Gained expertise in JWT authentication and MongoDB aggregation pipelines",
-  },
+
+   {
+  id: 1,
+  name: "Freshmart Grocery Store System",
+  shortDesc: "Full-stack e-commerce application for online grocery shopping",
+  fullDescription:
+    "A feature-rich grocery store management system built with the MERN stack. Customers can browse products, search by categories, add items to the cart, and place orders securely. The admin dashboard allows inventory management, order tracking, and coupon management. Implements secure JWT authentication, role-based access, and RESTful APIs, with integrated payment and responsive UI for seamless shopping experiences.",
+  technologies: ["MongoDB", "Mongoose", "Express.js", "React", "Node.js", "JWT", "Stripe", "Tailwind CSS"],
+  image: ProjectImage1, // <-- use the imported variable here
+  github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store",
+  demo: "https://full-stack-freshmart-grocery-store.vercel.app/",
+  status: "Completed",
+  duration: "1 month",
+  teamSize: "Solo Project",
+  category: "Full-Stack",
+  year: "2024",
+  highlights: [
+    "Secure JWT Authentication",
+    "Role-based Access Control",
+    "Inventory & Order Management",
+    "Coupon & Discount System",
+    "Integrated Stripe Payments"
+  ],
+  accentColor: "from-green-500 to-lime-500",
+  challenges: "Implementing secure payments, managing real-time inventory updates, and creating a user-friendly responsive UI",
+  learnings: "Gained expertise in e-commerce workflows, payment gateway integration, and scalable full-stack application design"
+},
+
 
 
   {
@@ -51,24 +54,30 @@ const projects = [
     learnings: "Mastered Firebase real-time database and complex state management"
   },
   {
-    id: 3,
-    name: "Book Library Management",
-    shortDesc: "Digital library system with advanced search",
-    fullDescription: "A sophisticated library management system built with Next.js and TypeScript. Features include book cataloging, user management, reservation system, and advanced search with filters. Integrated with external APIs for book metadata.",
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
-    github: "https://github.com/YouafKhan1/library-ms",
-    demo: "https://library-ms-demo.com",
-    status: "Completed",
-    duration: "4 months",
-    teamSize: "3 developers",
-    category: "Full-Stack",
-    year: "2023",
-    highlights: ["Advanced Search", "Payment Integration", "API Integration", "Admin Dashboard"],
-    accentColor: "from-amber-500 to-red-500",
-    challenges: "Integrating multiple external APIs and handling complex search algorithms",
-    learnings: "Advanced TypeScript patterns and database optimization techniques"
-  },
+  id: 3,
+  name: "Eduford University Portal",
+  shortDesc: "Responsive university website with course and admission features",
+  fullDescription: "A modern and responsive university portal for Eduford, designed to showcase courses, faculty, campus life, and admissions information. Built with React and Tailwind CSS, it features interactive course catalogs, an event calendar, student testimonials, and an admissions application form. Optimized for fast performance and accessibility across devices.",
+  technologies: ["React", "Tailwind CSS", "Framer Motion", "React Router", "Axios"],
+  image: ProjectImage3,
+  github: "https://github.com/LlaryBett/-Eduford-University-Website",
+  demo: "https://eduford-university-website-psi.vercel.app/",
+  status: "Completed",
+  duration: "2 weeks",
+  teamSize: "Solo Project",
+  category: "Frontend",
+  year: "2025",
+  highlights: [
+    "Responsive Design",
+    "Interactive Course Catalog",
+    "Admissions Form",
+    "Event Calendar"
+  ],
+  accentColor: "from-blue-600 to-green-500",
+  challenges: "Designing a visually appealing yet fully responsive layout that adapts to all screen sizes",
+  learnings: "Advanced component composition, state management, and performance optimization in React"
+}
+,
   {
     id: 4,
     name: "Real-time Chat Application",
@@ -93,10 +102,11 @@ const projects = [
     name: "E-commerce Dashboard",
     shortDesc: "Analytics dashboard for online stores",
     fullDescription: "Comprehensive e-commerce analytics dashboard with sales tracking, inventory management, and customer insights. Features interactive charts, real-time data updates, and export functionality.",
-    technologies: ["Vue.js", "D3.js", "Laravel", "MySQL", "Docker"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    github: "https://github.com/YouafKhan1/ecommerce-dashboard",
-    demo: "https://dashboard-demo.com",
+    technologies: ["MongoDB", "Mongoose", "Express.js", "React", "Node.js", "JWT"],
+
+    image:ProjectImage5,
+    github: "https://github.com/LlaryBett/Smart-Inventory-Application",
+    demo: "https://smart-inventory-application.vercel.app/",
     status: "Completed",
     duration: "3 months",
     teamSize: "4 developers",
@@ -108,24 +118,30 @@ const projects = [
     learnings: "Advanced D3.js techniques and Laravel best practices"
   },
   {
-    id: 6,
-    name: "Mobile Fitness Tracker",
-    shortDesc: "Cross-platform fitness tracking app",
-    fullDescription: "A comprehensive fitness tracking application built with React Native. Features workout logging, progress tracking, social challenges, and integration with wearable devices.",
-    technologies: ["React Native", "Redux", "SQLite", "REST APIs", "Push Notifications"],
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-    github: "https://github.com/YouafKhan1/fitness-tracker",
-    demo: "https://fitness-app-demo.com",
-    status: "In Progress",
-    duration: "5 months",
-    teamSize: "3 developers",
-    category: "Mobile",
-    year: "2024",
-    highlights: ["Wearable Integration", "Social Features", "Offline Support", "Push Notifications"],
-    accentColor: "from-pink-500 to-rose-500",
-    challenges: "Integrating with multiple wearable device APIs and offline synchronization",
-    learnings: "Mobile development patterns and device integration techniques"
-  }
+  id: 6,
+  name: "Background Image Removal Application",
+  shortDesc: "AI-powered tool for removing image backgrounds instantly",
+  fullDescription: "An advanced background removal web application that uses AI and computer vision to detect and remove image backgrounds in seconds. Supports drag-and-drop uploads, batch processing, and high-resolution downloads. Includes features for replacing backgrounds with solid colors, gradients, or custom images.",
+  technologies: ["React", "Tailwind CSS", "Node.js", "Express", "TensorFlow.js", "Cloudinary API"],
+  image: ProjectImage1, // Use the imported variable here
+  github: "https://github.com/LlaryBett/Image-Background-removal-Application",
+  demo: "https://image-background-removal-application.vercel.app/",
+  status: "Completed",
+  duration: "1 month",
+  teamSize: "Solo Project",
+  category: "Web Application",
+  year: "2025",
+  highlights: [
+    "AI-powered background detection",
+    "Batch processing support",
+    "Custom background replacement",
+    "High-resolution output"
+  ],
+  accentColor: "from-blue-500 to-indigo-500",
+  challenges: "Optimizing AI models for fast processing without compromising quality, and handling large image uploads efficiently",
+  learnings: "Deep learning model integration, image processing optimization, and scalable file handling"
+}
+
 ];
 
 const Projects = () => {

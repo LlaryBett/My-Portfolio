@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Mail, Phone } from 'lucide-react'; // Using Phone as WhatsApp icon
 import HeroImage from '../assets/hero-image.png';
 
+
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const fullText = "Full Stack Developer";
 
   useEffect(() => {
+    
     let index = 0;
     const timer = setInterval(() => {
       if (index < fullText.length) {
@@ -110,6 +112,12 @@ const Hero = () => {
               className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-shadow duration-300 text-sm sm:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const el = document.getElementById('projects');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               View My Work
             </motion.button>

@@ -97,69 +97,42 @@ const Skills = () => {
 
   const experiences = [
     {
-      title: "Senior Full Stack Developer",
-      company: "TechCorp Solutions",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
-      type: "Full-time",
-      description: "Leading a cross-functional team of 8 developers in building scalable web applications serving 1M+ users. Architected microservices infrastructure and implemented CI/CD pipelines that reduced deployment time by 60%.",
-      achievements: [
-        "Increased system performance by 45% through optimization and caching strategies",
-        "Mentored 5 junior developers, with 3 promoted to senior level",
-        "Led migration to cloud infrastructure, saving $150K annually",
-        "Implemented automated testing, reducing production bugs by 70%"
-      ],
-      tech: ["React", "Node.js", "AWS", "Docker", "PostgreSQL", "Kubernetes"],
+      title: "Junior Web developer",
+      company: "Powerlearn Project",
+      location: "Nairobi, Kenya",
+      period: "2023",
+      type: "Part-time",
+     description: "Participated in the PowerLearn Project program and successfully built a modern Learning Management System (LMS) with an intuitive UI, robust backend, and scalable architecture. The LMS supports course creation, student enrollment, progress tracking, and real-time assessments.",
+
+achievements: [
+  "Designed and developed a responsive and user-friendly interface using React and Tailwind CSS",
+  "Implemented secure authentication, role-based access, and real-time data updates",
+  "Optimized backend APIs for fast performance, reducing average response time by 40%",
+  "Integrated interactive features like quizzes, certificates, and progress dashboards to enhance user engagement"
+],
+
+      tech: ["React", "Node.js", "Epress.js","MongoDB","Git","Docker"],
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Full Stack Developer",
-      company: "Innovation Labs",
-      location: "Austin, TX",
-      period: "2020 - 2022",
-      type: "Full-time",
-      description: "Developed and maintained 20+ client projects using modern web technologies. Collaborated with design teams to create pixel-perfect user interfaces and built robust RESTful APIs with comprehensive documentation.",
-      achievements: [
-        "Delivered 25+ projects on time and under budget",
-        "Improved code coverage from 60% to 95% across all projects",
-        "Reduced average page load time by 40% through optimization",
-        "Built reusable component library used across 10+ projects"
-      ],
-      tech: ["React", "Vue.js", "Express.js", "MongoDB", "Jest", "Git"],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Frontend Developer",
-      company: "StartupXYZ",
-      location: "Remote",
-      period: "2019 - 2020",
-      type: "Contract",
-      description: "Built responsive web applications and landing pages for early-stage startup. Worked closely with founders to rapidly prototype and iterate on product features. Implemented analytics tracking and A/B testing frameworks.",
-      achievements: [
-        "Increased conversion rate by 35% through UX improvements",
-        "Built component library reducing development time by 50%",
-        "Implemented A/B testing framework improving decision making",
-        "Optimized SEO resulting in 200% increase in organic traffic"
-      ],
-      tech: ["JavaScript", "HTML5", "CSS3", "Bootstrap", "Google Analytics"],
-      color: "from-emerald-500 to-teal-500"
-    },
-    {
-      title: "Junior Web Developer",
-      company: "Digital Agency Pro",
-      location: "New York, NY",
-      period: "2018 - 2019",
-      type: "Full-time",
-      description: "Started my professional journey building websites for small businesses and startups. Gained experience in responsive design, cross-browser compatibility, and client communication. Contributed to team projects and learned industry best practices.",
-      achievements: [
-        "Built 15+ responsive websites for various clients",
-        "Learned modern development workflows and version control",
-        "Contributed to team's first React project migration",
-        "Received 'Rising Star' award for exceptional growth"
-      ],
-      tech: ["HTML", "CSS", "JavaScript", "jQuery", "WordPress", "PHP"],
-      color: "from-orange-500 to-red-500"
-    }
+  title: "Fullstack Developer",
+  company: "PowerLearn Project",
+  location: "Nairobi, Kenya",
+  period: "2024",
+  type: "Internship",
+  description: "Returned to the PowerLearn Project to enhance and scale the Learning Management System (LMS) built in the previous year. Focused on improving system performance, adding advanced features, and preparing the platform for wider adoption.",
+  achievements: [
+    "Upgraded backend architecture to handle 5× more concurrent users without performance loss",
+    "Implemented advanced analytics dashboards for instructors and administrators",
+    "Integrated video streaming and file management for course content",
+    "Added multilingual support, enabling use across multiple African countries",
+    "Deployed LMS to cloud infrastructure with CI/CD pipelines for faster updates"
+  ],
+  tech: ["React", "Node.js", "Express.js", "MongoDB", "Docker", "Clerk auth","GitHub Actions"],
+  color: "from-indigo-500 to-purple-500"
+},
+
+    
   ];
 
   return (
