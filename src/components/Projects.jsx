@@ -4,6 +4,8 @@ import ProjectImage1 from '../assets/Screenshot 2025-07-08 163956.png';
 import ProjectImage3 from '../assets/Screenshot 2025-08-11 155008.png';
 import ProjectImage5 from '../assets/Screenshot 2025-08-11 154917.png';
 import ProjectImage6 from '../assets/Screenshot 2025-08-11 154335.png';
+import ProjectImage2 from '../assets/Screenshot 2025-08-28 134703.png';
+import ProjectImage4 from '../assets/Screenshot 2025-08-28 140855.png';
 
 
 const projects = [
@@ -38,24 +40,32 @@ const projects = [
 
 
   {
-    id: 2,
-    name: "Interactive Blog Platform",
-    shortDesc: "Modern blogging platform with rich text editor",
-    fullDescription: "A dynamic blog application featuring rich text editing, comment system, user authentication, and social sharing. Built with React and Firebase, offering real-time collaboration and markdown support with custom themes.",
-    technologies: ["React", "Firebase", "Tailwind CSS", "Markdown", "Firestore"],
-    image: "https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?w=600&h=400&fit=crop",
-    github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store",
-    demo: "https://blog-platform-demo.com",
-    status: "In Progress",
-    duration: "2 months",
-    teamSize: "2 developers",
-    category: "Frontend",
-    year: "2024",
-    highlights: ["Rich Text Editor", "Real-time Comments", "Social Sharing", "Custom Themes"],
-    accentColor: "from-blue-400 to-teal-400",
-    challenges: "Implementing a custom rich text editor with collaborative features",
-    learnings: "Mastered Firebase real-time database and complex state management"
-  },
+  id: 2,
+  name: "E-Shop",
+  shortDesc: "Full-featured online store with cart, checkout, and admin dashboard",
+  fullDescription: "A modern e-commerce platform with product browsing, search, filtering, cart management, checkout, order tracking, and an admin dashboard. Built with React, Express, MongoDB, and Stripe for payments. Features user authentication, role-based access, and responsive UI with Tailwind CSS.",
+  technologies: ["React", "Express", "MongoDB", "Node.js", "Tailwind CSS", "M-pesa", "JWT","Cloudinary" ,"Brevo"],
+  image: ProjectImage2,
+  github: "https://github.com/LlaryBett/E-Shop",
+  demo: "https://e-shop-pwxx.vercel.app/",
+  status: "In Progress",
+  duration: "2+ months",
+  teamSize: "Solo",
+  category: "Fullstack",
+  year: "2025",
+  highlights: [
+    "Product Catalog with Categories & Brands",
+    "Cart & Checkout Flow",
+    "Secure JWT Authentication",
+    "M-Pesa Payment Integration",
+    "Admin Dashboard for Orders, Products, and Users",
+    "Coupon & Review System"
+  ],
+  accentColor: "from-blue-400 to-teal-400",
+  challenges: "Implementing secure checkout flow and syncing cart across frontend & backend",
+  learnings: "Deepened knowledge of full-stack development, JWT authentication, and integrating payments with Stripe"
+}
+,
   {
   id: 3,
   name: "Eduford University Portal",
@@ -82,24 +92,25 @@ const projects = [
 }
 ,
   {
-    id: 4,
-    name: "Real-time Chat Application",
-    shortDesc: "WebSocket-based messaging platform",
-    fullDescription: "A real-time messaging application with group chats, file sharing, and voice messages. Built with Socket.io for real-time communication, featuring end-to-end encryption and media sharing capabilities.",
-    technologies: ["React", "Socket.io", "Node.js", "Redis", "AWS S3"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    github: "https://github.com/YouafKhan1/chat-app",
-    demo: "https://chat-app-demo.com",
-    status: "Completed",
-    duration: "2 months",
-    teamSize: "Solo Project",
-    category: "Full-Stack",
-    year: "2024",
-    highlights: ["Real-time Messaging", "File Sharing", "Voice Messages", "Group Chats"],
-    accentColor: "from-green-400 to-blue-500",
-    challenges: "Implementing efficient real-time communication with scalable architecture",
-    learnings: "WebSocket protocols and real-time data synchronization"
-  },
+  id: 4,
+  name: "AI++ Pair Programming",
+  shortDesc: "AI-assisted real-time coding companion",
+  fullDescription: "An intelligent coding assistant that integrates seamlessly with a collaborative editor. It provides AI-powered code suggestions, debugging support, and context-aware explanations. Built with React, Node.js, and Socket.io, featuring real-time collaboration, role-based permissions, and AI-assisted fixes.",
+  technologies: ["React", "Node.js", "Socket.io", "Firebase", "Grok Lamma API", "Monaco Editor"],
+  image: ProjectImage4,
+  github: "https://github.com/LlaryBett/AI-Pair-Programming-Application",
+  demo: "https://ai-pair-programming-application.vercel.app/",
+  status: "Completed",
+  duration: "1 month",
+  teamSize: "Solo Project",
+  category: "Full-Stack / AI",
+  year: "2025",
+  highlights: ["Real-time Collaboration", "AI Code Suggestions", "Error Detection & Fixes", "Role-based Permissions"],
+  accentColor: "from-purple-500 to-indigo-500",
+  challenges: "Integrating real-time collaboration with AI-driven suggestions without latency issues",
+  learnings: "Deep understanding of collaborative systems, AI API integration, and scalable real-time architectures"
+}
+,
   {
     id: 5,
     name: "E-commerce Dashboard",

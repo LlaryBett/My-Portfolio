@@ -356,11 +356,11 @@ achievements: [
                         />
                       ))}
                     </div>
-                    <span className="text-gray-300 text-xs sm:text-sm">Career Journey</span>
+                    <span className="text-gray-300 text-xs sm:text-sm">Journey</span>
                   </div>
                   <div className="text-white font-semibold">
                     <span className="text-xl sm:text-2xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                      {new Date().getFullYear() - 2018}+
+                      {new Date().getFullYear() - 2023}+
                     </span>
                     <span className="text-gray-400 text-xs sm:text-sm ml-1">years</span>
                   </div>

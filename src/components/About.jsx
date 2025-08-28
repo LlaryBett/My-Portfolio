@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Globe, Zap, Award, Coffee, Lightbulb, GraduationCap, BookOpen, Calendar, Star, Trophy, Target } from 'lucide-react';
+import { Code, Database, Globe, Zap, Award,  Lightbulb, GraduationCap,  Trophy, Target,Smile } from 'lucide-react';
 
 const About = () => {
   const ref = React.useRef(null);
@@ -46,11 +46,11 @@ const About = () => {
     },
   };
 
-  const stats = [
-    { number: "2+", label: "Years Experience", icon: Award },
-    { number: "5+", label: "Projects Completed", icon: Code },
-    { number: "∞", label: "Cups of Coffee", icon: Coffee },
-  ];
+ const stats = [
+  { number: "2+", label: "Years Experience", icon: Award },
+  { number: "5+", label: "Projects Completed", icon: Code },
+  { number: "100%", label: "Client Satisfaction", icon: Smile },
+ ]
 
   const highlights = [
     {
@@ -156,15 +156,18 @@ const About = () => {
                     real-world problems and deliver exceptional user experiences.
                   </p>
                   <p>
-                    With over 2 years of hands-on experience, I've had the privilege of working on various projects, 
-                    helping transform ideas into successful digital products. I specialize in full-stack development 
-                    with a focus on modern JavaScript frameworks, database design, and performance optimization.
-                  </p>
-                  <p>
-                    When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
-                    projects, or mentoring aspiring developers. I believe in continuous learning and staying 
-                    at the forefront of technological innovation.
-                  </p>
+  With over 2 years of hands-on experience, I&apos;ve had the privilege of working on 
+  various projects, helping transform ideas into successful digital products. I 
+  specialize in full-stack development with a focus on modern JavaScript frameworks, 
+  database design, and performance optimization.
+</p>
+
+<p>
+  When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing 
+  to open-source projects, or mentoring aspiring developers. I believe in continuous 
+  learning and staying at the forefront of technological innovation.
+</p>
+
                 </div>
               </div>
 
