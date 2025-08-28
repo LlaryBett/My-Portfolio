@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Github, ExternalLink, Calendar, Users, Code, X, Folder } from 'lucide-react';
 import ProjectImage1 from '../assets/Screenshot 2025-07-08 163956.png';
+import ProjectImage3 from '../assets/Screenshot 2025-08-11 155008.png';
+import ProjectImage5 from '../assets/Screenshot 2025-08-11 154917.png';
+import ProjectImage6 from '../assets/Screenshot 2025-08-11 154335.png';
 
 
 const projects = [
@@ -108,8 +111,8 @@ const projects = [
     github: "https://github.com/LlaryBett/Smart-Inventory-Application",
     demo: "https://smart-inventory-application.vercel.app/",
     status: "Completed",
-    duration: "3 months",
-    teamSize: "4 developers",
+    duration: "1 month",
+    teamSize: "Solo Project",
     category: "Full-Stack",
     year: "2023",
     highlights: ["Data Visualization", "Real-time Updates", "Export Features", "Inventory Management"],
@@ -123,7 +126,7 @@ const projects = [
   shortDesc: "AI-powered tool for removing image backgrounds instantly",
   fullDescription: "An advanced background removal web application that uses AI and computer vision to detect and remove image backgrounds in seconds. Supports drag-and-drop uploads, batch processing, and high-resolution downloads. Includes features for replacing backgrounds with solid colors, gradients, or custom images.",
   technologies: ["React", "Tailwind CSS", "Node.js", "Express", "TensorFlow.js", "Cloudinary API"],
-  image: ProjectImage1, // Use the imported variable here
+  image: ProjectImage6,
   github: "https://github.com/LlaryBett/Image-Background-removal-Application",
   demo: "https://image-background-removal-application.vercel.app/",
   status: "Completed",
