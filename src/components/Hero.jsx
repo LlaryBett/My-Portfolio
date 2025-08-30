@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Mail, Phone } from 'lucide-react'; // Using Phone as WhatsApp icon
-import HeroImage from '../assets/hero-image.png';
+import HeroImage from '../assets/hero.jpg';
 
 
 const Hero = () => {
@@ -121,13 +121,17 @@ const Hero = () => {
             >
               View My Work
             </motion.button>
-            <motion.button
-              className="px-6 sm:px-8 py-2.5 sm:py-3 border border-gray-600 text-gray-300 rounded-full font-medium hover:border-gray-500 hover:text-white transition-colors duration-300 text-sm sm:text-base"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Download CV
-            </motion.button>
+           <motion.a
+  href="/HillaryResume.pdf"   // points to public/HillaryResume.pdf
+  download="Hillary_Bett_Resume.pdf"
+  className="px-6 sm:px-8 py-2.5 sm:py-3 border border-gray-600 text-gray-300 rounded-full font-medium hover:border-gray-500 hover:text-white transition-colors duration-300 text-sm sm:text-base"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  Download Resume
+</motion.a>
+
+
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex justify-center md:justify-start space-x-4 sm:space-x-6 pt-4 sm:pt-6">

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Github, ExternalLink, Calendar, Users, Code, X, Folder } from 'lucide-react';
-import ProjectImage1 from '../assets/Screenshot 2025-07-08 163956.png';
+import ProjectImage1 from '../assets/Screenshot 2025-08-28 212920.png';
 import ProjectImage3 from '../assets/Screenshot 2025-08-11 155008.png';
 import ProjectImage5 from '../assets/Screenshot 2025-08-11 154917.png';
 import ProjectImage6 from '../assets/Screenshot 2025-08-11 154335.png';
@@ -12,30 +12,31 @@ const projects = [
 
    {
   id: 1,
-  name: "Freshmart Grocery Store System",
-  shortDesc: "Full-stack e-commerce application for online grocery shopping",
+  name: "Automated Public Service Vehicle Booking System",
+  shortDesc: "A full-stack MERN application for online PSV seat booking and management",
   fullDescription:
-    "A feature-rich grocery store management system built with the MERN stack. Customers can browse products, search by categories, add items to the cart, and place orders securely. The admin dashboard allows inventory management, order tracking, and coupon management. Implements secure JWT authentication, role-based access, and RESTful APIs, with integrated payment and responsive UI for seamless shopping experiences.",
-  technologies: ["MongoDB", "Mongoose", "Express.js", "React", "Node.js", "JWT", "Stripe", "Tailwind CSS"],
+    "An advanced booking platform for public service vehicles (PSVs) built with the MERN stack. Passengers can browse available vehicles, view routes, select seats, and make secure bookings. The system includes real-time seat availability tracking, booking history, and automated notifications. The admin dashboard allows fleet management, route scheduling, fare management, and role-based access. Implements secure JWT authentication, RESTful APIs, integrated payments, and a responsive UI for a smooth travel experience.",
+  technologies: ["React", "TypeScript", "Redux Toolkit", "Redux Persist"],
   image: ProjectImage1, // <-- use the imported variable here
-  github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store",
-  demo: "https://full-stack-freshmart-grocery-store.vercel.app/",
+  github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store", // update this if PSV project has its own repo
+  demo: "https://blue-tree-08931290f.6.azurestaticapps.net/", // update this if deployed differently
   status: "Completed",
-  duration: "1 month",
-  teamSize: "Solo Project",
+  duration: "3 months",
+  teamSize: "5 Developers",
   category: "Full-Stack",
-  year: "2024",
+  year: "2025",
   highlights: [
     "Secure JWT Authentication",
-    "Role-based Access Control",
-    "Inventory & Order Management",
-    "Coupon & Discount System",
-    "Integrated Stripe Payments"
+    "Real-time Seat Availability",
+    "Route & Fleet Management",
+    "Fare Calculation & Online Payments",
+    "Role-based Access Control"
   ],
-  accentColor: "from-green-500 to-lime-500",
-  challenges: "Implementing secure payments, managing real-time inventory updates, and creating a user-friendly responsive UI",
-  learnings: "Gained expertise in e-commerce workflows, payment gateway integration, and scalable full-stack application design"
-},
+  accentColor: "from-blue-500 to-indigo-500",
+  challenges: "Implementing real-time seat availability updates, handling concurrent bookings, and integrating secure payments",
+  learnings: "Enhanced knowledge in real-time data handling, scalable booking workflows, and payment system integration"
+}
+,
 
 
 
@@ -46,9 +47,9 @@ const projects = [
   fullDescription: "A modern e-commerce platform with product browsing, search, filtering, cart management, checkout, order tracking, and an admin dashboard. Built with React, Express, MongoDB, and Stripe for payments. Features user authentication, role-based access, and responsive UI with Tailwind CSS.",
   technologies: ["React", "Express", "MongoDB", "Node.js", "Tailwind CSS", "M-pesa", "JWT","Cloudinary" ,"Brevo"],
   image: ProjectImage2,
-  github: "https://github.com/LlaryBett/E-Shop",
+  github: "https://github.com/LlaryBett/Automated-PSV-Booking-System",
   demo: "https://e-shop-pwxx.vercel.app/",
-  status: "In Progress",
+  status: "Completed",
   duration: "2+ months",
   teamSize: "Solo",
   category: "Fullstack",
