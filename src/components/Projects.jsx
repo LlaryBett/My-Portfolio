@@ -18,7 +18,7 @@ const projects = [
     "An advanced booking platform for public service vehicles (PSVs) built with the MERN stack. Passengers can browse available vehicles, view routes, select seats, and make secure bookings. The system includes real-time seat availability tracking, booking history, and automated notifications. The admin dashboard allows fleet management, route scheduling, fare management, and role-based access. Implements secure JWT authentication, RESTful APIs, integrated payments, and a responsive UI for a smooth travel experience.",
   technologies: ["React", "TypeScript", "Redux Toolkit", "Redux Persist"],
   image: ProjectImage1, // <-- use the imported variable here
-  github: "https://github.com/LlaryBett/Full-Stack-Freshmart-Grocery-Store", // update this if PSV project has its own repo
+  github: "https://github.com/LlaryBett/Automated-PSV-Booking-System", // update this if PSV project has its own repo
   demo: "https://blue-tree-08931290f.6.azurestaticapps.net/", // update this if deployed differently
   status: "Completed",
   duration: "3 months",
@@ -47,7 +47,7 @@ const projects = [
   fullDescription: "A modern e-commerce platform with product browsing, search, filtering, cart management, checkout, order tracking, and an admin dashboard. Built with React, Express, MongoDB, and Stripe for payments. Features user authentication, role-based access, and responsive UI with Tailwind CSS.",
   technologies: ["React", "Express", "MongoDB", "Node.js", "Tailwind CSS", "M-pesa", "JWT","Cloudinary" ,"Brevo"],
   image: ProjectImage2,
-  github: "https://github.com/LlaryBett/Automated-PSV-Booking-System",
+  github: "https://github.com/LlaryBett/E-Shop",
   demo: "https://e-shop-pwxx.vercel.app/",
   status: "Completed",
   duration: "2+ months",
