@@ -85,7 +85,7 @@ const About = () => {
       school: "Kirinyaga University",
       year: "2021 - 2025",
       description: "Specialized in Software Engineering with focus on algorithms, data structures, and system design.",
-      achievements: ["Dean's List", "Outstanding Project Award", "3.8/4.0 GPA"]
+      achievements: [  "Developed and deployed multiple full-stack applications, including an Automated PSV Booking System","Built an open-source project adopted by peers or faculty"]
     },
     {
       degree: "Secondary Education Certificate",
@@ -100,9 +100,11 @@ const About = () => {
   ];
 
   const certifications = [
-    { name: "PowerLearn Project Certification", year: "2023", icon: Globe },
-    { name: "PowerLearn Project Certification", year: "2024", icon: Globe }
-  ];
+  { name: "PowerLearn Project Certification", year: "2023", icon: Globe },
+  { name: "PowerLearn Project Certification", year: "2024", icon: Globe },
+  { name: "Race to Certification: Oracle Cloud Infrastructure Foundations", year: "2025", icon: Globe }
+];
+
 
   return (
     <section id="about" className="py-12 sm:py-16 lg:py-20 xl:py-28 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">

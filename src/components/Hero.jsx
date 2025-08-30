@@ -6,7 +6,7 @@ import HeroImage from '../assets/hero.jpg';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
-  const fullText = "Full Stack Developer";
+  const fullText = "FullStack Developer";
 
   useEffect(() => {
     
