@@ -137,7 +137,7 @@ const Hero = () => {
           <motion.div variants={itemVariants} className="flex justify-center md:justify-start space-x-4 sm:space-x-6 pt-4 sm:pt-6">
             {[
               { Icon: Github, href: "https://github.com/LlaryBett", label: "GitHub" },
-              { Icon: Linkedin, href: "#", label: "LinkedIn" },
+              { Icon: Linkedin, href: "www.linkedin.com/in/hillary-bett-390735381", label: "LinkedIn" },
               { Icon: Mail, href: "mailto:bettllary672@gmail.com", label: "Email" },
               { Icon: Phone, href: "https://wa.me/254716360768", label: "WhatsApp" } // Added WhatsApp
             ].map(({ Icon, href, label }) => (
