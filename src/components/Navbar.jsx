@@ -56,7 +56,7 @@ const Navbar = () => {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen])
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when  and mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
