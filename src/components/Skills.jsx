@@ -1,8 +1,48 @@
 import React from 'react';
 import { 
-  Code, Server, Database, Cloud, Smartphone, Palette,
-  MapPin, Calendar, Award, TrendingUp
-} from 'lucide-react';
+  FaCode, 
+  FaServer, 
+  FaDatabase, 
+  FaCloud, 
+  FaMobile, 
+  FaPalette,
+  FaReact,
+  FaNodeJs,
+  FaDocker,
+  FaAws,
+  FaGit,
+  FaFigma,
+  FaPython,
+  FaFire,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaAward,
+  FaChartLine,
+  FaHtml5,
+  FaBootstrap
+} from 'react-icons/fa';
+import { 
+  SiTypescript, 
+  SiNextdotjs, 
+  SiTailwindcss,
+  SiExpress,
+  SiPostgresql,
+  SiMongodb,
+  SiMysql,
+  SiPrisma,
+  SiKubernetes,
+  SiVercel,
+  SiGithubactions,
+  SiTerraform,
+  SiExpo,
+  SiFlutter,
+  SiPwa,
+  SiPostman,
+  SiJest
+} from 'react-icons/si';
+import { 
+  GiProgression 
+} from 'react-icons/gi';
 
 const Skills = () => {
   const skillsRef = React.useRef(null);
@@ -11,86 +51,76 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Frontend Development",
-      icon: Code,
+      icon: FaCode,
       color: "from-blue-500 to-cyan-500",
       skills: [
-         { name: "React", level: 95, icon: "⚛️" },
-  { name: "TypeScript", level: 92, icon: "🔷" },
-  { name: "Next.js", level: 88, icon: "▲" },
-
-  // added HTML
-  { name: "HTML", level: 99, icon: "🌐" },
-
-  { name: "Tailwind CSS", level: 94, icon: "🎨" },
-  { name: "Framer Motion", level: 87, icon: "🎭" },
-
-  // added Bootstrap
-  { name: "Bootstrap", level: 90, icon: "🅱️" },
+        { name: "React", level: 95, icon: FaReact },
+        { name: "TypeScript", level: 92, icon: SiTypescript },
+        { name: "Next.js", level: 88, icon: SiNextdotjs },
+        { name: "HTML", level: 99, icon: FaHtml5 },
+        { name: "Tailwind CSS", level: 94, icon: SiTailwindcss },
+        { name: "Framer Motion", level: 87, icon: GiProgression },
+        { name: "Bootstrap", level: 90, icon: FaBootstrap },
       ]
     },
     {
       title: "Backend Development",
-      icon: Server,
+      icon: FaServer,
       color: "from-emerald-500 to-teal-500",
       skills: [
-        { name: "Node.js", level: 93, icon: "🟢" },
-        { name: "Express.js", level: 90, icon: "🚀" },
-        { name: "Python", level: 85, icon: "🐍" },
-       
-        { name: "REST APIs", level: 95, icon: "🌐" },
-        { name: "Microservices", level: 80, icon: "🔧" },
+        { name: "Node.js", level: 93, icon: FaNodeJs },
+        { name: "Express.js", level: 90, icon: SiExpress },
+        { name: "Python", level: 85, icon: FaPython },
+        { name: "REST APIs", level: 95, icon: FaCloud },
+        { name: "Microservices", level: 80, icon: GiProgression },
       ]
     },
     {
       title: "Database & Storage",
-      icon: Database,
+      icon: FaDatabase,
       color: "from-purple-500 to-pink-500",
       skills: [
-        { name: "PostgreSQL", level: 90, icon: "🐘" },
-        { name: "MongoDB", level: 88, icon: "🍃" },
-        { name: "MySQL", level: 85, icon: "🐬" },
-      
-        { name: "Firebase", level: 82, icon: "🔥" },
-        { name: "Prisma", level: 87, icon: "💎" },
-       
+        { name: "PostgreSQL", level: 90, icon: SiPostgresql },
+        { name: "MongoDB", level: 88, icon: SiMongodb },
+        { name: "MySQL", level: 85, icon: SiMysql },
+        { name: "Firebase", level: 82, icon: FaFire },
+        { name: "Prisma", level: 87, icon: SiPrisma },
       ]
     },
     {
       title: "Cloud & DevOps",
-      icon: Cloud,
+      icon: FaCloud,
       color: "from-orange-500 to-red-500",
       skills: [
-        { name: "AWS", level: 85, icon: "☁️" },
-        { name: "Docker", level: 88, icon: "🐳" },
-        { name: "Kubernetes", level: 75, icon: "⚙️" },
-        { name: "Vercel", level: 92, icon: "▲" },
-        { name: "GitHub Actions", level: 87, icon: "🔄" },
-        { name: "Terraform", level: 78, icon: "🏗️" },
+        { name: "AWS", level: 85, icon: FaAws },
+        { name: "Docker", level: 88, icon: FaDocker },
+        { name: "Kubernetes", level: 75, icon: SiKubernetes },
+        { name: "Vercel", level: 92, icon: SiVercel },
+        { name: "GitHub Actions", level: 87, icon: SiGithubactions },
+        { name: "Terraform", level: 78, icon: SiTerraform },
       ]
     },
     {
       title: "Mobile Development",
-      icon: Smartphone,
+      icon: FaMobile,
       color: "from-indigo-500 to-purple-500",
       skills: [
-        { name: "React Native", level: 85, icon: "📱" },
-        { name: "Expo", level: 88, icon: "🚀" },
-        { name: "Flutter", level: 75, icon: "🦋" },
-        { name: "PWA", level: 90, icon: "📲" },
-      
+        { name: "React Native", level: 85, icon: FaReact },
+        { name: "Expo", level: 88, icon: SiExpo },
+        { name: "Flutter", level: 75, icon: SiFlutter },
+        { name: "PWA", level: 90, icon: SiPwa },
       ]
     },
     {
       title: "Design & Tools",
-      icon: Palette,
+      icon: FaPalette,
       color: "from-pink-500 to-rose-500",
       skills: [
-        { name: "Figma", level: 85, icon: "🎨" },
-       
-        { name: "Git", level: 95, icon: "📝" },
-        { name: "VS Code", level: 98, icon: "💻" },
-        { name: "Postman", level: 92, icon: "📮" },
-        { name: "Jest", level: 88, icon: "🧪" },
+        { name: "Figma", level: 85, icon: FaFigma },
+        { name: "Git", level: 95, icon: FaGit },
+        { name: "VS Code", level: 98, icon: FaCode },
+        { name: "Postman", level: 92, icon: SiPostman },
+        { name: "Jest", level: 88, icon: SiJest },
       ]
     }
   ];
@@ -102,37 +132,33 @@ const Skills = () => {
       location: "Nairobi, Kenya",
       period: "2023",
       type: "Part-time",
-     description: "Participated in the PowerLearn Project program and successfully built a modern Learning Management System (LMS) with an intuitive UI, robust backend, and scalable architecture. The LMS supports course creation, student enrollment, progress tracking, and real-time assessments.",
-
-achievements: [
-  "Designed and developed a responsive and user-friendly interface using React and Tailwind CSS",
-  "Implemented secure authentication, role-based access, and real-time data updates",
-  "Optimized backend APIs for fast performance, reducing average response time by 40%",
-  "Integrated interactive features like quizzes, certificates, and progress dashboards to enhance user engagement"
-],
-
-      tech: ["React", "Node.js", "Epress.js","MongoDB","Git","Docker"],
+      description: "Participated in the PowerLearn Project program and successfully built a modern Learning Management System (LMS) with an intuitive UI, robust backend, and scalable architecture. The LMS supports course creation, student enrollment, progress tracking, and real-time assessments.",
+      achievements: [
+        "Designed and developed a responsive and user-friendly interface using React and Tailwind CSS",
+        "Implemented secure authentication, role-based access, and real-time data updates",
+        "Optimized backend APIs for fast performance, reducing average response time by 40%",
+        "Integrated interactive features like quizzes, certificates, and progress dashboards to enhance user engagement"
+      ],
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "Git", "Docker"],
       color: "from-blue-500 to-cyan-500"
     },
     {
-  title: "Fullstack Developer",
-  company: "PowerLearn Project",
-  location: "Nairobi, Kenya",
-  period: "2024",
-  type: "Internship",
-  description: "Returned to the PowerLearn Project to enhance and scale the Learning Management System (LMS) built in the previous year. Focused on improving system performance, adding advanced features, and preparing the platform for wider adoption.",
-  achievements: [
-    "Upgraded backend architecture to handle 5× more concurrent users without performance loss",
-    "Implemented advanced analytics dashboards for instructors and administrators",
-    "Integrated video streaming and file management for course content",
-    "Added multilingual support, enabling use across multiple African countries",
-    "Deployed LMS to cloud infrastructure with CI/CD pipelines for faster updates"
-  ],
-  tech: ["React", "Node.js", "Express.js", "MongoDB", "Docker", "Clerk auth","GitHub Actions"],
-  color: "from-indigo-500 to-purple-500"
-},
-
-    
+      title: "Fullstack Developer",
+      company: "PowerLearn Project",
+      location: "Nairobi, Kenya",
+      period: "2024",
+      type: "Internship",
+      description: "Returned to the PowerLearn Project to enhance and scale the Learning Management System (LMS) built in the previous year. Focused on improving system performance, adding advanced features, and preparing the platform for wider adoption.",
+      achievements: [
+        "Upgraded backend architecture to handle 5× more concurrent users without performance loss",
+        "Implemented advanced analytics dashboards for instructors and administrators",
+        "Integrated video streaming and file management for course content",
+        "Added multilingual support, enabling use across multiple African countries",
+        "Deployed LMS to cloud infrastructure with CI/CD pipelines for faster updates"
+      ],
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "Docker", "Clerk auth", "GitHub Actions"],
+      color: "from-indigo-500 to-purple-500"
+    },
   ];
 
   return (
@@ -148,15 +174,15 @@ achievements: [
             {/* Section Header */}
             <div className="text-center mb-8 sm:mb-12 lg:mb-16">
               <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-purple-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer">
-                <Code className="mr-1 sm:mr-2" size={14} />
+                <FaCode className="mr-1 sm:mr-2" size={14} />
                 Technical Skills
               </div>
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-4 sm:mb-6 px-2">
-  My{' '}
-  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
-    Expertise
-  </span>
-</h2>
+                My{' '}
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+                  Expertise
+                </span>
+              </h2>
 
               <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
                 A comprehensive toolkit for building modern, scalable, and performant applications
@@ -184,7 +210,9 @@ achievements: [
                         
                         {/* Content */}
                         <div className="flex items-center space-x-1.5 sm:space-x-2 relative z-10">
-                          <span className="text-sm sm:text-lg">{skill.icon}</span>
+                          <span className="text-sm sm:text-lg">
+                            {React.createElement(skill.icon, { size: 16 })}
+                          </span>
                           <span className="text-white font-medium text-xs sm:text-sm">
                             {skill.name}
                           </span>
@@ -246,7 +274,7 @@ achievements: [
             {/* Section Header */}
             <div className="text-center mb-8 sm:mb-12 lg:mb-16">
               <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-orange-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 hover:scale-105 transition-transform duration-300 cursor-pointer">
-                <TrendingUp className="mr-1 sm:mr-2" size={14} />
+                <FaChartLine className="mr-1 sm:mr-2" size={14} />
                 Career Journey
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
@@ -285,11 +313,11 @@ achievements: [
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-center text-gray-400 text-xs sm:text-sm space-y-1 sm:space-y-0 sm:space-x-4">
                         <div className="flex items-center">
-                          <MapPin size={12} className="mr-1 flex-shrink-0" />
+                          <FaMapMarkerAlt size={12} className="mr-1 flex-shrink-0" />
                           <span className="truncate">{exp.location}</span>
                         </div>
                         <div className="flex items-center">
-                          <Calendar size={12} className="mr-1 flex-shrink-0" />
+                          <FaCalendarAlt size={12} className="mr-1 flex-shrink-0" />
                           <span>{exp.period}</span>
                         </div>
                       </div>
@@ -303,7 +331,7 @@ achievements: [
                     {/* Key Highlights - Compact */}
                     <div className="mb-3 sm:mb-4">
                       <h5 className="text-white font-semibold mb-2 flex items-center text-xs sm:text-sm">
-                        <Award className="mr-1 sm:mr-2 text-yellow-400 flex-shrink-0" size={14} />
+                        <FaAward className="mr-1 sm:mr-2 text-yellow-400 flex-shrink-0" size={14} />
                         Key Highlights
                       </h5>
                       <div className="grid grid-cols-1 gap-1 text-xs">
@@ -322,7 +350,7 @@ achievements: [
                     {/* Tech Stack - Compact */}
                     <div>
                       <h5 className="text-white font-semibold mb-2 flex items-center text-xs sm:text-sm">
-                        <Code className="mr-1 sm:mr-2 text-blue-400 flex-shrink-0" size={14} />
+                        <FaCode className="mr-1 sm:mr-2 text-blue-400 flex-shrink-0" size={14} />
                         Tech Stack
                       </h5>
                       <div className="flex flex-wrap gap-1">
