@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaMapMarkedAlt, FaPhone } from 'react-icons/fa'
 import  { useState } from 'react'
+// 
 
 const Contact = () => {
   // Animation variants

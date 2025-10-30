@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Globe, Zap, Award,  Lightbulb, GraduationCap,  Trophy, Target,Smile } from 'lucide-react';
-
+// 
 const About = () => {
   const ref = React.useRef(null);
   const [isInView, setIsInView] = React.useState(false);
