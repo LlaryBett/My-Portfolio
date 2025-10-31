@@ -179,7 +179,7 @@ const Projects = () => {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
               My{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="text-white">
                 Projects
               </span>
             </h2>
@@ -292,7 +292,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex-1 flex items-center justify-center px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r ${project.accentColor} text-white text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105`}
+                    className="flex-1 flex items-center justify-center px-3 sm:px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <Github className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4" /> Code
@@ -316,13 +316,13 @@ const Projects = () => {
 
           {/* Project Portfolio Summary */}
           <div className="mt-6 sm:mt-8 text-center px-2">
-            <div className="inline-flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 p-4 sm:p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10">
+            <div className="inline-flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/10">
               <div className="flex items-center space-x-2">
                 <div className="flex space-x-1">
                   {projects.map((project, index) => (
                     <div
                       key={index}
-                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r ${project.accentColor} animate-pulse`}
+                      className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-blue-500 animate-pulse"
                       style={{ animationDelay: `${index * 0.2}s` }}
                     />
                   ))}
@@ -330,7 +330,7 @@ const Projects = () => {
                 <span className="text-gray-300 text-xs sm:text-sm">Project Portfolio</span>
               </div>
               <div className="text-white font-semibold">
-                <span className="text-xl sm:text-2xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-xl sm:text-2xl text-white">
                   {projects.length}+
                 </span>
                 <span className="text-gray-400 text-xs sm:text-sm ml-1">projects</span>

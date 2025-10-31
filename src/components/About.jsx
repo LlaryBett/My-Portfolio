@@ -1,7 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Globe, Zap, Award,  Lightbulb, GraduationCap,  Trophy, Target,Smile } from 'lucide-react';
-// 
+import { 
+  FaCode, 
+  FaDatabase, 
+  FaGlobe, 
+  FaBolt, 
+  FaAward, 
+  FaLightbulb, 
+  FaGraduationCap, 
+  FaTrophy, 
+  FaBullseye, 
+  FaSmile,
+  FaLaptopCode,
+  FaRocket,
+  FaUserTie
+} from 'react-icons/fa';
+
 const About = () => {
   const ref = React.useRef(null);
   const [isInView, setIsInView] = React.useState(false);
@@ -46,36 +60,36 @@ const About = () => {
     },
   };
 
- const stats = [
-  { number: "2+", label: "Years Experience", icon: Award },
-  { number: "5+", label: "Projects Completed", icon: Code },
-  { number: "100%", label: "Client Satisfaction", icon: Smile },
- ]
+  const stats = [
+    { number: "2+", label: "Years Experience", icon: FaAward },
+    { number: "5+", label: "Projects Completed", icon: FaCode },
+    { number: "100%", label: "Client Satisfaction", icon: FaSmile },
+  ];
 
   const highlights = [
     {
-      icon: Code,
-      title: "Clean Code Advocate",
-      description: "Writing maintainable, scalable, and well-documented code that stands the test of time. Following SOLID principles and best practices.",
-      gradient: "from-blue-500 to-cyan-500"
+      icon: FaCode,
+      title: "Clean Code Focus",
+      description: "Writing maintainable, scalable code with clear documentation. Strong believer in practical solutions over over-engineering.",
+      gradient: "from-blue-500 to-blue-600"
     },
     {
-      icon: Database,
-      title: "Database Architect",
-      description: "Designing efficient database schemas and optimizing queries for peak performance. Experience with SQL and NoSQL databases.",
-      gradient: "from-purple-500 to-pink-500"
+      icon: FaDatabase,
+      title: "Database Design",
+      description: "Building efficient data models and optimizing queries. Comfortable with both relational and document databases.",
+      gradient: "from-purple-600 to-purple-700"
     },
     {
-      icon: Globe,
-      title: "Full Stack Mastery",
-      description: "Seamlessly bridging frontend and backend development with modern technologies. End-to-end application development expertise.",
-      gradient: "from-emerald-500 to-teal-500"
+      icon: FaLaptopCode,
+      title: "Full Stack Development",
+      description: "Building complete applications from UI to deployment. Focus on creating cohesive user experiences across the stack.",
+      gradient: "from-green-600 to-green-700"
     },
     {
-      icon: Zap,
-      title: "Performance Optimizer",
-      description: "Obsessed with creating lightning-fast applications that deliver exceptional user experiences. Web vitals and optimization expert.",
-      gradient: "from-yellow-500 to-orange-500"
+      icon: FaRocket,
+      title: "Performance & Optimization",
+      description: "Practical approach to performance - fixing real bottlenecks users notice. Focus on meaningful improvements.",
+      gradient: "from-orange-500 to-orange-600"
     },
   ];
 
@@ -85,13 +99,13 @@ const About = () => {
       school: "Kirinyaga University",
       year: "2021 - 2025",
       description: "Specialized in Software Engineering with focus on algorithms, data structures, and system design.",
-      achievements: [  "Developed and deployed multiple full-stack applications, including an Automated PSV Booking System","Built an open-source project adopted by peers or faculty"]
+      achievements: ["Developed and deployed multiple full-stack applications", "Built an open-source project adopted by peers"]
     },
     {
       degree: "Secondary Education Certificate",
       school: "Nakuru High School",
       year: "2017-2020",
-      description: "Completed the Kenya Certificate of Secondary Education (KCSE) with strong academic performance and active participation in school and community activities.",
+      description: "Completed the Kenya Certificate of Secondary Education (KCSE) with strong academic performance.",
       achievements: [
         "Developed foundational problem-solving skills",
         "Participated in various academic clubs",
@@ -100,11 +114,10 @@ const About = () => {
   ];
 
   const certifications = [
-  { name: "PowerLearn Project Certification", year: "2023", icon: Globe },
-  { name: "PowerLearn Project Certification", year: "2024", icon: Globe },
-  { name: "Race to Certification: Oracle Cloud Infrastructure Foundations", year: "2025", icon: Globe }
-];
-
+    { name: "PowerLearn Project Certification", year: "2023", icon: FaGlobe },
+    { name: "PowerLearn Project Certification", year: "2024", icon: FaGlobe },
+    { name: "Oracle Cloud Infrastructure Foundations", year: "2025", icon: FaGlobe }
+  ];
 
   return (
     <section id="about" className="py-12 sm:py-16 lg:py-20 xl:py-28 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
@@ -126,12 +139,12 @@ const About = () => {
               className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/20 rounded-full text-blue-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
               whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.3)" }}
             >
-              <Lightbulb className="mr-1 sm:mr-2" size={14} />
+              <FaLightbulb className="mr-1 sm:mr-2" size={14} />
               About Me
             </motion.div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2">
               Passionate About{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="text-white">
                 Innovation
               </span>
             </h2>
@@ -158,18 +171,16 @@ const About = () => {
                     real-world problems and deliver exceptional user experiences.
                   </p>
                   <p>
-  With over 2 years of hands-on experience, I&apos;ve had the privilege of working on 
-  various projects, helping transform ideas into successful digital products. I 
-  specialize in full-stack development with a focus on modern JavaScript frameworks, 
-  database design, and performance optimization.
-</p>
-
-<p>
-  When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing 
-  to open-source projects, or mentoring aspiring developers. I believe in continuous 
-  learning and staying at the forefront of technological innovation.
-</p>
-
+                    With over 2 years of hands-on experience, I've had the privilege of working on 
+                    various projects, helping transform ideas into successful digital products. I 
+                    specialize in full-stack development with a focus on modern JavaScript frameworks, 
+                    database design, and performance optimization.
+                  </p>
+                  <p>
+                    When I'm not coding, you'll find me exploring new technologies, contributing 
+                    to open-source projects, or mentoring aspiring developers. I believe in continuous 
+                    learning and staying at the forefront of technological innovation.
+                  </p>
                 </div>
               </div>
 
@@ -182,7 +193,7 @@ const About = () => {
               >
                 <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-xl p-6">
                   <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                    <Target className="mr-2 text-blue-400" size={18} />
+                    <FaBullseye className="mr-2 text-blue-400" size={18} />
                     Quick Facts
                   </h4>
                   <div className="space-y-3 text-sm">
@@ -211,7 +222,7 @@ const About = () => {
                   whileHover={{ scale: 1.02, borderColor: "rgba(255,255,255,0.2)" }}
                 >
                   <h4 className="text-base font-semibold text-white mb-2 flex items-center">
-                    <Target className="mr-2 text-purple-400" size={16} />
+                    <FaUserTie className="mr-2 text-purple-400" size={16} />
                     Philosophy
                   </h4>
                   <p className="text-sm text-gray-300 leading-relaxed">
@@ -234,12 +245,12 @@ const About = () => {
                   className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-emerald-400 text-sm font-medium mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <GraduationCap className="mr-2" size={16} />
+                  <FaGraduationCap className="mr-2" size={16} />
                   Education
                 </motion.div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
                   Academic{' '}
-                  <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                  <span className="text-white">
                     Foundation
                   </span>
                 </h3>
@@ -275,12 +286,12 @@ const About = () => {
                   className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-400 text-sm font-medium mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <Trophy className="mr-2" size={16} />
+                  <FaTrophy className="mr-2" size={16} />
                   Certifications
                 </motion.div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
                   Professional{' '}
-                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  <span className="text-white">
                     Growth
                   </span>
                 </h3>
@@ -317,7 +328,7 @@ const About = () => {
             <div className="text-center mb-8 sm:mb-10 lg:mb-12">
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 px-2">
                 Technical{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+                <span className="text-white">
                   Expertise
                 </span>
               </h3>
@@ -357,38 +368,37 @@ const About = () => {
           </motion.div>
 
           {/* Enhanced Stats Section - Updated to 3 columns */}
-         <motion.div
-  variants={itemVariants}
-  className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 lg:gap-8"
->
-  {stats.map((stat, index) => (
-    <motion.div
-      key={index}
-      className="flex items-center p-4 sm:p-6 lg:p-8 rounded-lg sm:rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/20 hover:from-white/10 hover:to-white/5 transition-all duration-300 group"
-      whileHover={{ scale: 1.05, y: -5 }}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
-    >
-      {/* Icon on the left */}
-      <stat.icon
-        className="text-blue-400 group-hover:text-blue-300 transition-colors flex-shrink-0"
-        size={28}
-      />
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 lg:gap-8"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center p-4 sm:p-6 lg:p-8 rounded-lg sm:rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/20 hover:from-white/10 hover:to-white/5 transition-all duration-300 group"
+                whileHover={{ scale: 1.05, y: -5 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+              >
+                {/* Icon on the left */}
+                <stat.icon
+                  className="text-blue-400 group-hover:text-blue-300 transition-colors flex-shrink-0"
+                  size={28}
+                />
 
-      {/* Text on the right */}
-      <div className="ml-4">
-        <div className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          {stat.number}
-        </div>
-        <div className="text-gray-400 font-medium text-xs sm:text-sm">
-          {stat.label}
-        </div>
-      </div>
-    </motion.div>
-  ))}
-</motion.div>
-
+                {/* Text on the right */}
+                <div className="ml-4">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-400 font-medium text-xs sm:text-sm">
+                    {stat.label}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

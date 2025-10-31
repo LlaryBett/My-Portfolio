@@ -79,8 +79,8 @@ const Contact = () => {
       "
     >
       {/* Background gradient - matching Hero */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-emerald-600/10" />
+      <div className="absolute inset-0 bg-gray-900">
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Animated background blobs - matching Hero */}
@@ -88,7 +88,7 @@ const Contact = () => {
         {[...Array(4)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-gradient-to-r from-blue-400/20 to-emerald-400/20 blur-xl"
+            className="absolute rounded-full bg-blue-400/20 blur-xl"
             style={{
               width: Math.random() * 300 + 150,
               height: Math.random() * 300 + 150,
@@ -127,7 +127,7 @@ const Contact = () => {
             </motion.div>
             <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
               Let&apos;s{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="text-white">
                 Connect
               </span>
             </h2>
@@ -258,7 +258,7 @@ const Contact = () => {
                   </motion.div>
                   
                   <motion.button 
-                    className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white w-full rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-shadow duration-300 text-sm sm:text-base"
+                    className="px-6 sm:px-8 py-2.5 sm:py-3 bg-blue-500 text-white w-full rounded-full font-medium hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm sm:text-base"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     type="submit"

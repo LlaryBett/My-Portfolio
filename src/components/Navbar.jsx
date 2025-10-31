@@ -1,5 +1,9 @@
-import  { useState, useEffect } from 'react'
-import { Home, User, Briefcase, FolderOpen, Mail, Menu, X } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { AiOutlineHome, AiOutlineUser, AiOutlineMail } from 'react-icons/ai'
+import { BiBriefcase } from 'react-icons/bi'
+import { FiFolder } from 'react-icons/fi'
+import { HiMenuAlt3 } from 'react-icons/hi'
+import { IoCloseOutline } from 'react-icons/io5'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -70,11 +74,11 @@ const Navbar = () => {
   }, [isOpen])
 
   const navItems = [
-    { href: "#home", icon: Home, label: "Home", section: "home" },
-    { href: "#about", icon: User, label: "About Me", section: "about" },
-    { href: "#skills-experience", icon: Briefcase, label: "Skills & Experince", section: "skills & Experince" },
-    { href: "#projects", icon: FolderOpen, label: "Projects", section: "project" },
-    { href: "#contact", icon: Mail, label: "Contact", section: "contact" }
+    { href: "#home", icon: AiOutlineHome, label: "Home", section: "home" },
+    { href: "#about", icon: AiOutlineUser, label: "About Me", section: "about" },
+    { href: "#skills-experience", icon: BiBriefcase, label: "Skills & Experince", section: "skills & Experince" },
+    { href: "#projects", icon: FiFolder, label: "Projects", section: "project" },
+    { href: "#contact", icon: AiOutlineMail, label: "Contact", section: "contact" }
   ]
 
   const handleNavClick = (e, href) => {
@@ -142,14 +146,12 @@ const Navbar = () => {
           </div>
           
           <button 
-            className='bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline
-            transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 px-4 py-2 rounded-full
-            relative overflow-hidden group'
+            className='bg-blue-500 text-white hidden md:inline
+            transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-600 px-4 py-2 rounded-full'
             aria-label="Connect with me"
             onClick={handleConnectMe}
           >
-            <span className="relative z-10">Connect Me</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span>Connect Me</span>
           </button>
           
           {/* Mobile Menu Button */}
@@ -161,13 +163,13 @@ const Navbar = () => {
             aria-controls="mobile-menu"
           >
             <div className="relative w-6 h-6">
-              <Menu 
+              <HiMenuAlt3 
                 size={24} 
                 className={`absolute transition-all duration-300 ${
                   isOpen ? 'rotate-180 opacity-0' : 'rotate-0 opacity-100'
                 }`} 
               />
-              <X 
+              <IoCloseOutline 
                 size={24} 
                 className={`absolute transition-all duration-300 ${
                   isOpen ? 'rotate-0 opacity-100' : 'rotate-180 opacity-0'
@@ -212,7 +214,7 @@ const Navbar = () => {
                 className='text-white hover:text-gray-400 transition-colors duration-300 p-2 rounded-lg hover:bg-gray-800'
                 aria-label="Close menu"
               >
-                <X size={24} />
+                <IoCloseOutline size={24} />
               </button>
             </div>
             
@@ -242,14 +244,12 @@ const Navbar = () => {
               ))}
               
               <button 
-                className='w-full bg-gradient-to-r from-green-400 to-blue-500 text-white
-                transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 px-4 py-3 rounded-full mt-8
-                relative overflow-hidden group'
+                className='w-full bg-blue-500 text-white
+                transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-600 px-4 py-3 rounded-full mt-8'
                 aria-label="Connect with me"
                 onClick={handleConnectMe}
               >
-                <span className="relative z-10">Connect Me</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span>Connect Me</span>
               </button>
             </nav>
           </div>
