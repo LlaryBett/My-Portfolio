@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AiOutlineHome, AiOutlineUser, AiOutlineMail } from 'react-icons/ai'
 import { BiBriefcase } from 'react-icons/bi'
 import { FiFolder } from 'react-icons/fi'
@@ -7,46 +8,18 @@ import { IoCloseOutline } from 'react-icons/io5'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [activeSection, setActiveSection] = useState('home')
+  const [activePage, setActivePage] = useState('/')
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
-  // Handle scroll progress and auto-close mobile menu
+  // Update active page based on current route
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate scroll progress
-      const scrollTop = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const progress = (scrollTop / docHeight) * 100
-      setScrollProgress(progress)
-
-      // Auto-close mobile menu on scroll
-      if (isOpen && scrollTop > 50) {
-        setIsOpen(false)
-      }
-
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'service', 'project', 'contact']
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
-        }
-        return false
-      })
-      
-      if (currentSection) {
-        setActiveSection(currentSection)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [isOpen])
+    setActivePage(location.pathname)
+  }, [location.pathname])
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -60,7 +33,7 @@ const Navbar = () => {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen])
 
-  // Prevent body scroll when  and mobile menu is open
+  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -74,80 +47,73 @@ const Navbar = () => {
   }, [isOpen])
 
   const navItems = [
-    { href: "#home", icon: AiOutlineHome, label: "Home", section: "home" },
-    { href: "#about", icon: AiOutlineUser, label: "About Me", section: "about" },
-    { href: "#skills-experience", icon: BiBriefcase, label: "Skills & Experince", section: "skills & Experince" },
-    { href: "#projects", icon: FiFolder, label: "Projects", section: "project" },
-    { href: "#contact", icon: AiOutlineMail, label: "Contact", section: "contact" }
+    { path: "/", icon: AiOutlineHome, label: "Home" },
+    { path: "/about", icon: AiOutlineUser, label: "About Me" },
+    { path: "/skills", icon: BiBriefcase, label: "Skills & Experience" },
+    { path: "/projects", icon: FiFolder, label: "Projects" },
+    { path: "/contact", icon: AiOutlineMail, label: "Contact" }
   ]
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault()
+  const handleNavClick = (path) => {
     setIsOpen(false)
-    
-    // Smooth scroll to section
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+    navigate(path)
   }
 
-  // Add a handler for Connect Me button
-  const handleConnectMe = (e) => {
-    e.preventDefault();
-    setIsOpen(false);
-    const element = document.querySelector('#contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const handleConnectMe = () => {
+    setIsOpen(false)
+    navigate('/contact')
+  }
 
   return (
     <>
       <nav className='bg-black text-white px-8 md:px-16 lg:px-24 border-b border-gray-600 fixed top-0 left-0 right-0 z-40'>
         <div className='container py-2 flex justify-between items-center'>
-          <div className='flex flex-col'>
+          {/* Logo */}
+          <Link 
+            to="/" 
+            className='flex flex-col'
+            onClick={() => setActivePage('/')}
+          >
             <div className='text-3xl font-black bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight'>
               Bett
             </div>
             <span className='text-xs font-medium text-gray-300 tracking-widest uppercase opacity-80'>
               Software Engineer
             </span>
-          </div>
+          </Link>
           
           {/* Desktop Navigation */}
           <div className='hidden md:flex space-x-6'>
-            {navItems.map(({ href, icon: Icon, label, section }) => (
-              <a 
-                key={section}
-                href={href} 
-                onClick={(e) => handleNavClick(e, href)}
+            {navItems.map(({ path, icon: Icon, label }) => (
+              <button 
+                key={path}
+                onClick={() => handleNavClick(path)}
                 className={`group relative hover:text-white inline-flex items-center gap-2 py-2 px-1 transition-all duration-300 ${
-                  activeSection === section ? 'text-white' : 'text-gray-400'
+                  activePage === path ? 'text-white' : 'text-gray-400'
                 }`}
-                aria-current={activeSection === section ? 'page' : undefined}
-                aria-label={`Navigate to ${label} section`}
+                aria-current={activePage === path ? 'page' : undefined}
+                aria-label={`Navigate to ${label} page`}
               >
                 <Icon 
                   size={18} 
                   className={`transition-all duration-300 group-hover:rotate-12 ${
-                    activeSection === section ? 'text-blue-400' : ''
+                    activePage === path ? 'text-blue-400' : ''
                   }`} 
                 />
                 <span className="relative">
                   {label}
                   {/* Animated underline */}
                   <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 ${
-                    activeSection === section ? 'w-full' : 'w-0 group-hover:w-full'
+                    activePage === path ? 'w-full' : 'w-0 group-hover:w-full'
                   }`} />
                 </span>
-              </a>
+              </button>
             ))}
           </div>
           
           <button 
             className='bg-blue-500 text-white hidden md:inline
-            transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-600 px-4 py-2 rounded-full'
+            transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-600 px-6 py-2.5 rounded-full font-medium'
             aria-label="Connect with me"
             onClick={handleConnectMe}
           >
@@ -177,14 +143,6 @@ const Navbar = () => {
               />
             </div>
           </button>
-        </div>
-
-        {/* Scroll Progress Indicator positioned on border bottom */}
-        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-transparent">
-          <div 
-            className="h-full bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 transition-all duration-150 ease-out"
-            style={{ width: `${scrollProgress}%` }}
-          />
         </div>
         
         {/* Mobile Sidebar Overlay */}
@@ -219,33 +177,32 @@ const Navbar = () => {
             </div>
             
             <nav className='space-y-2' role="navigation">
-              {navItems.map(({ href, icon: Icon, label, section }) => (
-                <a 
-                  key={section}
-                  href={href} 
-                  onClick={(e) => handleNavClick(e, href)}
-                  className={`group block hover:text-white flex items-center gap-3 py-3 px-4 rounded-lg border-b border-gray-700 transition-all duration-300 hover:bg-gray-800 ${
-                    activeSection === section ? 'text-white bg-gray-800 border-blue-500' : 'text-gray-400'
+              {navItems.map(({ path, icon: Icon, label }) => (
+                <button 
+                  key={path}
+                  onClick={() => handleNavClick(path)}
+                  className={`group w-full text-left hover:text-white flex items-center gap-3 py-3 px-4 rounded-lg border-b border-gray-700 transition-all duration-300 hover:bg-gray-800 ${
+                    activePage === path ? 'text-white bg-gray-800 border-blue-500' : 'text-gray-400'
                   }`}
-                  aria-current={activeSection === section ? 'page' : undefined}
-                  aria-label={`Navigate to ${label} section`}
+                  aria-current={activePage === path ? 'page' : undefined}
+                  aria-label={`Navigate to ${label} page`}
                 >
                   <Icon 
                     size={20} 
                     className={`transition-all duration-300 group-hover:scale-110 ${
-                      activeSection === section ? 'text-blue-400' : ''
+                      activePage === path ? 'text-blue-400' : ''
                     }`} 
                   />
                   <span className="flex-1">{label}</span>
-                  {activeSection === section && (
+                  {activePage === path && (
                     <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
                   )}
-                </a>
+                </button>
               ))}
               
               <button 
                 className='w-full bg-blue-500 text-white
-                transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-600 px-4 py-3 rounded-full mt-8'
+                transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-600 px-4 py-3 rounded-full mt-8 font-medium'
                 aria-label="Connect with me"
                 onClick={handleConnectMe}
               >
@@ -255,6 +212,9 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      
+      {/* Add padding to account for fixed navbar */}
+      <div className="h-16"></div>
     </>
   )
 }

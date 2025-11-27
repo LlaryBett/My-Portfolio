@@ -120,7 +120,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-16 lg:py-20 xl:py-28 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-20 lg:py-24 xl:py-32 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.12),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.12),transparent_50%)]" />
@@ -134,21 +134,21 @@ const About = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16 lg:mb-20">
             <motion.div 
-              className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/20 rounded-full text-blue-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6"
+              className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/20 rounded-full text-blue-400 text-sm sm:text-base font-medium mb-6 sm:mb-8"
               whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.3)" }}
             >
-              <FaLightbulb className="mr-1 sm:mr-2" size={14} />
+              <FaLightbulb className="mr-2" size={16} />
               About Me
             </motion.div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight px-4">
               Passionate About{' '}
-              <span className="text-white">
+              <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
                 Innovation
               </span>
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
               Creating digital solutions that make a meaningful impact on businesses and users alike
             </p>
           </motion.div>
@@ -156,15 +156,15 @@ const About = () => {
           {/* Main Story Section - Full Width */}
           <motion.div 
             variants={itemVariants} 
-            className="mb-12 sm:mb-16 lg:mb-20"
+            className="mb-16 sm:mb-20 lg:mb-24"
           >
-            <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+            <div className="grid lg:grid-cols-3 gap-10 sm:gap-12 lg:gap-16">
               {/* Main Story */}
-              <div className="lg:col-span-2 space-y-6 sm:space-y-8">
-                <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight px-2 sm:px-0">
+              <div className="lg:col-span-2 space-y-8 sm:space-y-10">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight px-4 sm:px-0">
                   Crafting Digital Excellence Since 2022
                 </h3>
-                <div className="space-y-4 sm:space-y-5 text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed px-2 sm:px-0">
+                <div className="space-y-5 sm:space-y-6 text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed px-4 sm:px-0">
                   <p>
                     My journey in software development began with a simple curiosity about how websites work. 
                     That curiosity evolved into a passion for creating robust, scalable applications that solve 
@@ -186,17 +186,17 @@ const About = () => {
 
               {/* Quick Stats */}
               <motion.div 
-                className="space-y-4"
+                className="space-y-6"
                 initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-xl p-6">
-                  <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                    <FaBullseye className="mr-2 text-blue-400" size={18} />
+                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-8">
+                  <h4 className="text-xl font-semibold text-white mb-6 flex items-center">
+                    <FaBullseye className="mr-3 text-blue-400" size={20} />
                     Quick Facts
                   </h4>
-                  <div className="space-y-3 text-sm">
+                  <div className="space-y-4 text-base">
                     <div className="flex justify-between">
                       <span className="text-gray-300">Experience:</span>
                       <span className="text-white font-medium">2+ Years</span>
@@ -218,14 +218,14 @@ const About = () => {
 
                 {/* Personal Touch - Compact */}
                 <motion.div 
-                  className="p-4 rounded-xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 border border-white/10 backdrop-blur-sm"
+                  className="p-6 rounded-2xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-emerald-500/10 border border-white/10 backdrop-blur-sm"
                   whileHover={{ scale: 1.02, borderColor: "rgba(255,255,255,0.2)" }}
                 >
-                  <h4 className="text-base font-semibold text-white mb-2 flex items-center">
-                    <FaUserTie className="mr-2 text-purple-400" size={16} />
+                  <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                    <FaUserTie className="mr-2 text-purple-400" size={18} />
                     Philosophy
                   </h4>
-                  <p className="text-sm text-gray-300 leading-relaxed">
+                  <p className="text-base text-gray-300 leading-relaxed">
                     Great software should be both powerful and intuitive, combining technical excellence with user-centered design.
                   </p>
                 </motion.div>
@@ -236,40 +236,40 @@ const About = () => {
           {/* Education & Certifications - Horizontal Layout */}
           <motion.div
             variants={itemVariants}
-            className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12 lg:mb-16"
+            className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 mb-12 sm:mb-16 lg:mb-20"
           >
             {/* Education - Condensed */}
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 sm:p-8">
-              <div className="text-center mb-6">
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-8 sm:p-10">
+              <div className="text-center mb-8">
                 <motion.div 
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-emerald-400 text-sm font-medium mb-4"
+                  className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-emerald-400 text-base font-medium mb-6"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <FaGraduationCap className="mr-2" size={16} />
+                  <FaGraduationCap className="mr-2" size={18} />
                   Education
                 </motion.div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">
                   Academic{' '}
-                  <span className="text-white">
+                  <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
                     Foundation
                   </span>
                 </h3>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {education.map((edu, index) => (
-                  <div key={index} className="p-4 rounded-xl bg-gradient-to-r from-white/10 to-white/5 border border-white/20">
-                    <div className="flex items-start justify-between mb-2">
+                  <div key={index} className="p-6 rounded-xl bg-gradient-to-r from-white/10 to-white/5 border border-white/20">
+                    <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h4 className="text-white font-semibold text-base leading-tight">{edu.degree}</h4>
-                        <p className="text-emerald-400 text-sm">{edu.school}</p>
+                        <h4 className="text-white font-semibold text-lg leading-tight">{edu.degree}</h4>
+                        <p className="text-emerald-400 text-base mt-1">{edu.school}</p>
                       </div>
-                      <span className="text-xs text-gray-300 bg-white/10 px-2 py-1 rounded whitespace-nowrap">{edu.year}</span>
+                      <span className="text-sm text-gray-300 bg-white/10 px-3 py-1.5 rounded whitespace-nowrap">{edu.year}</span>
                     </div>
-                    <p className="text-gray-300 text-sm mb-3 leading-relaxed">{edu.description}</p>
+                    <p className="text-gray-300 text-base mb-4 leading-relaxed">{edu.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {edu.achievements.map((achievement, i) => (
-                        <span key={i} className="text-xs px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
+                        <span key={i} className="text-sm px-3 py-1.5 bg-emerald-500/20 text-emerald-400 rounded-full border border-emerald-500/30">
                           {achievement}
                         </span>
                       ))}
@@ -280,41 +280,41 @@ const About = () => {
             </div>
 
             {/* Certifications & Skills */}
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-6 sm:p-8">
-              <div className="text-center mb-6">
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-2xl p-8 sm:p-10">
+              <div className="text-center mb-8">
                 <motion.div 
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-400 text-sm font-medium mb-4"
+                  className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-400 text-base font-medium mb-6"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <FaTrophy className="mr-2" size={16} />
+                  <FaTrophy className="mr-2" size={18} />
                   Certifications
                 </motion.div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">
                   Professional{' '}
-                  <span className="text-white">
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     Growth
                   </span>
                 </h3>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {certifications.map((cert, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center space-x-3 p-3 rounded-lg bg-gradient-to-r from-white/10 to-white/5 border border-white/20 hover:border-blue-400/40 transition-all duration-300"
+                    className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-white/10 to-white/5 border border-white/20 hover:border-blue-400/40 transition-all duration-300"
                     whileHover={{ x: 4, scale: 1.02 }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20">
-                      <cert.icon className="text-blue-400" size={14} />
+                    <div className="p-3 rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20">
+                      <cert.icon className="text-blue-400" size={18} />
                     </div>
                     <div className="flex-1">
-                      <p className="text-white text-sm font-medium">{cert.name}</p>
-                      <p className="text-blue-400 text-xs">{cert.year}</p>
+                      <p className="text-white text-base font-medium">{cert.name}</p>
+                      <p className="text-blue-400 text-sm mt-1">{cert.year}</p>
                     </div>
-                    <span className="text-green-400 text-xs px-2 py-1 bg-green-500/20 rounded-full">
+                    <span className="text-green-400 text-sm px-3 py-1.5 bg-green-500/20 rounded-full">
                       ✓ Active
                     </span>
                   </motion.div>
@@ -324,40 +324,40 @@ const About = () => {
           </motion.div>
 
           {/* Highlights Section */}
-          <motion.div variants={itemVariants} className="mb-10 sm:mb-12 lg:mb-16">
-            <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 px-2">
+          <motion.div variants={itemVariants} className="mb-12 sm:mb-16 lg:mb-20">
+            <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
                 Technical{' '}
-                <span className="text-white">
+                <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
                   Expertise
                 </span>
               </h3>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto px-4">
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 max-w-2xl mx-auto px-4">
                 Core competencies that drive exceptional results
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               {highlights.map((highlight, index) => (
                 <motion.div
                   key={index}
-                  className="group relative p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/8 hover:border-white/20 transition-all duration-500 mx-2 sm:mx-0"
+                  className="group relative p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/8 hover:border-white/20 transition-all duration-500 mx-2 sm:mx-0"
                   whileHover={{ x: 8, scale: 1.02 }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                   transition={{ delay: index * 0.15, duration: 0.6 }}
                 >
-                  <div className="flex items-start space-x-3 sm:space-x-5">
+                  <div className="flex items-start space-x-4 sm:space-x-6">
                     <div className="flex-shrink-0">
-                      <div className={`p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-r ${highlight.gradient} bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300`}>
-                        <highlight.icon className={`text-xl bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent`} size={20} />
+                      <div className={`p-3 sm:p-4 rounded-xl bg-gradient-to-r ${highlight.gradient} bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300`}>
+                        <highlight.icon className={`text-2xl bg-gradient-to-r ${highlight.gradient} bg-clip-text text-transparent`} size={24} />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors">
+                      <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 group-hover:text-blue-400 transition-colors">
                         {highlight.title}
                       </h4>
-                      <p className="text-gray-300 leading-relaxed text-xs sm:text-sm">
+                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                         {highlight.description}
                       </p>
                     </div>
@@ -367,32 +367,29 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Enhanced Stats Section - Updated to 3 columns */}
+          {/* Enhanced Stats Section */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 lg:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 lg:gap-10"
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="flex items-center p-4 sm:p-6 lg:p-8 rounded-lg sm:rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/20 hover:from-white/10 hover:to-white/5 transition-all duration-300 group"
+                className="flex items-center p-6 sm:p-8 lg:p-10 rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 hover:border-white/20 hover:from-white/10 hover:to-white/5 transition-all duration-300 group"
                 whileHover={{ scale: 1.05, y: -5 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
-                {/* Icon on the left */}
                 <stat.icon
                   className="text-blue-400 group-hover:text-blue-300 transition-colors flex-shrink-0"
-                  size={28}
+                  size={32}
                 />
-
-                {/* Text on the right */}
-                <div className="ml-4">
-                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <div className="ml-6">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     {stat.number}
                   </div>
-                  <div className="text-gray-400 font-medium text-xs sm:text-sm">
+                  <div className="text-gray-400 font-medium text-sm sm:text-base mt-1">
                     {stat.label}
                   </div>
                 </div>
