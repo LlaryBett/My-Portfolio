@@ -50,14 +50,14 @@ const Contact = () => {
     setFeedback(null);
     try {
       const res = await fetch('https://my-portfolio-h0n8.onrender.com/api/contact', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(form),
-        credentials: 'include'
-      });
+  method: 'POST',
+  headers: { 
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify(form)
+});
+
       const data = await res.json();
       if (res.ok) {
         setFeedback({ type: 'success', message: data.message });
