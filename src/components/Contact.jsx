@@ -51,8 +51,12 @@ const Contact = () => {
     try {
       const res = await fetch('https://my-portfolio-h0n8.onrender.com/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(form),
+        credentials: 'include'
       });
       const data = await res.json();
       if (res.ok) {
@@ -62,7 +66,7 @@ const Contact = () => {
         setFeedback({ type: 'error', message: data.error || 'Failed to send message.' });
       }
     } catch (err) {
-      setFeedback({ type: 'error', message: 'Failed to send message.' });
+      setFeedback({ type: 'error', message: 'Failed to send message. Please try again.' });
     }
     setLoading(false);
   };
