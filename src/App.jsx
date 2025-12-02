@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import PropTypes from 'prop-types';
 import './App.css';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -8,9 +10,9 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-// comments
+import LightRays from './components/LightRays';
+
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -20,38 +22,6 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-    
-    const observers = sections.map(sectionId => {
-      const element = document.getElementById(sectionId);
-      if (!element) return null;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveSection(sectionId);
-          }
-        },
-        { threshold: 0.5, rootMargin: '-100px 0px' }
-      );
-
-      observer.observe(element);
-      return observer;
-    });
-
-    return () => {
-      observers.forEach(observer => observer?.disconnect());
-    };
-  }, []);
-
-  const handleSectionClick = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const LoadingScreen = () => (
     <motion.div
@@ -77,8 +47,77 @@ function App() {
     </motion.div>
   );
 
+  // Layout component that includes Navbar, LightRays background, content, and Footer
+  const PageLayout = ({ children }) => (
+    <div className="min-h-screen flex flex-col relative bg-gray-900">
+      {/* LightRays Background - Applies to all pages */}
+      <div className="absolute inset-0">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#00ffff"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="hero-light-rays"
+        />
+      </div>
+      
+      {/* Optional: Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-gray-900/30 z-10" />
+      
+      {/* Content */}
+      <div className="relative z-20 flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </div>
+  );
+
+  PageLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+  };
+
+  // Home page with ONLY Hero
+  const HomePage = () => (
+    <PageLayout>
+      <Hero />
+    </PageLayout>
+  );
+
+  // Individual pages
+  const AboutPage = () => (
+    <PageLayout>
+      <About />
+    </PageLayout>
+  );
+
+  const SkillsPage = () => (
+    <PageLayout>
+      <Skills />
+    </PageLayout>
+  );
+
+  const ProjectsPage = () => (
+    <PageLayout>
+      <Projects />
+    </PageLayout>
+  );
+
+  const ContactPage = () => (
+    <PageLayout>
+      <Contact />
+    </PageLayout>
+  );
+
   return (
-    <div className="bg-gray-900 text-white overflow-x-hidden">
+    <div className="text-white">
       <AnimatePresence>
         {isLoading && <LoadingScreen />}
       </AnimatePresence>
@@ -89,13 +128,13 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Navbar activeSection={activeSection} onSectionClick={handleSectionClick} />
-          <Hero id="home" />
-          <About id="about" />
-          <Skills id="skills" />
-          <Projects id="projects" />
-          <Contact id="contact" />
-          <Footer />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/skills" element={<SkillsPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
         </motion.div>
       )}
     </div>
