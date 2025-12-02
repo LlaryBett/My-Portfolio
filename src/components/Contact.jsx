@@ -38,6 +38,11 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState(null);
 
+  // Get API URL based on environment
+  const API_URL = import.meta.env.DEV 
+    ? 'http://localhost:5000/api/contact'
+    : 'https://my-portfolio-h0n8.onrender.com/api/contact';
+
   // Handle input changes
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -48,17 +53,24 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     setFeedback(null);
+    
     try {
-      const res = await fetch('https://my-portfolio-h0n8.onrender.com/api/contact', {
-  method: 'POST',
-  headers: { 
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  body: JSON.stringify(form)
-});
-
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(form),
+        signal: controller.signal
+      });
+      
+      clearTimeout(timeoutId);
       const data = await res.json();
+      
       if (res.ok) {
         setFeedback({ type: 'success', message: data.message });
         setForm({ name: '', email: '', message: '' });
@@ -66,7 +78,11 @@ const Contact = () => {
         setFeedback({ type: 'error', message: data.error || 'Failed to send message.' });
       }
     } catch (err) {
-      setFeedback({ type: 'error', message: 'Failed to send message. Please try again.' });
+      if (err.name === 'AbortError') {
+        setFeedback({ type: 'error', message: 'Request timed out. Please try again.' });
+      } else {
+        setFeedback({ type: 'error', message: 'Failed to send message. Please try again.' });
+      }
     }
     setLoading(false);
   };

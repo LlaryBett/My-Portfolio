@@ -23,7 +23,7 @@ const corsOptions = {
   origin: [
     'https://my-portfolio-h0n8.onrender.com',
     'https://hillary-bett-ujvs.vercel.app',
-    'http://localhost:3000',
+    'http://localhost:5000',
     'http://localhost:5173'
   ],
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -39,8 +39,8 @@ app.use('/api', contactRoute);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true 
+  useNewUrlParser: false, 
+  useUnifiedTopology: false
 })
 .then(() => {
   console.log('✅ MongoDB connected');
