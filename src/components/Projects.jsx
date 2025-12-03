@@ -155,7 +155,7 @@ const projects = [
 ];
 
 // Helper components for different card types
-const FullWidthCard = ({ project, setSelectedProject }) => (
+const FullWidthCard = ({ project }) => (
   <div className="group relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-500 min-h-0">
     <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6">
       {/* Left Column: Image */}
@@ -278,14 +278,9 @@ FullWidthCard.propTypes = {
     github: PropTypes.string.isRequired,
     demo: PropTypes.string.isRequired,
   }).isRequired,
-  setSelectedProject: PropTypes.func,
 };
 
-FullWidthCard.defaultProps = {
-  setSelectedProject: () => {},
-};
-
-const GridCard = ({ project, setSelectedProject }) => (
+const GridCard = ({ project }) => (
   <div className="group relative p-4 sm:p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:scale-102 transition-all duration-500 h-full flex flex-col">
     {/* Image */}
     <div className="relative overflow-hidden h-32 sm:h-36 rounded-lg mb-3">
@@ -381,11 +376,6 @@ GridCard.propTypes = {
     github: PropTypes.string.isRequired,
     demo: PropTypes.string.isRequired,
   }).isRequired,
-  setSelectedProject: PropTypes.func,
-};
-
-GridCard.defaultProps = {
-  setSelectedProject: () => {},
 };
 
 const Projects = () => {
@@ -449,7 +439,6 @@ const Projects = () => {
                   <div className="h-fit max-h-[85vh] overflow-hidden">
                     <FullWidthCard 
                       project={group[0]} 
-                      setSelectedProject={setSelectedProject} 
                     />
                   </div>
                 )}
@@ -461,7 +450,6 @@ const Projects = () => {
                       <GridCard 
                         key={project.id} 
                         project={project} 
-                        setSelectedProject={setSelectedProject} 
                       />
                     ))}
                   </div>

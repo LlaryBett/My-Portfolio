@@ -2,13 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaCode, 
-  FaDatabase, 
-  FaAward, 
   FaLightbulb, 
   FaGraduationCap, 
   FaTrophy,
   FaUserTie,
-  FaStar,
   FaBriefcase,
   FaRocket,
   FaCheckCircle
@@ -87,29 +84,6 @@ const About = () => {
     { number: "2+", label: "Years Experience", icon: FaBriefcase },
     { number: "5+", label: "Projects Completed", icon: FaCode },
     { number: "15+", label: "Technologies", icon: FaRocket },
-  ];
-
-  const highlights = [
-    {
-      icon: FaCode,
-      title: "Clean Code Focus",
-      description: "Writing maintainable, scalable code with clear documentation. Practical solutions over over-engineering."
-    },
-    {
-      icon: FaDatabase,
-      title: "Database Design",
-      description: "Building efficient data models and optimizing queries. Experienced with relational and NoSQL databases."
-    },
-    {
-      icon: FaUserTie,
-      title: "Full Stack Development",
-      description: "End-to-end application development. Focus on creating cohesive user experiences across the stack."
-    },
-    {
-      icon: FaRocket,
-      title: "Performance & Optimization",
-      description: "Practical approach to performance. Focus on fixing real bottlenecks that impact user experience."
-    },
   ];
 
   const education = [
@@ -209,12 +183,12 @@ const About = () => {
                     real-world problems and deliver exceptional user experiences.
                   </p>
                   <p className="leading-relaxed">
-                    With over 2 years of hands-on experience, I've worked on various projects, helping transform 
+                    With over 2 years of hands-on experience, I&apos;ve worked on various projects, helping transform 
                     ideas into successful digital products. I specialize in full-stack development with a focus 
                     on modern frameworks, database design, and performance optimization.
                   </p>
                   <p className="leading-relaxed">
-                    When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, 
+                    When I&apos;m not coding, I enjoy exploring new technologies, contributing to open-source projects, 
                     and mentoring aspiring developers. I believe in continuous learning and staying at the forefront 
                     of technological innovation.
                   </p>

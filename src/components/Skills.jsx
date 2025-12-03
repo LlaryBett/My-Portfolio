@@ -14,8 +14,8 @@ import {
   FaFigma,
   FaPython,
   FaFire,
-  FaCalendarAlt,
-  FaAward,
+  // FaCalendarAlt,
+  // FaAward,
   FaCheckCircle,
   FaChevronRight
 } from 'react-icons/fa';
@@ -34,7 +34,7 @@ import {
   SiTerraform,
   SiExpo,
   SiFlutter,
-  SiPwa,
+  // SiPwa,
   SiPostman,
   SiJest
 } from 'react-icons/si';
