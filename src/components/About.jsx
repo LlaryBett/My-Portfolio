@@ -104,7 +104,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+    <section id="about" className="py-8 sm:py-12 lg:py-16 relative overflow-hidden scroll-mt-[70px]">
       {/* Background - Matching Hero's square grid setup */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent z-0" />

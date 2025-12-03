@@ -206,7 +206,7 @@ const Skills = () => {
 
       <div className="relative z-10">
         {/* Skills Section */}
-        <div className="py-16 sm:py-20 lg:py-24">
+        <div className="py-8 sm:py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
             {/* Section Header */}
             <div className="text-center mb-12 lg:mb-16">
@@ -307,7 +307,7 @@ const Skills = () => {
         </div>
 
         {/* Experience Section */}
-        <div className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
+        <div className="py-8 sm:py-12 lg:py-16 border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
             {/* Section Header */}
             <div className="text-center mb-12 lg:mb-16">

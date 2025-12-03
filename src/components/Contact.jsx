@@ -88,7 +88,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center relative overflow-hidden px-4 sm:px-8 md:px-16 lg:px-24 py-16 lg:py-24 scroll-mt-[70px]">
+    <section id="contact" className="min-h-screen flex items-center relative overflow-hidden px-4 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12 lg:py-16 scroll-mt-[70px]">
       {/* Background - Matching Hero's square grid setup */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent z-0" />
