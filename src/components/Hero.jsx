@@ -203,7 +203,7 @@ const Hero = () => {
                   <div className="w-2 h-2 rounded-full bg-yellow-500" />
                   <div className="w-2 h-2 rounded-full bg-green-500" />
                 </div>
-                <span className="text-gray-400 text-xs ml-2 font-mono">portfolio.ts</span>
+                <span className="text-gray-400 text-xs ml-2 font-mono">portfolio.jsx</span>
                 <div className="ml-auto flex items-center gap-1 text-gray-500">
                   <Cpu size={12} />
                   <span className="text-xs font-mono">dev</span>

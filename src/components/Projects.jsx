@@ -9,14 +9,15 @@ import ProjectImage5 from '../assets/Screenshot 2025-08-11 154917.png';
 import ProjectImage6 from '../assets/Screenshot 2025-08-11 154335.png';
 import ProjectImage2 from '../assets/Screenshot 2025-08-28 134703.png';
 import ProjectImage4 from '../assets/Screenshot 2025-08-28 140855.png';
+import ProjectImage7 from '../assets/Screenshot 2025-12-03 112518.png';
 
 const projects = [
   {
     id: 1,
     name: "Automated Public Service Vehicle Booking System",
     shortDesc: "A full-stack MERN application for online PSV seat booking and management",
-    fullDescription: "An advanced booking platform for public service vehicles (PSVs) built with the MERN stack. Passengers can browse available vehicles, view routes, select seats, and make secure bookings. The system includes real-time seat availability tracking, booking history, and automated notifications. The admin dashboard allows fleet management, route scheduling, fare management, and role-based access. Implements secure JWT authentication, RESTful APIs, integrated payments, and a responsive UI for a smooth travel experience.",
-    technologies: ["React", "TypeScript", "Redux Toolkit", "Redux Persist"],
+    fullDescription: "An advanced booking platform for public service vehicles (PSVs) built with the MERN stack. Passengers can browse available vehicles, view routes, select seats, and make secure bookings. The system includes real-time seat availability tracking, booking history, and automated notifications. The admin dashboard allows fleet management, route scheduling, fare management, and role-based access. Implements secure JWT authentication, RESTful APIs, integrated payments with M-Pesa, and a responsive UI for a smooth travel experience.",
+    technologies: ["React", "TypeScript", "Hono", "Drizzle", "PostgreSQL", "Redux Toolkit", "Redux Persist", "M-Pesa Integration"],
     image: ProjectImage1,
     github: "https://github.com/LlaryBett/Automated-PSV-Booking-System",
     demo: "https://blue-tree-08931290f.6.azurestaticapps.net/",
@@ -29,12 +30,13 @@ const projects = [
       "Secure JWT Authentication",
       "Real-time Seat Availability",
       "Route & Fleet Management",
-      "Fare Calculation & Online Payments",
-      "Role-based Access Control"
+      "M-Pesa Payment Integration",
+      "Role-based Access Control",
+      "PostgreSQL Database with Drizzle ORM"
     ],
     accentColor: "from-blue-500 to-indigo-500",
-    challenges: "Implementing real-time seat availability updates, handling concurrent bookings, and integrating secure payments",
-    learnings: "Enhanced knowledge in real-time data handling, scalable booking workflows, and payment system integration",
+    challenges: "Implementing real-time seat availability updates, handling concurrent bookings, and integrating secure M-Pesa payments with Hono backend",
+    learnings: "Enhanced knowledge in real-time data handling, scalable booking workflows, M-Pesa payment integration, and Drizzle ORM with PostgreSQL",
     featured: true
   },
   {
@@ -91,6 +93,33 @@ const projects = [
   },
   {
     id: 4,
+    name: "Personal Portfolio Website",
+    shortDesc: "Modern responsive portfolio showcasing projects, skills, and experience",
+    fullDescription: "A modern and fully responsive personal portfolio website built with React, Tailwind CSS, and Framer Motion. Features smooth animations, interactive navigation, project showcase, skills section, and contact form. Optimized for performance and SEO with responsive design that works seamlessly across all devices. Includes dark mode, smooth scrolling, and animated transitions.",
+    technologies: ["React", "Tailwind CSS", "Framer Motion", "React Router", "Lucide Icons"],
+    image: ProjectImage7,
+    github: "https://github.com/LlaryBett/My-Portfolio",
+    demo: "https://my-portfolio-2bv9.vercel.app/",
+    status: "Completed",
+    duration: "2 weeks",
+    teamSize: "Solo Project",
+    category: "Frontend",
+    year: "2025",
+    highlights: [
+      "Fully Responsive Design",
+      "Smooth Animations & Transitions",
+      "Interactive Project Showcase",
+      "Skills & Experience Section",
+      "Contact Form Integration",
+      "Dark Mode Support"
+    ],
+    accentColor: "from-green-400 to-blue-500",
+    challenges: "Creating smooth animations without compromising performance and ensuring responsive design across all screen sizes",
+    learnings: "Advanced React component composition, Framer Motion animations, Tailwind CSS responsive design patterns, and performance optimization",
+    featured: true
+  },
+  {
+    id: 5,
     name: "AI++ Pair Programming",
     shortDesc: "AI-assisted real-time coding companion",
     fullDescription: "An intelligent coding assistant that integrates seamlessly with a collaborative editor. It provides AI-powered code suggestions, debugging support, and context-aware explanations. Built with React, Node.js, and Socket.io, featuring real-time collaboration, role-based permissions, and AI-assisted fixes.",
@@ -110,7 +139,7 @@ const projects = [
     featured: true
   },
   {
-    id: 5,
+    id: 6,
     name: "E-commerce Dashboard",
     shortDesc: "Analytics dashboard for online stores",
     fullDescription: "Comprehensive e-commerce analytics dashboard with sales tracking, inventory management, and customer insights. Features interactive charts, real-time data updates, and export functionality.",
@@ -130,7 +159,7 @@ const projects = [
     featured: false
   },
   {
-    id: 6,
+    id: 7,
     name: "Background Image Removal Application",
     shortDesc: "AI-powered tool for removing image backgrounds instantly",
     fullDescription: "An advanced background removal web application that uses AI and computer vision to detect and remove image backgrounds in seconds. Supports drag-and-drop uploads, batch processing, and high-resolution downloads. Includes features for replacing backgrounds with solid colors, gradients, or custom images.",
@@ -236,7 +265,7 @@ const FullWidthCard = ({ project }) => (
           <div className="mb-3 sm:mb-4">
             <h4 className="text-xs sm:text-sm font-medium text-gray-400 mb-1.5">Technologies Used</h4>
             <div className="flex flex-wrap gap-1.5">
-              {project.technologies.slice(0, 4).map((tech) => (
+              {project.technologies.map((tech) => (
                 <span
                   key={tech}
                   className="px-2 py-1 bg-white/10 text-white text-xs rounded-md border border-white/20"
@@ -244,11 +273,6 @@ const FullWidthCard = ({ project }) => (
                   {tech}
                 </span>
               ))}
-              {project.technologies.length > 4 && (
-                <span className="px-2 py-1 bg-gray-700/50 text-gray-400 text-xs rounded-md">
-                  +{project.technologies.length - 4} more
-                </span>
-              )}
             </div>
           </div>
         </div>
@@ -348,7 +372,7 @@ const GridCard = ({ project }) => (
       
       <div className="mb-3">
         <div className="flex flex-wrap gap-1">
-          {project.technologies.slice(0, 3).map((tech) => (
+          {project.technologies.map((tech) => (
             <span
               key={tech}
               className="px-1.5 py-0.5 bg-white/10 text-white text-xs sm:text-sm rounded border border-white/20"
@@ -356,11 +380,6 @@ const GridCard = ({ project }) => (
               {tech}
             </span>
           ))}
-          {project.technologies.length > 3 && (
-            <span className="px-1.5 py-0.5 bg-gray-700/50 text-gray-400 text-xs sm:text-sm rounded">
-              +{project.technologies.length - 3}
-            </span>
-          )}
         </div>
       </div>
     </div>
@@ -583,13 +602,16 @@ const Projects = () => {
               
               <div className="relative z-10 flex items-center space-x-1.5">
                 <div className="flex space-x-0.5">
-                  {projects.slice(0, 6).map((_, index) => (
-                    <div
-                      key={index}
-                      className="w-1.5 h-1.5 rounded-full bg-white/50 animate-pulse"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    />
-                  ))}
+                  {projects.slice(0, 6).map((_, index) => {
+                    const colors = ['bg-red-500', 'bg-yellow-500', 'bg-green-500', 'bg-blue-500', 'bg-purple-500', 'bg-emerald-500'];
+                    return (
+                      <div
+                        key={index}
+                        className={`w-1.5 h-1.5 rounded-full ${colors[index % colors.length]} animate-pulse`}
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                      />
+                    );
+                  })}
                 </div>
                 <span className="text-gray-300 text-xs sm:text-sm">Project Portfolio</span>
               </div>
