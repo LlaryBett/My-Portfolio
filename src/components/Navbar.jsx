@@ -155,91 +155,91 @@ const Navbar = () => {
             </div>
           </motion.button>
         </div>
-        
-        {/* Mobile Sidebar Overlay */}
-        <motion.div 
-          className={`md:hidden fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 z-40 ${
-            isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`} 
-          onClick={toggleMenu}
-          aria-hidden="true"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isOpen ? 1 : 0 }}
-        />
-        
-        {/* Mobile Sidebar */}
-        <motion.div 
-          id="mobile-menu"
-          className={`md:hidden fixed top-0 right-0 h-full w-80 bg-gray-900 border-l border-gray-800 transform transition-transform duration-300 ease-in-out z-50 ${
-            isOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="mobile-menu-title"
-          initial={{ x: '100%' }}
-          animate={{ x: isOpen ? 0 : '100%' }}
-        >
-          <div className='p-6 h-full flex flex-col'>
-            <div className='flex justify-between items-center mb-8'>
-              <h2 id="mobile-menu-title" className='text-xl font-bold text-white'>Navigation</h2>
-              <motion.button 
-                onClick={toggleMenu}
-                className='text-white hover:text-gray-400 transition-colors duration-300 p-2 rounded-lg hover:bg-gray-800'
-                aria-label="Close menu"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <IoCloseOutline size={24} />
-              </motion.button>
-            </div>
-            
-            <nav className='space-y-3 flex-1' role="navigation">
-              {navItems.map(({ path, icon: Icon, label }) => (
-                <motion.button 
-                  key={path}
-                  onClick={() => handleNavClick(path)}
-                  className={`group w-full text-left hover:text-white flex items-center gap-4 py-4 px-4 rounded-xl transition-all duration-300 hover:bg-gray-800/50 ${
-                    activePage === path ? 'text-white bg-blue-500/20 border border-blue-500/30' : 'text-gray-400'
-                  }`}
-                  aria-current={activePage === path ? 'page' : undefined}
-                  aria-label={`Navigate to ${label} page`}
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Icon 
-                    size={22} 
-                    className={`transition-all duration-300 group-hover:scale-110 flex-shrink-0 ${
-                      activePage === path ? 'text-blue-400' : 'text-gray-500'
-                    }`} 
-                  />
-                  <span className="flex-1 font-medium text-base">{label}</span>
-                  {activePage === path && (
-                    <motion.div 
-                      className="w-2 h-2 bg-blue-400 rounded-full"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                  )}
-                </motion.button>
-              ))}
-            </nav>
-
-            <div className='pt-6 border-t border-gray-800'>
-              <motion.button 
-                className='w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white
-                transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:from-blue-600 hover:to-purple-700 px-4 py-4 rounded-xl font-semibold text-base'
-                aria-label="Connect with me"
-                onClick={handleConnectMe}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>Connect Me</span>
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
       </nav>
+      
+      {/* Mobile Sidebar Overlay */}
+      <motion.div 
+        className={`md:hidden fixed inset-0 bg-black/50 backdrop-blur-md transition-opacity duration-300 z-40 ${
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`} 
+        onClick={toggleMenu}
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isOpen ? 1 : 0 }}
+      />
+      
+      {/* Mobile Sidebar */}
+      <motion.div 
+        id="mobile-menu"
+        className={`md:hidden fixed top-0 right-0 h-full w-80 bg-gray-900/95 backdrop-blur-lg border-l border-gray-800 transform transition-transform duration-300 ease-in-out z-50 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mobile-menu-title"
+        initial={{ x: '100%' }}
+        animate={{ x: isOpen ? 0 : '100%' }}
+      >
+        <div className='p-6 h-full flex flex-col'>
+          <div className='flex justify-between items-center mb-8'>
+            <h2 id="mobile-menu-title" className='text-xl font-bold text-white'>Navigation</h2>
+            <motion.button 
+              onClick={toggleMenu}
+              className='text-white hover:text-gray-400 transition-colors duration-300 p-2 rounded-lg hover:bg-gray-800'
+              aria-label="Close menu"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <IoCloseOutline size={24} />
+            </motion.button>
+          </div>
+          
+          <nav className='space-y-3' role="navigation">
+            {navItems.map(({ path, icon: Icon, label }) => (
+              <motion.button 
+                key={path}
+                onClick={() => handleNavClick(path)}
+                className={`group w-full text-left hover:text-white flex items-center gap-4 py-4 px-4 rounded-xl transition-all duration-300 hover:bg-gray-800/50 ${
+                  activePage === path ? 'text-white bg-blue-500/20 border border-blue-500/30' : 'text-gray-400'
+                }`}
+                aria-current={activePage === path ? 'page' : undefined}
+                aria-label={`Navigate to ${label} page`}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Icon 
+                  size={22} 
+                  className={`transition-all duration-300 group-hover:scale-110 flex-shrink-0 ${
+                    activePage === path ? 'text-blue-400' : 'text-gray-500'
+                  }`} 
+                />
+                <span className="flex-1 font-medium text-base">{label}</span>
+                {activePage === path && (
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-400 rounded-full"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                )}
+              </motion.button>
+            ))}
+          </nav>
+
+          <div className='mt-1'>
+            <motion.button 
+              className='w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white
+              transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:from-blue-600 hover:to-purple-700 px-4 py-3 rounded-xl font-semibold text-base'
+              aria-label="Connect with me"
+              onClick={handleConnectMe}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span>Connect Me</span>
+            </motion.button>
+          </div>
+        </div>
+      </motion.div>
       
       {/* Add padding to account for fixed navbar */}
       <div className="h-20"></div>

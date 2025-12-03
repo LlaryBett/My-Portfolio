@@ -14,8 +14,6 @@ import {
   FaFigma,
   FaPython,
   FaFire,
-  // FaCalendarAlt,
-  // FaAward,
   FaCheckCircle,
   FaChevronRight
 } from 'react-icons/fa';
@@ -34,7 +32,6 @@ import {
   SiTerraform,
   SiExpo,
   SiFlutter,
-  // SiPwa,
   SiPostman,
   SiJest
 } from 'react-icons/si';
@@ -145,18 +142,72 @@ const Skills = () => {
 
   return (
     <section id="skills-experience" className="relative overflow-hidden scroll-mt-[70px]">
-      {/* Background pattern - Matching Hero */}
+      {/* Background - Matching Hero's square grid setup */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent z-0" />
       
-      {/* Animated background elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl opacity-30 z-0" />
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl opacity-30 z-0" />
+      {/* Animated grid pattern - Same as Hero */}
+      <div className="absolute inset-0 opacity-5 z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                           linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+      
+      {/* Floating code elements - Same as Hero */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-gray-600"
+            initial={{ y: -100, x: Math.random() * window.innerWidth }}
+            animate={{
+              y: window.innerHeight + 100,
+              rotate: 360,
+            }}
+            transition={{
+              duration: 20 + Math.random() * 15,
+              repeat: Infinity,
+              delay: i * 3
+            }}
+          >
+            <FaCode size={16} />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Subtle animated blobs */}
+      <motion.div
+        className="absolute top-1/4 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl opacity-20 z-0"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl opacity-15 z-0"
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.15, 0.2, 0.15],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
 
       <div className="relative z-10">
         {/* Skills Section */}
         <div className="py-16 sm:py-20 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
             {/* Section Header */}
             <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-6">
@@ -192,7 +243,7 @@ const Skills = () => {
               ))}
             </div>
 
-            {/* Skills Grid - Simple icon and name without cards */}
+            {/* Skills Grid */}
             <div className="flex flex-wrap justify-center gap-6 mb-16">
               {skillCategories[activeCategory].skills.map((skill, index) => (
                 <motion.div
@@ -202,8 +253,16 @@ const Skills = () => {
                   transition={{ delay: index * 0.1 }}
                   className="flex flex-col items-center group"
                 >
-                  <div className={`p-4 rounded-xl ${skillCategories[activeCategory].bgColor} border border-white/10 group-hover:border-blue-400/30 transition-all duration-300 mb-2`}>
-                    <skill.icon className={`text-3xl ${skillCategories[activeCategory].color}`} />
+                  <div className={`p-4 rounded-xl ${skillCategories[activeCategory].bgColor} border border-white/10 group-hover:border-blue-400/30 transition-all duration-300 mb-2 relative overflow-hidden`}>
+                    {/* Grid pattern overlay for skill cards */}
+                    <div className="absolute inset-0 opacity-5">
+                      <div className="absolute inset-0" style={{
+                        backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                         linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                        backgroundSize: '30px 30px'
+                      }} />
+                    </div>
+                    <skill.icon className={`text-3xl ${skillCategories[activeCategory].color} relative z-10`} />
                   </div>
                   <span className="text-white font-medium text-sm">
                     {skill.name}
@@ -214,22 +273,33 @@ const Skills = () => {
 
             {/* Learning Section */}
             <div className="text-center">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  Always Learning
-                </h3>
-                <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                  Continuously expanding my skillset with emerging technologies
-                </p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {["Rust", "Go", "WebAssembly", "AI/ML", "Blockchain"].map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-4 py-2 bg-white/10 backdrop-blur-sm text-gray-300 font-medium rounded-full border border-white/10 hover:border-white/20 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 relative overflow-hidden">
+                {/* Grid pattern overlay */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                     linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                    backgroundSize: '35px 35px'
+                  }} />
+                </div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    Always Learning
+                  </h3>
+                  <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                    Continuously expanding my skillset with emerging technologies
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-3">
+                    {["Rust", "Go", "WebAssembly", "AI/ML", "Blockchain"].map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-4 py-2 bg-white/10 backdrop-blur-sm text-gray-300 font-medium rounded-full border border-white/10 hover:border-white/20 transition-colors"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -238,7 +308,7 @@ const Skills = () => {
 
         {/* Experience Section */}
         <div className="py-16 sm:py-20 lg:py-24 border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
             {/* Section Header */}
             <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 mb-6">
@@ -256,17 +326,17 @@ const Skills = () => {
               </p>
             </div>
 
-            {/* Experience Timeline - Using the same design as About page education */}
+            {/* Experience Timeline */}
             <div className="max-w-3xl mx-auto">
               <div className="relative">
                 {/* Timeline line */}
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-700" />
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-white/10" />
                 
                 <div className="space-y-12">
                   {experiences.map((exp, idx) => (
                     <div key={idx} className="relative pl-20">
                       {/* Timeline dot */}
-                      <div className="absolute left-4 top-0 w-5 h-5 bg-emerald-500 rounded-full border-4 border-gray-900" />
+                      <div className="absolute left-2 top-0 w-9 h-9 bg-emerald-500 rounded-full border-4 border-gray-900" />
                       
                       {/* Year tag */}
                       <div className="absolute -top-2 left-20 px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium">
@@ -274,36 +344,47 @@ const Skills = () => {
                       </div>
 
                       {/* Experience Card */}
-                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                        <div className="mb-4">
-                          <h3 className="text-xl font-bold text-white">{exp.title}</h3>
-                          <p className="text-emerald-400 font-medium mt-1">{exp.company}</p>
+                      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 relative overflow-hidden">
+                        {/* Grid pattern overlay */}
+                        <div className="absolute inset-0 opacity-5">
+                          <div className="absolute inset-0" style={{
+                            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                             linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                            backgroundSize: '40px 40px'
+                          }} />
                         </div>
                         
-                        <p className="text-gray-300 mb-4">{exp.description}</p>
-                        
-                        {/* Achievements */}
-                        <div className="space-y-2 mb-4">
-                          {exp.achievements.map((achievement, i) => (
-                            <div key={i} className="flex items-start gap-2">
-                              <FaCheckCircle className="text-emerald-400 mt-1 flex-shrink-0" size={14} />
-                              <span className="text-gray-400 text-sm">{achievement}</span>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* Tech Stack */}
-                        <div>
-                          <h5 className="text-white font-semibold mb-2 text-sm">Technologies Used</h5>
-                          <div className="flex flex-wrap gap-2">
-                            {exp.tech.map((tech, techIndex) => (
-                              <span
-                                key={techIndex}
-                                className="px-3 py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-lg"
-                              >
-                                {tech}
-                              </span>
+                        <div className="relative z-10">
+                          <div className="mb-4">
+                            <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+                            <p className="text-emerald-400 font-medium mt-1">{exp.company}</p>
+                          </div>
+                          
+                          <p className="text-gray-300 mb-4">{exp.description}</p>
+                          
+                          {/* Achievements */}
+                          <div className="space-y-2 mb-4">
+                            {exp.achievements.map((achievement, i) => (
+                              <div key={i} className="flex items-start gap-2">
+                                <FaCheckCircle className="text-emerald-400 mt-1 flex-shrink-0" size={14} />
+                                <span className="text-gray-400 text-sm">{achievement}</span>
+                              </div>
                             ))}
+                          </div>
+                          
+                          {/* Tech Stack */}
+                          <div>
+                            <h5 className="text-white font-semibold mb-2 text-sm">Technologies Used</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.tech.map((tech, techIndex) => (
+                                <span
+                                  key={techIndex}
+                                  className="px-3 py-1 bg-white/10 backdrop-blur-sm text-gray-300 text-xs rounded-lg"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -315,19 +396,30 @@ const Skills = () => {
 
             {/* Career Summary */}
             <div className="text-center mt-16">
-              <div className="inline-flex items-center gap-6 px-8 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                <div className="text-4xl font-bold text-white">
-                  {new Date().getFullYear() - 2023}+
+              <div className="inline-flex items-center gap-6 px-8 py-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 relative overflow-hidden">
+                {/* Grid pattern overlay */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                     linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                    backgroundSize: '35px 35px'
+                  }} />
                 </div>
-                <div className="text-left">
-                  <div className="text-white font-semibold">
-                    Years of Growth
+                
+                <div className="relative z-10 flex items-center gap-6">
+                  <div className="text-4xl font-bold text-white">
+                    {new Date().getFullYear() - 2023}+
                   </div>
-                  <div className="text-gray-400 text-sm">
-                    Continuously evolving in tech
+                  <div className="text-left">
+                    <div className="text-white font-semibold">
+                      Years of Growth
+                    </div>
+                    <div className="text-gray-400 text-sm">
+                      Continuously evolving in tech
+                    </div>
                   </div>
+                  <FaChevronRight className="text-emerald-400" />
                 </div>
-                <FaChevronRight className="text-emerald-400" />
               </div>
             </div>
           </div>

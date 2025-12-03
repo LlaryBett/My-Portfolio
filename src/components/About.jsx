@@ -105,13 +105,67 @@ const About = () => {
 
   return (
     <section id="about" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
-      {/* Background - Matching Hero */}
+      {/* Background - Matching Hero's square grid setup */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent z-0" />
       
-      {/* Animated background elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl opacity-30 z-0" />
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl opacity-30 z-0" />
+      {/* Animated grid pattern - Same as Hero */}
+      <div className="absolute inset-0 opacity-5 z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                           linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+      
+      {/* Floating code elements - Same as Hero */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-gray-600"
+            initial={{ y: -100, x: Math.random() * window.innerWidth }}
+            animate={{
+              y: window.innerHeight + 100,
+              rotate: 360,
+            }}
+            transition={{
+              duration: 20 + Math.random() * 15,
+              repeat: Infinity,
+              delay: i * 3
+            }}
+          >
+            <FaCode size={16} />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Subtle animated blobs */}
+      <motion.div
+        className="absolute top-1/4 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl opacity-20 z-0"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl opacity-15 z-0"
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.15, 0.2, 0.15],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
 
       <div className="max-w-8xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 relative z-10">
         <motion.div
@@ -200,18 +254,29 @@ const About = () => {
           {/* Stats - Centered Full Width */}
           <motion.div 
             variants={itemVariants}
-            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-20 max-w-2xl mx-auto"
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-20 max-w-2xl mx-auto relative overflow-hidden"
           >
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Quick Stats</h3>
-            <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-white mb-1">
-                    {stat.number}
+            {/* Grid pattern overlay for stats card */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                 linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                backgroundSize: '30px 30px'
+              }} />
+            </div>
+            
+            <div className="relative z-10">
+              <h3 className="text-xl font-bold text-white mb-6 text-center">Quick Stats</h3>
+              <div className="grid grid-cols-3 gap-6">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-3xl font-bold text-white mb-1">
+                      {stat.number}
+                    </div>
+                    <div className="text-sm text-gray-300">{stat.label}</div>
                   </div>
-                  <div className="text-sm text-gray-300">{stat.label}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -235,26 +300,37 @@ const About = () => {
                     <div key={idx} className="relative pl-20">
                       <div className="absolute left-2 top-0 w-9 h-9 bg-emerald-500 rounded-full border-4 border-gray-900" />
                       
-                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-emerald-400/50 transition-all">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-                          <div>
-                            <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
-                            <p className="text-emerald-400 font-medium">{edu.school}</p>
-                          </div>
-                          <span className="px-4 py-1.5 bg-white/5 text-gray-300 rounded-full text-sm font-medium border border-white/10">
-                            {edu.year}
-                          </span>
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-emerald-400/50 transition-all relative overflow-hidden">
+                        {/* Grid pattern overlay for education cards */}
+                        <div className="absolute inset-0 opacity-5">
+                          <div className="absolute inset-0" style={{
+                            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                             linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                            backgroundSize: '40px 40px'
+                          }} />
                         </div>
                         
-                        <p className="text-gray-300 mb-4">{edu.description}</p>
-                        
-                        <div className="space-y-2">
-                          {edu.achievements.map((achievement, i) => (
-                            <div key={i} className="flex items-start gap-2">
-                              <FaCheckCircle className="text-emerald-400 mt-1 flex-shrink-0" />
-                              <span className="text-gray-300 text-sm">{achievement}</span>
+                        <div className="relative z-10">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                            <div>
+                              <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
+                              <p className="text-emerald-400 font-medium">{edu.school}</p>
                             </div>
-                          ))}
+                            <span className="px-4 py-1.5 bg-white/5 text-gray-300 rounded-full text-sm font-medium border border-white/10">
+                              {edu.year}
+                            </span>
+                          </div>
+                          
+                          <p className="text-gray-300 mb-4">{edu.description}</p>
+                          
+                          <div className="space-y-2">
+                            {edu.achievements.map((achievement, i) => (
+                              <div key={i} className="flex items-start gap-2">
+                                <FaCheckCircle className="text-emerald-400 mt-1 flex-shrink-0" />
+                                <span className="text-gray-300 text-sm">{achievement}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -286,13 +362,22 @@ const About = () => {
                 ].map((cert, idx) => (
                   <div 
                     key={idx}
-                    className="flex items-center justify-between p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-white/20 transition-all"
+                    className="flex items-center justify-between p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-white/20 transition-all relative overflow-hidden group"
                   >
-                    <div>
-                      <h4 className="font-medium text-white">{cert.name}</h4>
+                    {/* Grid pattern overlay for certification cards */}
+                    <div className="absolute inset-0 opacity-5">
+                      <div className="absolute inset-0" style={{
+                        backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                         linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                        backgroundSize: '35px 35px'
+                      }} />
+                    </div>
+                    
+                    <div className="relative z-10 flex-1">
+                      <h4 className="font-medium text-white group-hover:text-emerald-300 transition-colors">{cert.name}</h4>
                       <p className="text-sm text-gray-300">{cert.year}</p>
                     </div>
-                    <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium border border-emerald-500/30">
+                    <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium border border-emerald-500/30 relative z-10">
                       Verified
                     </span>
                   </div>

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 import { Github, ExternalLink, Calendar, Users, Code, X, Folder, ChevronRight, Star } from 'lucide-react';
+import { FaCode } from 'react-icons/fa';
 import ProjectImage1 from '../assets/Screenshot 2025-08-28 212920.png';
 import ProjectImage3 from '../assets/Screenshot 2025-08-11 155008.png';
 import ProjectImage5 from '../assets/Screenshot 2025-08-11 154917.png';
@@ -156,8 +158,22 @@ const projects = [
 
 // Helper components for different card types
 const FullWidthCard = ({ project }) => (
-  <div className="group relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-500 min-h-0">
-    <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6">
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="group relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-500 min-h-0"
+  >
+    {/* Grid pattern overlay */}
+    <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0" style={{
+        backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                         linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+        backgroundSize: '40px 40px'
+      }} />
+    </div>
+    
+    <div className="relative z-10 grid lg:grid-cols-2 gap-4 sm:gap-6 p-4 sm:p-6">
       {/* Left Column: Image */}
       <div className="relative overflow-hidden rounded-xl h-48 sm:h-56 md:h-64 lg:h-72">
         <img
@@ -262,7 +278,7 @@ const FullWidthCard = ({ project }) => (
     
     {/* Accent Border */}
     <div className="absolute top-0 left-0 w-full h-0.5 sm:h-1 bg-white/20" />
-  </div>
+  </motion.div>
 );
 
 FullWidthCard.propTypes = {
@@ -281,7 +297,21 @@ FullWidthCard.propTypes = {
 };
 
 const GridCard = ({ project }) => (
-  <div className="group relative p-4 sm:p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:scale-102 transition-all duration-500 h-full flex flex-col">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.4 }}
+    className="group relative p-4 sm:p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:scale-102 transition-all duration-500 h-full flex flex-col"
+  >
+    {/* Grid pattern overlay */}
+    <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0" style={{
+        backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                         linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+        backgroundSize: '30px 30px'
+      }} />
+    </div>
+    
     {/* Image */}
     <div className="relative overflow-hidden h-32 sm:h-36 rounded-lg mb-3">
       <img
@@ -304,7 +334,7 @@ const GridCard = ({ project }) => (
     </div>
     
     {/* Content */}
-    <div className="flex-1">
+    <div className="relative z-10 flex-1">
       <div className="mb-2">
         <span className="text-xs sm:text-sm text-purple-400 font-medium">{project.category}</span>
         <h3 className="text-base sm:text-lg font-bold text-white mt-1 line-clamp-2">
@@ -336,7 +366,7 @@ const GridCard = ({ project }) => (
     </div>
     
     {/* Footer - Buttons Only */}
-    <div className="flex gap-2 pt-3 border-t border-white/10">
+    <div className="relative z-10 flex gap-2 pt-3 border-t border-white/10">
       <a
         href={project.github}
         target="_blank"
@@ -361,7 +391,7 @@ const GridCard = ({ project }) => (
     
     {/* Accent Border */}
     <div className="absolute top-0 left-0 w-full h-0.5 bg-white/20" />
-  </div>
+  </motion.div>
 );
 
 GridCard.propTypes = {
@@ -389,18 +419,89 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="bg-gray-900 relative overflow-hidden">
-      <div className="py-8 sm:py-12 lg:py-16 relative">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(147,51,234,0.1),transparent_50%)]" />
+    <section id="projects" className="relative overflow-hidden scroll-mt-[70px]">
+      {/* Background - Matching Hero's square grid setup */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent z-0" />
+      
+      {/* Animated grid pattern - Same as Hero */}
+      <div className="absolute inset-0 opacity-5 z-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                           linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+      
+      {/* Floating code elements - Same as Hero */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-gray-600"
+            initial={{ y: -100, x: Math.random() * window.innerWidth }}
+            animate={{
+              y: window.innerHeight + 100,
+              rotate: 360,
+            }}
+            transition={{
+              duration: 20 + Math.random() * 15,
+              repeat: Infinity,
+              delay: i * 3
+            }}
+          >
+            <FaCode size={16} />
+          </motion.div>
+        ))}
+      </div>
 
+      {/* Subtle animated blobs */}
+      <motion.div
+        className="absolute top-1/4 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl opacity-20 z-0"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl opacity-15 z-0"
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.15, 0.2, 0.15],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
+
+      <div className="relative z-10 py-8 sm:py-12 lg:py-16">
         <div className="max-w-8xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
           {/* Section Header - More Compact */}
-          <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-            <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 text-xs sm:text-sm font-medium mb-3 sm:mb-4 hover:scale-105 transition-transform duration-300 cursor-pointer">
-              <Folder className="mr-1 sm:mr-1.5" size={12} />
-              Featured Work
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-6 sm:mb-8 lg:mb-10"
+          >
+            <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 text-xs sm:text-sm font-medium mb-3 sm:mb-4 hover:scale-105 transition-transform duration-300 cursor-pointer relative overflow-hidden">
+              {/* Grid pattern overlay */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                   linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                  backgroundSize: '20px 20px'
+                }} />
+              </div>
+              <Folder className="mr-1 sm:mr-1.5 relative z-10" size={12} />
+              <span className="relative z-10">Featured Work</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 px-2">
               My{' '}
@@ -412,10 +513,15 @@ const Projects = () => {
               Innovative solutions spanning full-stack development, mobile applications, 
               and cutting-edge web technologies
             </p>
-          </div>
+          </motion.div>
 
           {/* Stats - More Compact */}
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mb-8 text-gray-400">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mb-8 text-gray-400"
+          >
             <div className="flex items-center gap-1.5">
               <Code className="text-white w-3 h-3 sm:w-4 sm:h-4" />
               <span className="text-xs sm:text-sm">{projects.length} Projects</span>
@@ -428,7 +534,7 @@ const Projects = () => {
               <Users className="text-white w-3 h-3 sm:w-4 sm:h-4" />
               <span className="text-xs sm:text-sm">{projects.filter(p => p.teamSize !== 'Solo Project').length} Team Projects</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Projects Layout */}
           <div className="space-y-8 sm:space-y-10">
@@ -459,9 +565,23 @@ const Projects = () => {
           </div>
 
           {/* Project Portfolio Summary - More Compact */}
-          <div className="mt-8 sm:mt-10 text-center">
-            <div className="inline-flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 sm:p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <div className="flex items-center space-x-1.5">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="mt-8 sm:mt-10 text-center"
+          >
+            <div className="inline-flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 sm:p-5 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 relative overflow-hidden">
+              {/* Grid pattern overlay */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                   linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                  backgroundSize: '35px 35px'
+                }} />
+              </div>
+              
+              <div className="relative z-10 flex items-center space-x-1.5">
                 <div className="flex space-x-0.5">
                   {projects.slice(0, 6).map((_, index) => (
                     <div
@@ -473,14 +593,14 @@ const Projects = () => {
                 </div>
                 <span className="text-gray-300 text-xs sm:text-sm">Project Portfolio</span>
               </div>
-              <div className="text-white font-bold">
+              <div className="text-white font-bold relative z-10">
                 <span className="text-lg sm:text-xl text-white">
                   {projects.length}+
                 </span>
                 <span className="text-gray-400 text-xs sm:text-sm ml-1">projects completed</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -490,14 +610,23 @@ const Projects = () => {
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedProject(null)}
         >
-          <div
-            className="bg-gray-900 rounded-xl sm:rounded-2xl max-w-2xl sm:max-w-3xl w-full max-h-[85vh] overflow-y-auto transform transition-all duration-300"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="bg-gray-900 rounded-xl sm:rounded-2xl max-w-2xl sm:max-w-3xl w-full max-h-[85vh] overflow-y-auto transform border border-white/10 relative"
             onClick={(e) => e.stopPropagation()}
-            style={{
-              animation: 'modalSlide 0.3s ease-out'
-            }}
           >
-            <div className="relative">
+            {/* Grid pattern overlay for modal */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                                 linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+                backgroundSize: '40px 40px'
+              }} />
+            </div>
+            
+            <div className="relative z-10">
               <div className="relative h-48 sm:h-56 overflow-hidden rounded-t-xl sm:rounded-t-2xl">
                 <img
                   src={selectedProject.image}
@@ -595,7 +724,7 @@ const Projects = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
       
@@ -622,6 +751,11 @@ const Projects = () => {
           .max-h-[85vh] {
             max-height: 65vh;
           }
+        }
+        
+        /* Hover scale effect */
+        .hover\\:scale-102:hover {
+          transform: scale(1.02);
         }
       `}</style>
     </section>
