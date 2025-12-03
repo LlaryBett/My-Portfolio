@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, Phone, Code, Terminal, Cpu } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Code, Terminal, Cpu, Briefcase, Download } from 'lucide-react';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -147,7 +147,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Code size={18} />
+                <Briefcase size={18} />
                 View My Work
               </motion.button>
             </Link>
@@ -159,7 +159,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Terminal size={18} />
+              <Download size={18} />
               Download Resume
             </motion.a>
           </motion.div>
