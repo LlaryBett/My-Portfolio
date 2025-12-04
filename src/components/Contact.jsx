@@ -322,6 +322,8 @@ const Contact = () => {
                       required
                     />
                   </motion.div>
+
+                  {/* animation */}
                   
                   <motion.div variants={formItemVariants}>
                     <label className="block mb-3 text-white text-lg font-semibold">
