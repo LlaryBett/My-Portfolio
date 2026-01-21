@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaMapMarkedAlt, FaPhone, FaCode } from 'react-icons/fa'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   // Animation variants
@@ -37,55 +38,96 @@ const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState(null);
+  const [isEmailJSInitialized, setIsEmailJSInitialized] = useState(false);
 
-  // Get API URL based on environment
-  const API_URL = import.meta.env.DEV 
-    ? 'http://localhost:5000/api/contact'
-    : 'https://my-portfolio-h0n8.onrender.com/api/contact';
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    // Initialize with public key from environment variables
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+      setIsEmailJSInitialized(true);
+    } else {
+      console.warn('EmailJS public key not configured');
+      setIsEmailJSInitialized(false);
+    }
+  }, []);
 
   // Handle input changes
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
-  // Handle form submit
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setFeedback(null);
+  
+  // Handle form submit with EmailJS
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  if (!isEmailJSInitialized) {
+    setFeedback({ 
+      type: 'error', 
+      message: 'Email service not ready. Please refresh the page.' 
+    });
+    return;
+  }
+  
+  setLoading(true);
+  setFeedback(null);
+  
+  try {
+    // 1. Parameters for notification to yourself
+    const notificationParams = {
+      name: form.name,
+      email: form.email,
+      message: form.message,
+      reply_to: form.email
+    };
     
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    // 2. Parameters for auto-reply to user
+    const autoReplyParams = {
+      name: form.name,  // For "Hi {{name}}"
+      email: form.email // For "To: {{email}}"
+    };
+    
+    // Send BOTH emails at the same time
+    const [notificationResult, autoReplyResult] = await Promise.all([
+      // Main notification (to you)
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // Your main template
+        notificationParams
+      ),
       
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(form),
-        signal: controller.signal
+      // Auto-reply (to user)
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID, // NEW auto-reply template
+        autoReplyParams
+      )
+    ]);
+    
+    if (notificationResult.status === 200 && autoReplyResult.status === 200) {
+      setFeedback({ 
+        type: 'success', 
+        message: 'Message sent successfully! Check your email for confirmation.' 
       });
-      
-      clearTimeout(timeoutId);
-      const data = await res.json();
-      
-      if (res.ok) {
-        setFeedback({ type: 'success', message: data.message });
-        setForm({ name: '', email: '', message: '' });
-      } else {
-        setFeedback({ type: 'error', message: data.error || 'Failed to send message.' });
-      }
-    } catch (err) {
-      if (err.name === 'AbortError') {
-        setFeedback({ type: 'error', message: 'Request timed out. Please try again.' });
-      } else {
-        setFeedback({ type: 'error', message: 'Failed to send message. Please try again.' });
-      }
+      setForm({ name: '', email: '', message: '' });
+    } else {
+      setFeedback({ 
+        type: 'error', 
+        message: 'Failed to send message. Please try again.' 
+      });
     }
-    setLoading(false);
-  };
+  } catch (err) {
+    console.error('EmailJS Error:', err);
+    setFeedback({ 
+      type: 'error', 
+      message: err.text || 'Failed to send message. Please try again.' 
+    });
+  }
+  
+  setLoading(false);
+};
+  
 
   return (
     <section id="contact" className="min-h-screen flex items-center relative overflow-hidden px-4 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12 lg:py-16 scroll-mt-[70px]">
@@ -322,8 +364,6 @@ const Contact = () => {
                       required
                     />
                   </motion.div>
-
-                  {/* animation */}
                   
                   <motion.div variants={formItemVariants}>
                     <label className="block mb-3 text-white text-lg font-semibold">
