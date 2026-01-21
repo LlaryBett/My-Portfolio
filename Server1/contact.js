@@ -19,7 +19,7 @@ import ContactMessage from './contactSchema.js';
 
 const router = express.Router();
 
-// Create transporter using Brevo SMTP (same config as working E-Shop)
+// Create transporter using Brevo SMTP with improved timeout settings
 const transporter = nodemailer.createTransport({
   host: 'smtp-relay.brevo.com',
   port: 587,
@@ -27,6 +27,15 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
+  },
+  connectionTimeout: 30000, // 30 seconds
+  socketTimeout: 30000, // 30 seconds
+  greetingTimeout: 10000,
+  pool: {
+    maxConnections: 5,
+    maxMessages: 100,
+    rateDelta: 2000,
+    rateLimit: 5
   },
   logger: true, // Enable logging
   debug: true   // Show debug output
@@ -65,31 +74,39 @@ router.post('/contact', async (req, res) => {
 
     // 2. Notify you (using verified sender email)
     console.log('📧 Sending notification email to admin...');
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <llarykiplangat@gmail.com>`, // Must match verified sender in Brevo
-      to: process.env.RECEIVING_EMAIL, // bettllary672@gmail.com
-      subject: 'New Contact Form Submission',
-      html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong><br/>${message}</p>
-      `
-    });
-    console.log('✅ Admin notification sent');
+    try {
+      await transporter.sendMail({
+        from: `"Portfolio Contact" <llarykiplangat@gmail.com>`, // Must match verified sender in Brevo
+        to: process.env.RECEIVING_EMAIL, // bettllary672@gmail.com
+        subject: 'New Contact Form Submission',
+        html: `
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong><br/>${message}</p>
+        `
+      });
+      console.log('✅ Admin notification sent');
+    } catch (emailErr) {
+      console.warn('⚠️ Admin email failed, but form was saved:', emailErr.message);
+    }
 
     // 3. Auto-reply to submitter (using same verified sender)
     console.log('📧 Sending auto-reply to:', email);
-    await transporter.sendMail({
-      from: `"Hillary Bett" <llarykiplangat@gmail.com>`, // Must match verified sender
-      to: email,
-      subject: 'Thank you for contacting me',
-      html: `
-        <p>Hi ${name},</p>
-        <p>Thank you for reaching out! I've received your message and will respond soon.</p>
-        <p>Best regards,<br/>Hillary Bett</p>
-      `
-    });
-    console.log('✅ Auto-reply sent');
+    try {
+      await transporter.sendMail({
+        from: `"Hillary Bett" <llarykiplangat@gmail.com>`, // Must match verified sender
+        to: email,
+        subject: 'Thank you for contacting me',
+        html: `
+          <p>Hi ${name},</p>
+          <p>Thank you for reaching out! I've received your message and will respond soon.</p>
+          <p>Best regards,<br/>Hillary Bett</p>
+        `
+      });
+      console.log('✅ Auto-reply sent');
+    } catch (emailErr) {
+      console.warn('⚠️ Auto-reply failed, but form was saved:', emailErr.message);
+    }
 
     console.log('🎉 Contact submission completed successfully\n');
     res.status(200).json({ 
@@ -103,14 +120,13 @@ router.post('/contact', async (req, res) => {
     console.error('Error Message:', err.message);
     console.error('SMTP Error Details:', {
       error: err.response || err.message,
-      code: err.code,
-      stack: err.stack
+      code: err.code
     });
     console.log('');
     
     res.status(500).json({ 
       error: 'Failed to send message.',
-      details: err.response || err.message 
+      details: err.message 
     });
   }
 });
