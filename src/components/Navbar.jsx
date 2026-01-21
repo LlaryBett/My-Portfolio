@@ -119,8 +119,8 @@ const Navbar = () => {
           </div>
           
           <motion.button 
-            className='bg-gradient-to-r from-blue-500 to-purple-600 text-white hidden md:flex items-center
-            transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:from-blue-600 hover:to-purple-700 px-6 py-2.5 rounded-full font-semibold'
+            className='bg-blue-600 text-white hidden md:flex items-center
+            transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-700 px-6 py-2.5 rounded-full font-semibold'
             aria-label="Connect with me"
             onClick={handleConnectMe}
             whileHover={{ scale: 1.05 }}
@@ -228,8 +228,8 @@ const Navbar = () => {
 
           <div className='mt-1'>
             <motion.button 
-              className='w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white
-              transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:from-blue-600 hover:to-purple-700 px-4 py-3 rounded-xl font-semibold text-base'
+              className='w-full bg-blue-600 text-white
+              transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-700 px-4 py-3 rounded-xl font-semibold text-base'
               aria-label="Connect with me"
               onClick={handleConnectMe}
               whileHover={{ scale: 1.02 }}

@@ -10,6 +10,7 @@ import ProjectImage6 from '../assets/Screenshot 2025-08-11 154335.png';
 import ProjectImage2 from '../assets/Screenshot 2025-08-28 134703.png';
 import ProjectImage4 from '../assets/Screenshot 2025-08-28 140855.png';
 import ProjectImage7 from '../assets/Screenshot 2025-12-03 112518.png';
+import ProjectImage8 from '../assets/Screenshot 2026-01-21 175813.png';
 
 const projects = [
   {
@@ -66,31 +67,33 @@ const projects = [
     learnings: "Deepened knowledge of full-stack development, JWT authentication, and integrating payments with Stripe",
     featured: false
   },
+
   {
-    id: 3,
-    name: "Eduford University Portal",
-    shortDesc: "Responsive university website with course and admission features",
-    fullDescription: "A modern and responsive university portal for Eduford, designed to showcase courses, faculty, campus life, and admissions information. Built with React and Tailwind CSS, it features interactive course catalogs, an event calendar, student testimonials, and an admissions application form. Optimized for fast performance and accessibility across devices.",
-    technologies: ["React", "Tailwind CSS", "Framer Motion", "React Router", "Axios"],
-    image: ProjectImage3,
-    github: "https://github.com/LlaryBett/-Eduford-University-Website",
-    demo: "https://eduford-university-website-psi.vercel.app/",
+    id: 8,
+    name: "Eventhub ticketing system", // Replace with actual project name
+    shortDesc: "A full-featured event ticketing system with user management, ticket sales, and event organization capabilities. Features include real-time ticket availability, payment processing, and detailed analytics.",
+    fullDescription: "A full-featured event ticketing system with user management, ticket sales, and event organization capabilities. Features include real-time ticket availability, payment processing, and detailed analytics.",
+    technologies: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT" ,'Cloudinary' ,'M-Pesa API' , 'Docker (Containerization)'], // Replace with actual tech stack
+    image: ProjectImage8,
+    github: "https://github.com/LlaryBett/My-Portfolio", // Replace with actual GitHub URL
+    demo: "https://event-hub-ticketing-system-stqx.vercel.app/", // Replace with actual demo URL
     status: "Completed",
-    duration: "2 weeks",
+    duration: "1 weeks/months",
     teamSize: "Solo Project",
-    category: "Frontend",
-    year: "2025",
+    category: "Web Application",
+    year: "2026",
     highlights: [
-      "Responsive Design",
-      "Interactive Course Catalog",
-      "Admissions Form",
-      "Event Calendar"
-    ],
-    accentColor: "from-blue-600 to-green-500",
-    challenges: "Designing a visually appealing yet fully responsive layout that adapts to all screen sizes",
-    learnings: "Advanced component composition, state management, and performance optimization in React",
-    featured: false
+    "Real-time seat availability & booking with instant confirmation",
+    "Secure QR code ticket generation & validation system",
+    "Multi-payment gateway integration (M-Pesa, cards, mobile wallets)",
+    "Event analytics dashboard for organizers with real-time insights"
+  ],
+    accentColor: "from-blue-500 to-indigo-500",
+    challenges: "Describe the main challenges you faced",
+    learnings: "",
+    featured: true // Set to true if you want it featured
   },
+  
   {
     id: 4,
     name: "Personal Portfolio Website",
@@ -182,7 +185,32 @@ const projects = [
     challenges: "Optimizing AI models for fast processing without compromising quality, and handling large image uploads efficiently",
     learnings: "Deep learning model integration, image processing optimization, and scalable file handling",
     featured: true
-  }
+  },
+  {
+    id: 3,
+    name: "Eduford University Portal",
+    shortDesc: "Responsive university website with course and admission features",
+    fullDescription: "A modern and responsive university portal for Eduford, designed to showcase courses, faculty, campus life, and admissions information. Built with React and Tailwind CSS, it features interactive course catalogs, an event calendar, student testimonials, and an admissions application form. Optimized for fast performance and accessibility across devices.",
+    technologies: ["React", "Tailwind CSS", "Framer Motion", "React Router", "Axios"],
+    image: ProjectImage3,
+    github: "https://github.com/LlaryBett/-Eduford-University-Website",
+    demo: "https://eduford-university-website-psi.vercel.app/",
+    status: "Completed",
+    duration: "2 weeks",
+    teamSize: "Solo Project",
+    category: "Frontend",
+    year: "2025",
+    highlights: [
+      "Responsive Design",
+      "Interactive Course Catalog",
+      "Admissions Form",
+      "Event Calendar"
+    ],
+    accentColor: "from-blue-600 to-green-500",
+    challenges: "Designing a visually appealing yet fully responsive layout that adapts to all screen sizes",
+    learnings: "Advanced component composition, state management, and performance optimization in React",
+    featured: false
+  },
 ];
 
 // Helper components for different card types

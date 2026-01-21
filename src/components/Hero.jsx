@@ -143,7 +143,7 @@ const Hero = () => {
           <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-2">
             <Link to="/projects">
               <motion.button
-                className="px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 text-sm sm:text-base flex items-center gap-2"
+                className="px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 text-sm sm:text-base flex items-center gap-2 hover:bg-blue-700"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
