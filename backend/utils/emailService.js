@@ -1,101 +1,110 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+const nodemailer = require('nodemailer');  // Add this
 require('dotenv').config();
 
-// Create transporter for Brevo
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp-relay.brevo.com',
-  port: process.env.SMTP_PORT || 587,
-  secure: false, // Use TLS
+// Initialize Resend for notifications
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Initialize Gmail transporter for auto-replies
+const gmailTransporter = nodemailer.createTransport({
+  service: 'gmail',
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS
-  },
-  tls: {
-    ciphers: 'SSLv3'
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD
   }
 });
 
-// Test transporter connection
-transporter.verify((error, success) => {
+// Test Gmail connection
+gmailTransporter.verify((error, success) => {
   if (error) {
-    console.error('SMTP Connection Error:', error);
+    console.error('❌ Gmail Connection Error:', error.message);
+    console.log('🔧 Troubleshooting:');
+    console.log('1. Make sure 2-Step Verification is ON');
+    console.log('2. Use App Password (16 chars), NOT your regular password');
+    console.log('3. Check GMAIL_USER in .env is correct');
   } else {
-    console.log('SMTP Server is ready to send messages');
+    console.log('✅ Gmail SMTP is ready for auto-replies!');
   }
 });
 
-// Send notification to yourself
+// Send notification to yourself using Resend
 const sendNotification = async (data) => {
-  const mailOptions = {
-    from: `"Portfolio Contact" <${process.env.FROM_EMAIL}>`,
-    to: process.env.TO_EMAIL,
-    subject: `New Contact Form: ${data.name}`,
-    html: `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #333;">New Contact Form Submission</h2>
-        <div style="background: #f5f5f5; padding: 20px; border-radius: 5px;">
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
-          <p><strong>Date:</strong> ${data.date}</p>
-          <p><strong>Message:</strong></p>
-          <div style="background: white; padding: 15px; border-left: 4px solid #4F46E5;">
-            ${data.message.replace(/\n/g, '<br>')}
-          </div>
-        </div>
-      </div>
-    `
-  };
-
+  console.log('📨 Sending notification via Resend...');
+  
   try {
-    await transporter.sendMail(mailOptions);
-    console.log('Notification email sent successfully');
+    const { data: result, error } = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: process.env.TO_EMAIL,
+      reply_to: data.email,
+      subject: `New Contact: ${data.name}`,
+      html: `
+        <div style="font-family: system-ui, sans-serif, Arial; font-size: 16px">
+          <p style="padding-top: 16px; border-top: 1px solid #eaeaea">New Contact Form Submission</p>
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Date:</strong> ${data.date}</p>
+          <p style="padding-top: 16px; border-top: 1px solid #eaeaea">
+            <strong>Message:</strong><br />
+            ${data.message}
+          </p>
+        </div>
+      `,
+      text: `New Contact Form Submission
+
+Name: ${data.name}
+Email: ${data.email}
+Date: ${data.date}
+
+Message:
+${data.message}`
+    });
+
+    if (error) throw error;
+    
+    console.log('✅ Notification sent via Resend!');
+    return result;
+    
   } catch (error) {
-    console.error('Error sending notification email:', error);
+    console.error('❌ Resend Notification Error:', error.message);
     throw error;
   }
 };
 
-// Send auto-reply to user
+// Send auto-reply to user using Gmail
 const sendAutoReply = async (data) => {
-  const mailOptions = {
-    from: `"Your Name - Portfolio" <${process.env.FROM_EMAIL}>`,
-    to: data.email,
-    subject: 'Thank you for contacting me!',
-    html: `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #4F46E5;">Hi ${data.name},</h2>
-        <p>Thank you for reaching out through my portfolio! I've received your message and will get back to you within 24 hours.</p>
-        
-        <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
-          <p><strong>Your message:</strong></p>
-          <p style="font-style: italic;">"${data.message}"</p>
-        </div>
-        
-        <p>In the meantime, you can:</p>
-        <ul>
-          <li>Check out my <a href="https://yourportfolio.com/projects">projects</a></li>
-          <li>Connect with me on <a href="https://linkedin.com/in/yourprofile">LinkedIn</a></li>
-          <li>Browse my <a href="https://github.com/yourusername">GitHub</a></li>
-        </ul>
-        
-        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 30px 0;">
-        
-        <p>Best regards,<br>
-        <strong>Your Name</strong><br>
-        Full Stack Developer</p>
-        
-        <p style="font-size: 12px; color: #666;">
-          This is an automated response. Please don't reply to this email.
-        </p>
-      </div>
-    `
-  };
-
+  console.log('📧 Sending auto-reply via Gmail...');
+  console.log('To:', data.email);
+  
   try {
-    await transporter.sendMail(mailOptions);
-    console.log('Auto-reply email sent successfully');
+    const info = await gmailTransporter.sendMail({
+      from: 'Larry Bett <bettllary672@gmail.com>',
+      to: data.email,
+      subject: `Thanks for your message, ${data.name}!`,
+      html: `
+        <div style="font-family: system-ui, sans-serif, Arial; font-size: 16px">
+          <p style="padding-top: 16px; border-top: 1px solid #eaeaea">Hi ${data.name},</p>
+          <p>
+            Thank you for reaching out! I have received your message and I'll do my
+            best to get back to you within 24 hours.
+          </p>
+          <p style="padding-top: 16px; border-top: 1px solid #eaeaea">
+            Best regards,<br />Larry Bett
+          </p>
+        </div>
+      `,
+      text: `Hi ${data.name},
+
+Thank you for reaching out! I have received your message and I'll do my best to get back to you within 24 hours.
+
+Best regards,
+Larry Bett`
+    });
+
+    console.log('✅ Gmail auto-reply sent! Message ID:', info.messageId);
+    return info;
+    
   } catch (error) {
-    console.error('Error sending auto-reply email:', error);
+    console.error('❌ Gmail Auto-reply Error:', error.message);
     throw error;
   }
 };
