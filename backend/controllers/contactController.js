@@ -32,12 +32,9 @@ const submitContactForm = async (req, res) => {
     // Send notification email to yourself
     await emailService.sendNotification(emailData);
     
-    // Send auto-reply to user
-    await emailService.sendAutoReply(emailData);
-
     res.status(200).json({ 
       success: true, 
-      message: 'Message sent successfully! You will receive a confirmation email shortly.' 
+      message: 'Message sent successfully! I will get back to you soon.' 
     });
 
   } catch (error) {
