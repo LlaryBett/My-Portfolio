@@ -10,7 +10,6 @@ import {
   FaRocket,
   FaCheckCircle
 } from 'react-icons/fa';
-import HeroImage from '../assets/hero.jpg';
 
 const About = () => {
   const ref = React.useRef(null);
@@ -56,29 +55,29 @@ const About = () => {
     },
   };
 
-  const leftVariants = {
-    hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // const leftVariants = {
+  //   hidden: { x: -50, opacity: 0 },
+  //   visible: {
+  //     x: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       duration: 0.6,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  // };
 
-  const rightVariants = {
-    hidden: { x: 50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // const rightVariants = {
+  //   hidden: { x: 50, opacity: 0 },
+  //   visible: {
+  //     x: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       duration: 0.6,
+  //       ease: "easeOut",
+  //     },
+  //   },
+  // };
 
   const stats = [
     { number: "2+", label: "Years Experience", icon: FaBriefcase },
@@ -191,46 +190,28 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-20 items-start">
-            {/* Left Column - Image */}
+          {/* Main Content - Story */}
+          <div className="max-w-4xl mx-auto mb-20">
             <motion.div 
-              variants={leftVariants} 
+              variants={itemVariants}
               initial="hidden" 
               animate={isInView ? "visible" : "hidden"}
-              className="flex justify-center lg:justify-start"
             >
-              <motion.div
-                className="relative"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-3xl blur-xl opacity-40" />
-                <img
-                  src={HeroImage}
-                  alt="Hillary Bett - Software Engineer"
-                  className="relative w-full max-w-3xl lg:max-w-4xl h-96 lg:h-[480px] rounded-3xl object-cover shadow-2xl border border-white/10"
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Right Column - Story */}
-            <motion.div variants={rightVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
               {/* Story Card */}
               <motion.div 
                 variants={itemVariants}
               >
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-4 mb-8 justify-center">
                   <div className="p-3 bg-emerald-500/20 rounded-xl border border-emerald-500/30">
                     <FaUserTie className="text-emerald-400 text-xl" />
                   </div>
-                  <div>
+                  <div className="text-center">
                     <h2 className="text-2xl font-bold text-white">My Journey</h2>
                     <p className="text-gray-300">From curiosity to craftsmanship</p>
                   </div>
                 </div>
 
-                <div className="space-y-6 text-gray-300">
+                <div className="space-y-6 text-gray-300 text-center max-w-3xl mx-auto">
                   <p className="leading-relaxed">
                     My journey in software development began with a simple curiosity about how websites work. 
                     That curiosity evolved into a passion for creating robust, scalable applications that solve 
