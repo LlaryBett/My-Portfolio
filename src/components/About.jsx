@@ -55,30 +55,6 @@ const About = () => {
     },
   };
 
-  // const leftVariants = {
-  //   hidden: { x: -50, opacity: 0 },
-  //   visible: {
-  //     x: 0,
-  //     opacity: 1,
-  //     transition: {
-  //       duration: 0.6,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  // };
-
-  // const rightVariants = {
-  //   hidden: { x: 50, opacity: 0 },
-  //   visible: {
-  //     x: 0,
-  //     opacity: 1,
-  //     transition: {
-  //       duration: 0.6,
-  //       ease: "easeOut",
-  //     },
-  //   },
-  // };
-
   const stats = [
     { number: "2+", label: "Years Experience", icon: FaBriefcase },
     { number: "5+", label: "Projects Completed", icon: FaCode },
@@ -175,7 +151,7 @@ const About = () => {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="mb-16">
-            <motion.div variants={leftVariants}>
+            <div className="text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-emerald-400 text-sm font-medium mb-6 border border-white/10">
                 <FaLightbulb className="text-emerald-400" />
                 About Me
@@ -184,10 +160,10 @@ const About = () => {
                 Building Digital
                 <span className="block text-white mt-2">Solutions</span>
               </h1>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Software engineer passionate about creating meaningful digital experiences through clean code and thoughtful design.
               </p>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Main Content - Story */}
@@ -201,7 +177,7 @@ const About = () => {
               <motion.div 
                 variants={itemVariants}
               >
-                <div className="flex items-center gap-4 mb-8 justify-center">
+                <div className="flex items-center justify-center gap-4 mb-8">
                   <div className="p-3 bg-emerald-500/20 rounded-xl border border-emerald-500/30">
                     <FaUserTie className="text-emerald-400 text-xl" />
                   </div>
