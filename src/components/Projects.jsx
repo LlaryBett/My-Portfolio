@@ -18,7 +18,7 @@ const projects = [
     name: "Automated Public Service Vehicle Booking System",
     shortDesc: "A full-stack MERN application for online PSV seat booking and management",
     fullDescription: "An advanced booking platform for public service vehicles (PSVs) built with the MERN stack. Passengers can browse available vehicles, view routes, select seats, and make secure bookings. The system includes real-time seat availability tracking, booking history, and automated notifications. The admin dashboard allows fleet management, route scheduling, fare management, and role-based access. Implements secure JWT authentication, RESTful APIs, integrated payments with M-Pesa, and a responsive UI for a smooth travel experience.",
-    technologies: ["React", "TypeScript", "Hono", "Drizzle", "PostgreSQL", "Redux Toolkit", "Redux Persist", "M-Pesa Integration"],
+    technologies: ["Next.js", "TypeScript", "Hono", "Drizzle", "PostgreSQL", "Redux Toolkit", "Redux Persist", "M-Pesa Integration"],
     image: ProjectImage1,
     github: "https://github.com/LlaryBett/Automated-PSV-Booking-System",
     demo: "https://blue-tree-08931290f.6.azurestaticapps.net/",
